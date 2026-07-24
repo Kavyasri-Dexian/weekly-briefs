@@ -2,7 +2,7 @@ export default function PriceMovement({ priceChange }) {
   if (!priceChange?.available) {
     return (
       <section className="panel">
-        <h2 className="panel-title">Price movement — gainers and decliners</h2>
+        <h2 className="panel-title">Weekly Price Movement — Gainers & Decliners</h2>
         <p className="panel-empty">
           Not available this week ({priceChange?.reason ?? "no prior-week data loaded"}).
         </p>
@@ -23,7 +23,7 @@ export default function PriceMovement({ priceChange }) {
 
   return (
     <section className="panel">
-      <h2 className="panel-title">Price movement — gainers and decliners</h2>
+      <h2 className="panel-title">Weekly Price Movement — Gainers & Decliners</h2>
       {priceChange.min_trading_days_for_ranking ? (
         <p className="panel-subtitle">
           Only commodities traded on at least {priceChange.min_trading_days_for_ranking} days in both weeks are

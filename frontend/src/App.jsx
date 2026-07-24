@@ -1,7 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { loadWeeklyBrief, refreshWeeklyBrief } from "./lib/loadData.js";
+import { formatDateRange } from "./lib/formatDate.js";
+import { downloadReport } from "./lib/buildReportHtml.js";
 import StatTiles from "./components/StatTiles.jsx";
 import TopCommodities from "./components/TopCommodities.jsx";
+import PriceTrend from "./components/PriceTrend.jsx";
 import PriceMovement from "./components/PriceMovement.jsx";
 import MarketCompliance from "./components/MarketCompliance.jsx";
 import Narrative from "./components/Narrative.jsx";
@@ -62,9 +65,7 @@ export default function App() {
       <header className="app-header">
         <div>
           <h1 className="app-title">Madhya Pradesh — Weekly Mandi Summary</h1>
-          <p className="app-subtitle">
-            {factSheet.week_start} to {factSheet.week_end}
-          </p>
+          <p className="app-subtitle">{formatDateRange(factSheet.week_start, factSheet.week_end)}</p>
         </div>
         <div className="header-actions">
           <button
@@ -78,6 +79,13 @@ export default function App() {
           <button className="refresh-btn" onClick={handleRefresh} disabled={refreshing}>
             {refreshing ? "Pulling live data…" : "Refresh from Agmarknet"}
           </button>
+          <button
+            className="download-btn"
+            onClick={() => downloadReport(factSheet, briefEn, briefHi)}
+            title="Download the full report as a self-contained HTML file"
+          >
+            ⬇ Download Report
+          </button>
         </div>
       </header>
 
@@ -90,9 +98,10 @@ export default function App() {
 
       <StatTiles factSheet={factSheet} />
       <TopCommodities topCommodities={factSheet.top_commodities} />
+      <PriceTrend priceTrend={factSheet.price_trend} />
       <PriceMovement priceChange={factSheet.price_change} />
       <MarketCompliance marketCompliance={factSheet.market_compliance} />
-      <Narrative briefEn={briefEn} briefHi={briefHi} />
+      <Narrative briefEn={briefEn} briefHi={briefHi} narrationMeta={factSheet.narration_meta} />
 
       <footer className="app-footer">
         Source: {factSheet.source ?? "agmarknet.gov.in"} · Generated {factSheet.generated_at ?? "—"}

@@ -1,0 +1,236 @@
+{
+  "generated_at": "2026-07-24T06:47:03.692946+00:00",
+  "end_date": "2026-07-20",
+  "num_weeks": 26,
+  "total_seconds": 344.2,
+  "weeks": [
+    {
+      "week_start": "2026-07-14",
+      "week_end": "2026-07-20",
+      "status": "skipped_existing",
+      "file": "../dataset\\2026-07-14_to_2026-07-20\\madhya_pradesh_2026-07-14_to_2026-07-20.csv"
+    },
+    {
+      "week_start": "2026-07-07",
+      "week_end": "2026-07-13",
+      "status": "skipped_existing",
+      "file": "../dataset\\2026-07-07_to_2026-07-13\\madhya_pradesh_2026-07-07_to_2026-07-13.csv"
+    },
+    {
+      "week_start": "2026-06-30",
+      "week_end": "2026-07-06",
+      "status": "ok",
+      "rows": 11441,
+      "file": "../dataset\\2026-06-30_to_2026-07-06\\madhya_pradesh_2026-06-30_to_2026-07-06.csv",
+      "day_errors": [],
+      "fetch_seconds": 13.7
+    },
+    {
+      "week_start": "2026-06-23",
+      "week_end": "2026-06-29",
+      "status": "ok",
+      "rows": 8183,
+      "file": "../dataset\\2026-06-23_to_2026-06-29\\madhya_pradesh_2026-06-23_to_2026-06-29.csv",
+      "day_errors": [],
+      "fetch_seconds": 13.5
+    },
+    {
+      "week_start": "2026-06-16",
+      "week_end": "2026-06-22",
+      "status": "ok",
+      "rows": 11237,
+      "file": "../dataset\\2026-06-16_to_2026-06-22\\madhya_pradesh_2026-06-16_to_2026-06-22.csv",
+      "day_errors": [],
+      "fetch_seconds": 15.0
+    },
+    {
+      "week_start": "2026-06-09",
+      "week_end": "2026-06-15",
+      "status": "ok",
+      "rows": 12145,
+      "file": "../dataset\\2026-06-09_to_2026-06-15\\madhya_pradesh_2026-06-09_to_2026-06-15.csv",
+      "day_errors": [],
+      "fetch_seconds": 12.8
+    },
+    {
+      "week_start": "2026-06-02",
+      "week_end": "2026-06-08",
+      "status": "ok",
+      "rows": 13199,
+      "file": "../dataset\\2026-06-02_to_2026-06-08\\madhya_pradesh_2026-06-02_to_2026-06-08.csv",
+      "day_errors": [],
+      "fetch_seconds": 13.4
+    },
+    {
+      "week_start": "2026-05-26",
+      "week_end": "2026-06-01",
+      "status": "ok",
+      "rows": 11531,
+      "file": "../dataset\\2026-05-26_to_2026-06-01\\madhya_pradesh_2026-05-26_to_2026-06-01.csv",
+      "day_errors": [],
+      "fetch_seconds": 13.3
+    },
+    {
+      "week_start": "2026-05-19",
+      "week_end": "2026-05-25",
+      "status": "ok",
+      "rows": 12135,
+      "file": "../dataset\\2026-05-19_to_2026-05-25\\madhya_pradesh_2026-05-19_to_2026-05-25.csv",
+      "day_errors": [],
+      "fetch_seconds": 16.8
+    },
+    {
+      "week_start": "2026-05-12",
+      "week_end": "2026-05-18",
+      "status": "ok",
+      "rows": 12543,
+      "file": "../dataset\\2026-05-12_to_2026-05-18\\madhya_pradesh_2026-05-12_to_2026-05-18.csv",
+      "day_errors": [],
+      "fetch_seconds": 22.0
+    },
+    {
+      "week_start": "2026-05-05",
+      "week_end": "2026-05-11",
+      "status": "ok",
+      "rows": 11899,
+      "file": "../dataset\\2026-05-05_to_2026-05-11\\madhya_pradesh_2026-05-05_to_2026-05-11.csv",
+      "day_errors": [],
+      "fetch_seconds": 14.8
+    },
+    {
+      "week_start": "2026-04-28",
+      "week_end": "2026-05-04",
+      "status": "ok",
+      "rows": 11717,
+      "file": "../dataset\\2026-04-28_to_2026-05-04\\madhya_pradesh_2026-04-28_to_2026-05-04.csv",
+      "day_errors": [],
+      "fetch_seconds": 15.4
+    },
+    {
+      "week_start": "2026-04-21",
+      "week_end": "2026-04-27",
+      "status": "ok",
+      "rows": 12099,
+      "file": "../dataset\\2026-04-21_to_2026-04-27\\madhya_pradesh_2026-04-21_to_2026-04-27.csv",
+      "day_errors": [],
+      "fetch_seconds": 16.2
+    },
+    {
+      "week_start": "2026-04-14",
+      "week_end": "2026-04-20",
+      "status": "ok",
+      "rows": 10378,
+      "file": "../dataset\\2026-04-14_to_2026-04-20\\madhya_pradesh_2026-04-14_to_2026-04-20.csv",
+      "day_errors": [],
+      "fetch_seconds": 10.1
+    },
+    {
+      "week_start": "2026-04-07",
+      "week_end": "2026-04-13",
+      "status": "ok",
+      "rows": 13151,
+      "file": "../dataset\\2026-04-07_to_2026-04-13\\madhya_pradesh_2026-04-07_to_2026-04-13.csv",
+      "day_errors": [],
+      "fetch_seconds": 15.1
+    },
+    {
+      "week_start": "2026-03-31",
+      "week_end": "2026-04-06",
+      "status": "ok",
+      "rows": 9731,
+      "file": "../dataset\\2026-03-31_to_2026-04-06\\madhya_pradesh_2026-03-31_to_2026-04-06.csv",
+      "day_errors": [],
+      "fetch_seconds": 13.3
+    },
+    {
+      "week_start": "2026-03-24",
+      "week_end": "2026-03-30",
+      "status": "ok",
+      "rows": 10170,
+      "file": "../dataset\\2026-03-24_to_2026-03-30\\madhya_pradesh_2026-03-24_to_2026-03-30.csv",
+      "day_errors": [],
+      "fetch_seconds": 13.5
+    },
+    {
+      "week_start": "2026-03-17",
+      "week_end": "2026-03-23",
+      "status": "ok",
+      "rows": 9742,
+      "file": "../dataset\\2026-03-17_to_2026-03-23\\madhya_pradesh_2026-03-17_to_2026-03-23.csv",
+      "day_errors": [],
+      "fetch_seconds": 18.3
+    },
+    {
+      "week_start": "2026-03-10",
+      "week_end": "2026-03-16",
+      "status": "ok",
+      "rows": 11658,
+      "file": "../dataset\\2026-03-10_to_2026-03-16\\madhya_pradesh_2026-03-10_to_2026-03-16.csv",
+      "day_errors": [],
+      "fetch_seconds": 13.7
+    },
+    {
+      "week_start": "2026-03-03",
+      "week_end": "2026-03-09",
+      "status": "ok",
+      "rows": 7078,
+      "file": "../dataset\\2026-03-03_to_2026-03-09\\madhya_pradesh_2026-03-03_to_2026-03-09.csv",
+      "day_errors": [],
+      "fetch_seconds": 12.4
+    },
+    {
+      "week_start": "2026-02-24",
+      "week_end": "2026-03-02",
+      "status": "ok",
+      "rows": 10416,
+      "file": "../dataset\\2026-02-24_to_2026-03-02\\madhya_pradesh_2026-02-24_to_2026-03-02.csv",
+      "day_errors": [],
+      "fetch_seconds": 21.7
+    },
+    {
+      "week_start": "2026-02-17",
+      "week_end": "2026-02-23",
+      "status": "ok",
+      "rows": 10418,
+      "file": "../dataset\\2026-02-17_to_2026-02-23\\madhya_pradesh_2026-02-17_to_2026-02-23.csv",
+      "day_errors": [],
+      "fetch_seconds": 14.0
+    },
+    {
+      "week_start": "2026-02-10",
+      "week_end": "2026-02-16",
+      "status": "ok",
+      "rows": 9061,
+      "file": "../dataset\\2026-02-10_to_2026-02-16\\madhya_pradesh_2026-02-10_to_2026-02-16.csv",
+      "day_errors": [],
+      "fetch_seconds": 11.4
+    },
+    {
+      "week_start": "2026-02-03",
+      "week_end": "2026-02-09",
+      "status": "ok",
+      "rows": 10134,
+      "file": "../dataset\\2026-02-03_to_2026-02-09\\madhya_pradesh_2026-02-03_to_2026-02-09.csv",
+      "day_errors": [],
+      "fetch_seconds": 12.3
+    },
+    {
+      "week_start": "2026-01-27",
+      "week_end": "2026-02-02",
+      "status": "ok",
+      "rows": 8973,
+      "file": "../dataset\\2026-01-27_to_2026-02-02\\madhya_pradesh_2026-01-27_to_2026-02-02.csv",
+      "day_errors": [],
+      "fetch_seconds": 12.0
+    },
+    {
+      "week_start": "2026-01-20",
+      "week_end": "2026-01-26",
+      "status": "ok",
+      "rows": 6675,
+      "file": "../dataset\\2026-01-20_to_2026-01-26\\madhya_pradesh_2026-01-20_to_2026-01-26.csv",
+      "day_errors": [],
+      "fetch_seconds": 9.5
+    }
+  ]
+}

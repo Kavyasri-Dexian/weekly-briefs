@@ -1,0 +1,222 @@
+Fetching Agmarknet filters (market/district roster) ...
+Madhya Pradesh registered markets: 442
+[1/26] 2026-07-14 to 2026-07-20: already on disk, skipping (pass --force to re-fetch)
+[2/26] 2026-07-07 to 2026-07-13: already on disk, skipping (pass --force to re-fetch)
+[3/26] 2026-06-30 to 2026-07-06: fetching 7 days (max 6 in flight) ...
+  2026-07-05: 585 rows
+  2026-07-04: 1537 rows
+  2026-07-03: 1858 rows
+  2026-06-30: 1932 rows
+  2026-07-02: 1824 rows
+  2026-07-01: 1813 rows
+  2026-07-06: 1892 rows
+  wrote 11441 rows in 13.7s
+[4/26] 2026-06-23 to 2026-06-29: fetching 7 days (max 6 in flight) ...
+  2026-06-26: 584 rows
+  2026-06-28: 587 rows
+  2026-06-23: 785 rows
+  2026-06-24: 1940 rows
+  2026-06-27: 640 rows
+  2026-06-29: 1819 rows
+  2026-06-25: 1828 rows
+  wrote 8183 rows in 13.5s
+[5/26] 2026-06-16 to 2026-06-22: fetching 7 days (max 6 in flight) ...
+  2026-06-21: 621 rows
+  2026-06-16: 2048 rows
+  2026-06-18: 2086 rows
+  2026-06-17: 911 rows
+  2026-06-20: 1663 rows
+  2026-06-19: 1973 rows
+  2026-06-22: 1935 rows
+  wrote 11237 rows in 15.0s
+[6/26] 2026-06-09 to 2026-06-15: fetching 7 days (max 6 in flight) ...
+  2026-06-13: 758 rows
+  2026-06-14: 668 rows
+  2026-06-10: 2306 rows
+  2026-06-09: 2339 rows
+  2026-06-15: 1652 rows
+  2026-06-12: 2195 rows
+  2026-06-11: 2227 rows
+  wrote 12145 rows in 12.8s
+[7/26] 2026-06-02 to 2026-06-08: fetching 7 days (max 6 in flight) ...
+  2026-06-07: 702 rows
+  2026-06-05: 1993 rows
+  2026-06-03: 2213 rows
+  2026-06-02: 2181 rows
+  2026-06-06: 1715 rows
+  2026-06-04: 2221 rows
+  2026-06-08: 2174 rows
+  wrote 13199 rows in 13.4s
+[8/26] 2026-05-26 to 2026-06-01: fetching 7 days (max 6 in flight) ...
+  2026-05-31: 670 rows
+  2026-05-28: 849 rows
+  2026-05-30: 1718 rows
+  2026-05-29: 2140 rows
+  2026-05-27: 2005 rows
+  2026-06-01: 2061 rows
+  2026-05-26: 2088 rows
+  wrote 11531 rows in 13.3s
+[9/26] 2026-05-19 to 2026-05-25: fetching 7 days (max 6 in flight) ...
+  2026-05-23: 785 rows
+  2026-05-24: 680 rows
+  2026-05-21: 2114 rows
+  2026-05-20: 2132 rows
+  2026-05-19: 2192 rows
+  2026-05-22: 2121 rows
+  2026-05-25: 2111 rows
+  wrote 12135 rows in 16.8s
+[10/26] 2026-05-12 to 2026-05-18: fetching 7 days (max 6 in flight) ...
+  2026-05-17: 723 rows
+  2026-05-16: 1351 rows
+  2026-05-14: 2068 rows
+  2026-05-15: 2092 rows
+  2026-05-13: 2104 rows
+  2026-05-12: 2096 rows
+  2026-05-18: 2109 rows
+  wrote 12543 rows in 22.0s
+[11/26] 2026-05-05 to 2026-05-11: fetching 7 days (max 6 in flight) ...
+  2026-05-10: 697 rows
+  2026-05-09: 831 rows
+  2026-05-08: 2058 rows
+  2026-05-06: 2083 rows
+  2026-05-07: 2042 rows
+  2026-05-05: 2051 rows
+  2026-05-11: 2137 rows
+  wrote 11899 rows in 14.8s
+[12/26] 2026-04-28 to 2026-05-04: fetching 7 days (max 6 in flight) ...
+  2026-05-03: 726 rows
+  2026-05-01: 767 rows
+  2026-04-30: 2021 rows
+  2026-04-29: 2106 rows
+  2026-05-02: 1895 rows
+  2026-04-28: 2136 rows
+  2026-05-04: 2066 rows
+  wrote 11717 rows in 15.4s
+[13/26] 2026-04-21 to 2026-04-27: fetching 7 days (max 6 in flight) ...
+  2026-04-26: 666 rows
+  2026-04-22: 2146 rows
+  2026-04-24: 2111 rows
+  2026-04-23: 2178 rows
+  2026-04-25: 883 rows
+  2026-04-27: 2091 rows
+  2026-04-21: 2024 rows
+  wrote 12099 rows in 16.2s
+[14/26] 2026-04-14 to 2026-04-20: fetching 7 days (max 6 in flight) ...
+  2026-04-19: 550 rows
+  2026-04-14: 941 rows
+  2026-04-17: 1793 rows
+  2026-04-18: 1827 rows
+  2026-04-16: 2116 rows
+  2026-04-15: 2324 rows
+  2026-04-20: 827 rows
+  wrote 10378 rows in 10.1s
+[15/26] 2026-04-07 to 2026-04-13: fetching 7 days (max 6 in flight) ...
+  2026-04-12: 779 rows
+  2026-04-07: 2242 rows
+  2026-04-10: 2341 rows
+  2026-04-09: 2280 rows
+  2026-04-08: 2309 rows
+  2026-04-11: 976 rows
+  2026-04-13: 2224 rows
+  wrote 13151 rows in 15.1s
+[16/26] 2026-03-31 to 2026-04-06: fetching 7 days (max 6 in flight) ...
+  2026-04-05: 788 rows
+  2026-04-03: 933 rows
+  2026-04-01: 1081 rows
+  2026-03-31: 1348 rows
+  2026-04-04: 1988 rows
+  2026-04-02: 1321 rows
+  2026-04-06: 2272 rows
+  wrote 9731 rows in 13.3s
+[17/26] 2026-03-24 to 2026-03-30: fetching 7 days (max 6 in flight) ...
+  2026-03-29: 799 rows
+  2026-03-27: 871 rows
+  2026-03-24: 2073 rows
+  2026-03-25: 2227 rows
+  2026-03-28: 1005 rows
+  2026-03-30: 1459 rows
+  2026-03-26: 1736 rows
+  wrote 10170 rows in 13.5s
+[18/26] 2026-03-17 to 2026-03-23: fetching 7 days (max 6 in flight) ...
+  2026-03-22: 704 rows
+  2026-03-20: 1247 rows
+  2026-03-17: 1953 rows
+  2026-03-23: 2070 rows
+  2026-03-21: 769 rows
+  2026-03-19: 1173 rows
+  2026-03-18: 1826 rows
+  wrote 9742 rows in 18.3s
+[19/26] 2026-03-10 to 2026-03-16: fetching 7 days (max 6 in flight) ...
+  2026-03-15: 772 rows
+  2026-03-14: 894 rows
+  2026-03-13: 1915 rows
+  2026-03-12: 1995 rows
+  2026-03-11: 2028 rows
+  2026-03-10: 2006 rows
+  2026-03-16: 2048 rows
+  wrote 11658 rows in 13.7s
+[20/26] 2026-03-03 to 2026-03-09: fetching 7 days (max 6 in flight) ...
+  2026-03-04: 195 rows
+  2026-03-03: 245 rows
+  2026-03-05: 1117 rows
+  2026-03-08: 403 rows
+  2026-03-06: 1634 rows
+  2026-03-07: 1511 rows
+  2026-03-09: 1973 rows
+  wrote 7078 rows in 12.4s
+[21/26] 2026-02-24 to 2026-03-02: fetching 7 days (max 6 in flight) ...
+  2026-03-01: 473 rows
+  2026-02-28: 821 rows
+  2026-02-26: 1949 rows
+  2026-03-02: 1472 rows
+  2026-02-24: 1927 rows
+  2026-02-27: 1894 rows
+  2026-02-25: 1880 rows
+  wrote 10416 rows in 21.7s
+[22/26] 2026-02-17 to 2026-02-23: fetching 7 days (max 6 in flight) ...
+  2026-02-21: 1490 rows
+  2026-02-20: 1602 rows
+  2026-02-22: 623 rows
+  2026-02-17: 1274 rows
+  2026-02-19: 1768 rows
+  2026-02-18: 1787 rows
+  2026-02-23: 1874 rows
+  wrote 10418 rows in 14.0s
+[23/26] 2026-02-10 to 2026-02-16: fetching 7 days (max 6 in flight) ...
+  2026-02-15: 334 rows
+  2026-02-14: 402 rows
+  2026-02-13: 1682 rows
+  2026-02-11: 1699 rows
+  2026-02-10: 1593 rows
+  2026-02-12: 1708 rows
+  2026-02-16: 1643 rows
+  wrote 9061 rows in 11.4s
+[24/26] 2026-02-03 to 2026-02-09: fetching 7 days (max 6 in flight) ...
+  2026-02-08: 549 rows
+  2026-02-03: 1517 rows
+  2026-02-04: 1625 rows
+  2026-02-07: 1395 rows
+  2026-02-05: 1633 rows
+  2026-02-06: 1641 rows
+  2026-02-09: 1774 rows
+  wrote 10134 rows in 12.3s
+[25/26] 2026-01-27 to 2026-02-02: fetching 7 days (max 6 in flight) ...
+  2026-02-01: 361 rows
+  2026-01-28: 1455 rows
+  2026-01-29: 1535 rows
+  2026-01-27: 1360 rows
+  2026-01-31: 1184 rows
+  2026-01-30: 1538 rows
+  2026-02-02: 1540 rows
+  wrote 8973 rows in 12.0s
+[26/26] 2026-01-20 to 2026-01-26: fetching 7 days (max 6 in flight) ...
+  2026-01-25: 323 rows
+  2026-01-22: 1451 rows
+  2026-01-24: 482 rows
+  2026-01-21: 1462 rows
+  2026-01-26: 314 rows
+  2026-01-23: 1254 rows
+  2026-01-20: 1389 rows
+  wrote 6675 rows in 9.5s
+
+Done in 344.2s. 24 weeks fetched, 2 already present, 0 failed. Manifest: ../dataset\backfill_manifest.json

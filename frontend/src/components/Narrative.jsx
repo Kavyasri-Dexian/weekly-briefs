@@ -6,10 +6,27 @@ function parseBrief(text) {
   return { lead, points };
 }
 
-export default function Narrative({ briefEn, briefHi }) {
+function ScoreBadge({ meta }) {
+  if (!meta || meta.accuracy_pct == null) return null;
+  const good = meta.accuracy_pct >= 99.9;
+  return (
+    <div className="score-badge" title={meta.confidence || ""}>
+      <span className={`score-pill ${good ? "score-good" : "score-warn"}`}>
+        {meta.accuracy_pct}% numbers verified
+      </span>
+      <span className="score-detail">
+        {meta.numbers_verified}/{meta.numbers_checked} checked · {meta.used_model ? "model draft" : "template"}
+        {meta.used_model ? ` (${meta.attempts} attempt${meta.attempts === 1 ? "" : "s"})` : ""}
+      </span>
+    </div>
+  );
+}
+
+export default function Narrative({ briefEn, briefHi, narrationMeta }) {
   const [lang, setLang] = useState("en");
   const text = lang === "en" ? briefEn : briefHi;
   const { lead, points } = parseBrief(text);
+  const meta = narrationMeta?.[lang];
 
   return (
     <section className="panel narrative-panel">
@@ -34,6 +51,7 @@ export default function Narrative({ briefEn, briefHi }) {
           </button>
         </div>
       </div>
+      <ScoreBadge meta={meta} />
       {lead ? <p className="narrative-lead">{lead}</p> : null}
       <ul className="narrative-list">
         {points.map((point, i) => (

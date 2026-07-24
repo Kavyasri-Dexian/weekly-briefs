@@ -48,5 +48,39 @@
     "top_decliners": [
       { "commodity": "Tomato", "pct_change": -31.42, "current_modal_price": 860.0, "prior_modal_price": 1254.0 }
     ]
+  },
+  "price_trend": {
+    "definition": "last_week = the preceding 7-day window. last_month_same_week = 28 days before the current week (same weekday alignment). last_year_same_week = 364 days before (52 whole weeks, avoids leap-year weekday drift). Each average is arrival-weighted across all Madhya Pradesh markets.",
+    "last_week_range": { "start": "2026-07-10", "end": "2026-07-16" },
+    "last_month_same_week_range": { "start": "2026-06-19", "end": "2026-06-25" },
+    "last_year_same_week_range": { "start": "2025-07-18", "end": "2025-07-24" },
+    "commodities": [
+      {
+        "commodity": "Wheat",
+        "this_week_avg_price": 2458.57,
+        "last_week": { "avg_price": 2300.0, "pct_change_vs_this_week": 6.89 },
+        "last_month_same_week": { "avg_price": 2380.0, "pct_change_vs_this_week": 3.3 },
+        "last_year_same_week": { "avg_price": 2510.0, "pct_change_vs_this_week": -2.06 }
+      },
+      {
+        "commodity": "Onion",
+        "this_week_avg_price": 1100.0,
+        "last_week": { "avg_price": 1000.0, "pct_change_vs_this_week": 10.0 },
+        "last_month_same_week": { "avg_price": 950.0, "pct_change_vs_this_week": 15.79 },
+        "last_year_same_week": { "avg_price": 780.0, "pct_change_vs_this_week": 41.03 }
+      }
+    ]
+  },
+  "narration_meta": {
+    "en": {
+      "model": "template", "provider": "local", "attempts": 0, "used_model": false,
+      "reason": null, "numbers_checked": 24, "numbers_verified": 24, "accuracy_pct": 100.0,
+      "unsupported": [], "confidence": "High — verified template (formulaic, no model claim risk)"
+    },
+    "hi": {
+      "model": "template", "provider": "local", "attempts": 0, "used_model": false,
+      "reason": null, "numbers_checked": 24, "numbers_verified": 24, "accuracy_pct": 100.0,
+      "unsupported": [], "confidence": "High — verified template (formulaic, no model claim risk)"
+    }
   }
 }

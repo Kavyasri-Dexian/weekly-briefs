@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { fileURLToPath } from "url";
@@ -7,6 +8,7 @@ import { spawn } from "child_process";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIR = path.join(__dirname, "data", "output");
+const DATASET_DIR = path.join(__dirname, "dataset");
 const SCRIPTS_DIR = path.join(__dirname, "scripts");
 const PORT = process.env.PORT || 4000;
 const PYTHON_BIN = process.env.PYTHON_BIN || "python3";
@@ -36,7 +38,11 @@ async function readCurrentOutput() {
 
 function runPipeline({ weekEnd } = {}) {
   return new Promise((resolve, reject) => {
-    const args = [path.join(SCRIPTS_DIR, "pipeline.py"), "--out-dir", OUTPUT_DIR];
+    const args = [
+      path.join(SCRIPTS_DIR, "pipeline.py"),
+      "--out-dir", OUTPUT_DIR,
+      "--dataset-dir", DATASET_DIR,
+    ];
     if (weekEnd) args.push("--week-end", weekEnd);
 
     const proc = spawn(PYTHON_BIN, args, { cwd: SCRIPTS_DIR });

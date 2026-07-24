@@ -16,7 +16,7 @@
   margin-bottom: 20px;
 }
 .app-title {
-  font-size: 22px;
+  font-size: 24px;
   margin: 0 0 4px;
 }
 .app-subtitle {
@@ -52,6 +52,19 @@
 .refresh-btn:disabled {
   opacity: 0.6;
   cursor: default;
+}
+.download-btn {
+  background: var(--surface-1);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.download-btn:hover {
+  background: var(--gridline);
 }
 
 .banner {
@@ -176,9 +189,15 @@
   text-align: right;
 }
 
+/* Fixed (non-theme-flipping) light colors here on purpose — this bar is a
+   small decorative element, and a text label that overlays it at a variable
+   position needs one guaranteed-contrast combination rather than chasing the
+   sequential ramp's light/dark inversion (see references/palette.md: the
+   dark-mode ramp steps light->dark in reverse order, which would put white
+   theme text over an equally-light fill in dark mode). */
 .bar-cell {
   position: relative;
-  background: var(--gridline);
+  background: #e5e4dd;
   border-radius: 4px;
   height: 18px;
   min-width: 90px;
@@ -186,16 +205,17 @@
 .bar-fill {
   position: absolute;
   inset: 0 auto 0 0;
-  background: var(--series-blue);
+  background: #7fb2ee;
   border-radius: 4px;
 }
 .bar-label {
   position: relative;
   z-index: 1;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 700;
   padding: 0 6px;
   line-height: 18px;
-  color: var(--text-primary);
+  color: #16324f;
 }
 
 /* Diverging price-movement chart */
@@ -240,14 +260,56 @@
 }
 
 /* Market compliance bar chart */
+.compliance-plot {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+.compliance-y-axis-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  padding: 8px 0;
+}
+.compliance-plot-body {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+}
+.compliance-y-ticks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160px;
+  padding-top: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: right;
+}
 .compliance-chart {
+  position: relative;
   display: flex;
   align-items: flex-end;
   gap: 16px;
   height: 160px;
   padding-top: 8px;
+  flex: 1;
+  border-left: 1px solid var(--baseline);
+  border-bottom: 1px solid var(--baseline);
+}
+.compliance-gridline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed var(--gridline);
 }
 .compliance-col {
+  position: relative;
+  z-index: 1;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -274,6 +336,15 @@
   margin-top: 2px;
   font-size: 11px;
   color: var(--text-muted);
+  text-align: center;
+}
+.compliance-x-axis-label {
+  margin-top: 6px;
+  margin-left: 34px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   text-align: center;
 }
 
@@ -306,6 +377,31 @@
   font-weight: 800;
   font-size: 21px;
   color: var(--text-primary);
+}
+.score-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.score-pill {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.score-good {
+  background: color-mix(in oklab, var(--status-good) 18%, var(--surface-1));
+  color: var(--delta-good);
+}
+.score-warn {
+  background: color-mix(in oklab, var(--status-warning) 22%, var(--surface-1));
+  color: var(--text-primary);
+}
+.score-detail {
+  font-size: 12px;
+  color: var(--text-muted);
 }
 .narrative-lead {
   color: var(--bright-accent);

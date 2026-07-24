@@ -4,7 +4,7 @@ export default function TopCommodities({ topCommodities }) {
 
   return (
     <section className="panel">
-      <h2 className="panel-title">Top traded commodities by arrival volume</h2>
+      <h2 className="panel-title">Top Traded Commodities by Arrival Volume</h2>
       <div className="table-scroll">
         <table className="data-table">
           <thead>

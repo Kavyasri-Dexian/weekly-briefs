@@ -16,13 +16,26 @@ Usage:
 """
 
 import argparse
+import calendar
+import csv
 import json
+import re
 import sys
 import time
 from collections import defaultdict
 from datetime import datetime, timedelta, date as date_cls, timezone
 
 import requests
+
+from narration import narrate_with_model, score_grounding
+
+
+def format_date_readable(iso_date) -> str:
+    """"2026-07-14" -> "July 14, 2026" — matches the frontend's
+    toLocaleDateString formatting (no zero-padded day), used everywhere a
+    date is shown in narrative text rather than machine-parsed."""
+    d = iso_date if isinstance(iso_date, date_cls) else datetime.strptime(iso_date, "%Y-%m-%d").date()
+    return f"{calendar.month_name[d.month]} {d.day}, {d.year}"
 
 API_BASE = "https://api.agmarknet.gov.in/v1"
 STATE_ID = 19  # Madhya Pradesh, per /daily-price-arrival/filters
@@ -261,6 +274,50 @@ def compute_overall_arrivals(current_rows: list, prior_rows: list):
 MIN_TRADING_DAYS_FOR_RANKING = 3  # matches the reference dashboard's thin-trade exclusion rule
 
 
+def _weighted_avg_price(rows: list, commodity: str):
+    """Arrival-weighted mean modal price for one commodity within `rows` —
+    same weighting rule as compute_top_commodities, so a period average isn't
+    skewed by a low-volume market's price. Falls back to a simple mean if no
+    row in the period has both a price and an arrival quantity."""
+    num = den = 0.0
+    for r in rows:
+        if r["commodity"] == commodity and r["modal_price"] is not None and r["arrival_qty"] is not None:
+            num += r["modal_price"] * r["arrival_qty"]
+            den += r["arrival_qty"]
+    if den:
+        return round(num / den, 2)
+    prices = [r["modal_price"] for r in rows if r["commodity"] == commodity and r["modal_price"] is not None]
+    return round(sum(prices) / len(prices), 2) if prices else None
+
+
+def compute_price_trend(this_week_rows: list, last_week_rows: list, last_month_rows: list,
+                         last_year_rows: list, commodities: list):
+    """Per commodity: this week's average price vs three comparison periods —
+    last week, the same week one month ago, and the same week one year ago.
+    Each comparison period is only reported if the source actually returned
+    rows for it; a period with zero matching rows stays None rather than
+    being silently treated as 0% change."""
+    out = []
+    for commodity in commodities:
+        this_week_avg = _weighted_avg_price(this_week_rows, commodity)
+
+        def period(rows):
+            avg = _weighted_avg_price(rows, commodity)
+            pct = None
+            if avg is not None and this_week_avg is not None and avg != 0:
+                pct = round((this_week_avg - avg) / avg * 100, 2)
+            return {"avg_price": avg, "pct_change_vs_this_week": pct}
+
+        out.append({
+            "commodity": commodity,
+            "this_week_avg_price": this_week_avg,
+            "last_week": period(last_week_rows),
+            "last_month_same_week": period(last_month_rows),
+            "last_year_same_week": period(last_year_rows),
+        })
+    return out
+
+
 def compute_price_change(current_rows: list, prior_rows: list):
     def mean_modal(rows):
         sums, counts = defaultdict(float), defaultdict(int)
@@ -344,9 +401,23 @@ def fmt_pct_hi(value):
     return f"{sign}{value}%"
 
 
+def _fmt_trend_period(label: str, period: dict) -> str:
+    if period["avg_price"] is None:
+        return f"{label} not available"
+    pct = fmt_pct(period["pct_change_vs_this_week"]) if period["pct_change_vs_this_week"] is not None else "n/a"
+    return f"{label} Rs {period['avg_price']:,} ({pct})"
+
+
+def _fmt_trend_period_hi(label: str, period: dict) -> str:
+    if period["avg_price"] is None:
+        return f"{label} उपलब्ध नहीं"
+    pct = fmt_pct_hi(period["pct_change_vs_this_week"]) if period["pct_change_vs_this_week"] is not None else "n/a"
+    return f"{label} रु {period['avg_price']:,} ({pct})"
+
+
 def narrate_english(fs: dict) -> str:
     oa, mc, tc, pc = fs["overall_arrivals"], fs["market_compliance"], fs["top_commodities"], fs["price_change"]
-    lines = [f"Madhya Pradesh Weekly Mandi Summary — {fs['week_start']} to {fs['week_end']}", ""]
+    lines = [f"Madhya Pradesh Weekly Mandi Summary — {format_date_readable(fs['week_start'])} to {format_date_readable(fs['week_end'])}", ""]
     lines.append(
         f"Total arrivals across Madhya Pradesh markets for the week were "
         f"{oa['total_arrivals']:,} tonnes, a change of {fmt_pct(oa['wow_pct_change'])} over the previous week."
@@ -368,19 +439,29 @@ def narrate_english(fs: dict) -> str:
         lines.append(f"Largest week-on-week price decreases: {decliners if decliners else 'none'}.")
     else:
         lines.append(f"Week-on-week price comparison is not available this week ({pc.get('reason')}).")
+    pt = fs.get("price_trend", {}).get("commodities", [])
+    if pt:
+        top_trend = pt[0]
+        lines.append(
+            f"{top_trend['commodity']}'s average price this week was "
+            f"Rs {top_trend['this_week_avg_price']:,} — vs "
+            f"{_fmt_trend_period('last week', top_trend['last_week'])}, "
+            f"{_fmt_trend_period('same week last month', top_trend['last_month_same_week'])}, "
+            f"{_fmt_trend_period('same week last year', top_trend['last_year_same_week'])}."
+        )
     lines.append(
         f"Of {mc['markets_in_roster']} registered market yards, {mc['markets_reporting_at_least_once']} "
         f"reported at least once this week. {mc['markets_reporting_all_7_days']} markets reported on all 7 days, "
         f"{mc['markets_reporting_5_to_6_days']} reported on 5-6 days, and {mc['markets_not_reporting']} filed no return."
     )
     if mc["top_reporting_market"]:
-        lines.append(f"{mc['top_reporting_market']} reported the most days ({mc['top_reporting_market_days']} of the week).")
+        lines.append(f"{mc['top_reporting_market']} reported the most days ({mc['top_reporting_market_days']} of 7 days).")
     return "\n".join(lines)
 
 
 def narrate_hindi(fs: dict) -> str:
     oa, mc, tc, pc = fs["overall_arrivals"], fs["market_compliance"], fs["top_commodities"], fs["price_change"]
-    lines = [f"मध्य प्रदेश साप्ताहिक मंडी सारांश — {fs['week_start']} से {fs['week_end']}", ""]
+    lines = [f"मध्य प्रदेश साप्ताहिक मंडी सारांश — {format_date_readable(fs['week_start'])} से {format_date_readable(fs['week_end'])}", ""]
     lines.append(
         f"मध्य प्रदेश की मंडियों में इस सप्ताह कुल आवक {oa['total_arrivals']:,} टन रही, "
         f"जो पिछले सप्ताह की तुलना में {fmt_pct_hi(oa['wow_pct_change'])} है।"
@@ -402,6 +483,16 @@ def narrate_hindi(fs: dict) -> str:
         lines.append(f"साप्ताहिक आधार पर सबसे अधिक मूल्य गिरावट: {decliners if decliners else 'कोई नहीं'}.")
     else:
         lines.append("इस सप्ताह मूल्य तुलना उपलब्ध नहीं है (पिछले सप्ताह का डेटा नहीं)।")
+    pt = fs.get("price_trend", {}).get("commodities", [])
+    if pt:
+        top_trend = pt[0]
+        lines.append(
+            f"{commodity_hi(top_trend['commodity'])} का इस सप्ताह औसत मूल्य "
+            f"रु {top_trend['this_week_avg_price']:,} रहा — तुलना में "
+            f"{_fmt_trend_period_hi('पिछला सप्ताह', top_trend['last_week'])}, "
+            f"{_fmt_trend_period_hi('पिछले महीने का यही सप्ताह', top_trend['last_month_same_week'])}, "
+            f"{_fmt_trend_period_hi('पिछले वर्ष का यही सप्ताह', top_trend['last_year_same_week'])}।"
+        )
     lines.append(
         f"{mc['markets_in_roster']} पंजीकृत मंडियों में से {mc['markets_reporting_at_least_once']} मंडियों ने इस सप्ताह "
         f"कम से कम एक बार रिपोर्ट की। {mc['markets_reporting_all_7_days']} मंडियों ने सातों दिन रिपोर्ट की, "
@@ -412,7 +503,90 @@ def narrate_hindi(fs: dict) -> str:
     return "\n".join(lines)
 
 
-def run(week_end: date_cls, out_dir: str):
+def _strip_bullet(line: str) -> str:
+    return re.sub(r"^[-•*]\s*", "", line.strip())
+
+
+def _body_only(text: str) -> str:
+    """Strips the fixed title line before scoring. The title (state name +
+    date range) is never a model/template claim about the fact sheet — it's
+    header text appended separately — so it must not be scored against the
+    fact sheet's numbers. This mattered in practice: an ISO-format date like
+    "2026-07-14" gets misparsed by the number regex as 2026, -7, -14 (the
+    hyphens read as minus signs), which showed even a fully correct template
+    as only ~94% "verified" until the title was excluded from scoring."""
+    parts = text.split("\n\n", 1)
+    return parts[1] if len(parts) > 1 else text
+
+
+def compose_briefs(fs: dict):
+    """Tries a real grounded model draft for each language (see narration.py —
+    every draft is checked against the fact sheet's own numbers before it's
+    accepted); falls back to the fixed template on any failure (no token, API
+    error, or a draft that never passes the numeric gate after retries). This
+    is the only place that decides which source produced the final text, and
+    it always records which one it was in the returned meta dict — the output
+    files never let a reader mistake one for the other silently."""
+    en_title = f"Madhya Pradesh Weekly Mandi Summary — {format_date_readable(fs['week_start'])} to {format_date_readable(fs['week_end'])}"
+    hi_title = f"मध्य प्रदेश साप्ताहिक मंडी सारांश — {format_date_readable(fs['week_start'])} से {format_date_readable(fs['week_end'])}"
+
+    def confidence_label(meta):
+        if not meta["used_model"]:
+            return "High — verified template (formulaic, no model claim risk)"
+        if meta["attempts"] <= 1:
+            return "High — model draft verified on first attempt"
+        return f"Medium — model draft needed {meta['attempts']} attempts before verification passed"
+
+    print("Requesting grounded English narration from the model ...", file=sys.stderr)
+    model_en, meta_en = narrate_with_model(fs, "en")
+    if model_en:
+        body = "\n".join(_strip_bullet(l) for l in model_en.splitlines() if l.strip())
+        english_brief = f"{en_title}\n\n{body}"
+    else:
+        print(f"  falling back to template ({meta_en['reason']})", file=sys.stderr)
+        english_brief = narrate_english(fs)
+    meta_en.update(score_grounding(_body_only(english_brief), fs))
+    meta_en["confidence"] = confidence_label(meta_en)
+
+    print("Requesting grounded Hindi narration from the model ...", file=sys.stderr)
+    model_hi, meta_hi = narrate_with_model(fs, "hi")
+    if model_hi:
+        body = "\n".join(_strip_bullet(l) for l in model_hi.splitlines() if l.strip())
+        hindi_brief = f"{hi_title}\n\n{body}"
+    else:
+        print(f"  falling back to template ({meta_hi['reason']})", file=sys.stderr)
+        hindi_brief = narrate_hindi(fs)
+    meta_hi.update(score_grounding(_body_only(hindi_brief), fs))
+    meta_hi["confidence"] = confidence_label(meta_hi)
+
+    return english_brief, hindi_brief, {"en": meta_en, "hi": meta_hi}
+
+
+RAW_ROW_FIELDS = [
+    "state", "district", "market", "commodity", "variety", "grade",
+    "arrival_date", "min_price", "max_price", "modal_price",
+    "arrival_qty", "price_unit", "arrival_unit",
+]
+
+
+def write_raw_dataset(rows: list, dataset_dir: str, week_start: date_cls, week_end: date_cls) -> str:
+    """Persists the current week's raw, row-level pull (exactly what came back
+    from the live API, flattened — nothing aggregated) as a CSV, independent
+    of the computed fact sheet. This is the audit trail: if a number in the
+    fact sheet is ever questioned, this file is what it was computed from."""
+    import os
+    os.makedirs(dataset_dir, exist_ok=True)
+    filename = f"madhya_pradesh_{week_start}_to_{week_end}.csv"
+    path = os.path.join(dataset_dir, filename)
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=RAW_ROW_FIELDS)
+        writer.writeheader()
+        for r in rows:
+            writer.writerow({k: r.get(k) for k in RAW_ROW_FIELDS})
+    return path
+
+
+def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
     print(f"Fetching Agmarknet filters (market/district roster) ...", file=sys.stderr)
     filters = fetch_filters()
     market_ids, market_id_to_district, market_id_to_name = mp_roster(filters)
@@ -423,13 +597,24 @@ def run(week_end: date_cls, out_dir: str):
     prior_week_end = week_start - timedelta(days=1)
     prior_week_start = prior_week_end - timedelta(days=6)
 
+    # "Same week" comparisons are shifted by whole weeks (28 / 364 days, not a
+    # calendar month/year) so the day-of-week alignment is preserved — 364
+    # instead of 365 specifically avoids a 1-2 day drift across a leap year.
+    last_month_week_end = week_end - timedelta(days=28)
+    last_month_week_start = last_month_week_end - timedelta(days=6)
+    last_year_week_end = week_end - timedelta(days=364)
+    last_year_week_start = last_year_week_end - timedelta(days=6)
+
     current_days = [week_end - timedelta(days=6 - i) for i in range(7)]
     prior_days = [prior_week_end - timedelta(days=6 - i) for i in range(7)]
+    last_month_days = [last_month_week_end - timedelta(days=6 - i) for i in range(7)]
+    last_year_days = [last_year_week_end - timedelta(days=6 - i) for i in range(7)]
 
-    print(f"Fetching {len(current_days) + len(prior_days)} days concurrently "
+    all_days = current_days + prior_days + last_month_days + last_year_days
+    print(f"Fetching {len(all_days)} days concurrently "
           f"(max {MAX_CONCURRENT_REQUESTS} in flight) ...", file=sys.stderr)
     t0 = time.time()
-    all_results = fetch_days(current_days + prior_days, market_ids, market_id_to_district)
+    all_results = fetch_days(all_days, market_ids, market_id_to_district)
     print(f"Fetched all days in {time.time() - t0:.1f}s", file=sys.stderr)
 
     def split(days):
@@ -443,6 +628,11 @@ def run(week_end: date_cls, out_dir: str):
 
     current_rows, current_errors = split(current_days)
     prior_rows, prior_errors = split(prior_days)
+    last_month_rows, last_month_errors = split(last_month_days)
+    last_year_rows, last_year_errors = split(last_year_days)
+
+    top_commodities = compute_top_commodities(current_rows, prior_rows, TOP_N_COMMODITIES)
+    top_commodity_names = [c["commodity"] for c in top_commodities["top_commodities"]]
 
     fact_sheet = {
         "state": STATE_NAME,
@@ -450,15 +640,39 @@ def run(week_end: date_cls, out_dir: str):
         "week_end": str(week_end),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source": "agmarknet.gov.in live API (api.agmarknet.gov.in/v1/prices-and-arrivals/market-report/daily)",
-        "fetch_errors": {"current_week": current_errors, "prior_week": prior_errors},
+        "fetch_errors": {
+            "current_week": current_errors,
+            "prior_week": prior_errors,
+            "last_month_same_week": last_month_errors,
+            "last_year_same_week": last_year_errors,
+        },
         "overall_arrivals": compute_overall_arrivals(current_rows, prior_rows),
         "market_compliance": compute_market_compliance(current_rows, full_market_names),
-        "top_commodities": compute_top_commodities(current_rows, prior_rows, TOP_N_COMMODITIES),
+        "top_commodities": top_commodities,
         "price_change": compute_price_change(current_rows, prior_rows),
+        "price_trend": {
+            "definition": (
+                "last_week = the preceding 7-day window. last_month_same_week = 28 days before "
+                "the current week (same weekday alignment). last_year_same_week = 364 days before "
+                "(52 whole weeks, avoids leap-year weekday drift). Each average is arrival-weighted "
+                "across all Madhya Pradesh markets."
+            ),
+            "last_week_range": {"start": str(prior_week_start), "end": str(prior_week_end)},
+            "last_month_same_week_range": {"start": str(last_month_week_start), "end": str(last_month_week_end)},
+            "last_year_same_week_range": {"start": str(last_year_week_start), "end": str(last_year_week_end)},
+            "commodities": compute_price_trend(
+                current_rows, prior_rows, last_month_rows, last_year_rows, top_commodity_names[:5]
+            ),
+        },
     }
 
-    english_brief = narrate_english(fact_sheet)
-    hindi_brief = narrate_hindi(fact_sheet)
+    if dataset_dir:
+        dataset_path = write_raw_dataset(current_rows, dataset_dir, week_start, week_end)
+        fact_sheet["raw_dataset_file"] = dataset_path
+        print(f"Wrote {len(current_rows)} raw rows to {dataset_path}", file=sys.stderr)
+
+    english_brief, hindi_brief, narration_meta = compose_briefs(fact_sheet)
+    fact_sheet["narration_meta"] = narration_meta
 
     import os
     os.makedirs(out_dir, exist_ok=True)
@@ -477,13 +691,16 @@ def main():
     parser = argparse.ArgumentParser(description="Live Madhya Pradesh weekly mandi summary pipeline")
     parser.add_argument("--week-end", default=None, help="YYYY-MM-DD, defaults to yesterday (today's data is usually incomplete)")
     parser.add_argument("--out-dir", default="../data/output")
+    parser.add_argument("--dataset-dir", default="../dataset",
+                         help="Where the current week's raw row-level pull is archived as CSV. "
+                              "Pass '' to skip writing it.")
     args = parser.parse_args()
 
     week_end = (
         datetime.strptime(args.week_end, "%Y-%m-%d").date()
         if args.week_end else (datetime.now(timezone.utc).date() - timedelta(days=1))
     )
-    run(week_end, args.out_dir)
+    run(week_end, args.out_dir, dataset_dir=args.dataset_dir or None)
 
 
 if __name__ == "__main__":

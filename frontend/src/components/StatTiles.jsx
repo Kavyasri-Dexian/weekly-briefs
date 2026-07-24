@@ -26,22 +26,22 @@ export default function StatTiles({ factSheet }) {
     {
       label: "TOP COMMODITY BY ARRIVAL",
       value: top ? top.commodity : "—",
-      sub: top ? `${top.arrival_value.toLocaleString()} · ${top.share_pct_of_state_arrivals}% share` : null,
+      sub: top ? `${top.share_pct_of_state_arrivals}% of arrivals (${top.arrival_value.toLocaleString()} tonnes)` : null,
     },
     {
       label: "MARKET YARDS REPORTING",
       value: `${mc.markets_reporting_at_least_once} / ${mc.markets_in_roster}`,
-      sub: `${mc.markets_not_reporting} filed no return`,
+      sub: `${mc.markets_not_reporting} yards filed No Return`,
     },
     {
       label: "TOP REPORTING MARKET",
       value: mc.top_reporting_market ?? "—",
-      sub: mc.top_reporting_market_days != null ? `${mc.top_reporting_market_days} of the week` : null,
+      sub: mc.top_reporting_market_days != null ? `${mc.top_reporting_market_days}/7 days reported` : null,
     },
     {
       label: "MARKETS REPORTING 5-6 DAYS",
       value: mc.markets_reporting_5_to_6_days,
-      sub: `${mc.markets_reporting_all_7_days} reported all 7 days`,
+      sub: `${mc.markets_reporting_all_7_days} at 7/7 days`,
     },
   ];
 
