@@ -1,0 +1,180 @@
+{
+  "state": "Madhya Pradesh",
+  "week_start": "2026-07-17",
+  "week_end": "2026-07-23",
+  "generated_at": "2026-07-24T05:26:56.027832+00:00",
+  "source": "agmarknet.gov.in live API (api.agmarknet.gov.in/v1/prices-and-arrivals/market-report/daily)",
+  "fetch_errors": {
+    "current_week": [],
+    "prior_week": []
+  },
+  "overall_arrivals": {
+    "total_arrivals": 410715.69,
+    "total_arrivals_basis": "arrival_qty",
+    "prior_week_total_arrivals": 447935.12,
+    "wow_pct_change": -8.3
+  },
+  "market_compliance": {
+    "markets_in_roster": 442,
+    "markets_reporting_at_least_once": 307,
+    "compliance_bands": [
+      {
+        "band": "0 days",
+        "market_count": 135
+      },
+      {
+        "band": "1-2 days",
+        "market_count": 16
+      },
+      {
+        "band": "3-4 days",
+        "market_count": 25
+      },
+      {
+        "band": "5-6 days",
+        "market_count": 155
+      },
+      {
+        "band": "7 days",
+        "market_count": 111
+      }
+    ],
+    "markets_reporting_5_to_6_days": 155,
+    "markets_reporting_all_7_days": 111,
+    "markets_not_reporting": 135,
+    "top_reporting_market": "Vijaypur APMC",
+    "top_reporting_market_days": 7,
+    "roster_caveat": "Roster = Agmarknet's own registered Madhya Pradesh market list (from /daily-price-arrival/filters), not derived from which markets happened to report — every registered market is counted whether or not it reported this week."
+  },
+  "top_commodities": {
+    "ranking_basis": "arrival_qty",
+    "top_commodities": [
+      {
+        "commodity": "Wheat",
+        "arrival_value": 157719.74,
+        "share_pct_of_state_arrivals": 38.4,
+        "markets_trading": 252,
+        "modal_price_weighted": 2522.2,
+        "wow_arrival_pct_change": -20.6
+      },
+      {
+        "commodity": "Onion",
+        "arrival_value": 77621.8,
+        "share_pct_of_state_arrivals": 18.9,
+        "markets_trading": 66,
+        "modal_price_weighted": 1426.06,
+        "wow_arrival_pct_change": 19.1
+      },
+      {
+        "commodity": "Soyabean",
+        "arrival_value": 50698.21,
+        "share_pct_of_state_arrivals": 12.3,
+        "markets_trading": 149,
+        "modal_price_weighted": 7131.0,
+        "wow_arrival_pct_change": 6.1
+      },
+      {
+        "commodity": "Green Gram(Moong)(Whole)",
+        "arrival_value": 23961.9,
+        "share_pct_of_state_arrivals": 5.8,
+        "markets_trading": 118,
+        "modal_price_weighted": 6788.75,
+        "wow_arrival_pct_change": 27.9
+      },
+      {
+        "commodity": "Bengal Gram(Gram)(Whole)",
+        "arrival_value": 13727.53,
+        "share_pct_of_state_arrivals": 3.3,
+        "markets_trading": 166,
+        "modal_price_weighted": 5911.68,
+        "wow_arrival_pct_change": -23.4
+      },
+      {
+        "commodity": "Paddy(Common)",
+        "arrival_value": 12585.59,
+        "share_pct_of_state_arrivals": 3.1,
+        "markets_trading": 50,
+        "modal_price_weighted": 3374.28,
+        "wow_arrival_pct_change": -0.3
+      },
+      {
+        "commodity": "Garlic",
+        "arrival_value": 11556.02,
+        "share_pct_of_state_arrivals": 2.8,
+        "markets_trading": 48,
+        "modal_price_weighted": 7330.55,
+        "wow_arrival_pct_change": 1.9
+      },
+      {
+        "commodity": "Maize",
+        "arrival_value": 10949.28,
+        "share_pct_of_state_arrivals": 2.7,
+        "markets_trading": 97,
+        "modal_price_weighted": 2219.92,
+        "wow_arrival_pct_change": 6.9
+      },
+      {
+        "commodity": "Mustard",
+        "arrival_value": 6587.43,
+        "share_pct_of_state_arrivals": 1.6,
+        "markets_trading": 126,
+        "modal_price_weighted": 7452.6,
+        "wow_arrival_pct_change": -11.2
+      },
+      {
+        "commodity": "Red gram/Arhar/Tur(whole)",
+        "arrival_value": 6226.58,
+        "share_pct_of_state_arrivals": 1.5,
+        "markets_trading": 55,
+        "modal_price_weighted": 7363.7,
+        "wow_arrival_pct_change": -8.3
+      }
+    ],
+    "total_commodities_traded": 144
+  },
+  "price_change": {
+    "available": true,
+    "top_gainers": [
+      {
+        "commodity": "Water Melon",
+        "pct_change": 59.39,
+        "current_modal_price": 1733.33,
+        "prior_modal_price": 1087.5
+      },
+      {
+        "commodity": "Bael",
+        "pct_change": 52.72,
+        "current_modal_price": 6300.33,
+        "prior_modal_price": 4125.5
+      },
+      {
+        "commodity": "Asgand",
+        "pct_change": 36.53,
+        "current_modal_price": 13589.53,
+        "prior_modal_price": 9953.31
+      }
+    ],
+    "top_decliners": [
+      {
+        "commodity": "Ridgeguard(Tori)",
+        "pct_change": -24.78,
+        "current_modal_price": 1255.0,
+        "prior_modal_price": 1668.42
+      },
+      {
+        "commodity": "Ashwagandha",
+        "pct_change": -22.38,
+        "current_modal_price": 15288.89,
+        "prior_modal_price": 19695.83
+      },
+      {
+        "commodity": "Soanf",
+        "pct_change": -20.42,
+        "current_modal_price": 9688.9,
+        "prior_modal_price": 12175.0
+      }
+    ],
+    "min_trading_days_for_ranking": 3,
+    "commodities_excluded_thin_trade": 29
+  }
+}

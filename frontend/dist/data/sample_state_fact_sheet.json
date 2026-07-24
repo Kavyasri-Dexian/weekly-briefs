@@ -1,0 +1,52 @@
+{
+  "_demo_data": true,
+  "_demo_note": "Placeholder numbers for frontend development only — not real Agmarknet data. Copy pipeline.ipynb's output/ files here (as madhya_pradesh_state_fact_sheet.json etc.) to replace this.",
+  "state": "Madhya Pradesh",
+  "week_start": "2026-07-17",
+  "week_end": "2026-07-23",
+  "overall_arrivals": {
+    "total_arrivals": 1385.0,
+    "total_arrivals_basis": "arrival_qty",
+    "prior_week_total_arrivals": 335.0,
+    "wow_pct_change": 313.4
+  },
+  "market_compliance": {
+    "markets_in_roster": 4,
+    "markets_reporting_at_least_once": 4,
+    "compliance_bands": [
+      { "band": "0 days", "market_count": 0 },
+      { "band": "1-2 days", "market_count": 2 },
+      { "band": "3-4 days", "market_count": 0 },
+      { "band": "5-6 days", "market_count": 1 },
+      { "band": "7 days", "market_count": 1 }
+    ],
+    "markets_reporting_5_to_6_days": 1,
+    "markets_reporting_all_7_days": 1,
+    "markets_not_reporting": 0,
+    "top_reporting_market": "Indore",
+    "top_reporting_market_days": 7,
+    "roster_caveat": "Roster = every market appearing at least once in the loaded CSV/PDF exports for this state, not an independently sourced canonical market list (~240-340+ markets for Madhya Pradesh per Agmarknet)."
+  },
+  "top_commodities": {
+    "ranking_basis": "arrival_qty",
+    "total_commodities_traded": 5,
+    "top_commodities": [
+      { "commodity": "Wheat", "arrival_value": 780.0, "share_pct_of_state_arrivals": 56.3, "markets_trading": 1, "modal_price_mean": 2458.57, "wow_arrival_pct_change": 780.0 },
+      { "commodity": "Onion", "arrival_value": 380.0, "share_pct_of_state_arrivals": 27.4, "markets_trading": 1, "modal_price_mean": 1100.0, "wow_arrival_pct_change": 153.3 },
+      { "commodity": "Tomato", "arrival_value": 90.0, "share_pct_of_state_arrivals": 6.5, "markets_trading": 1, "modal_price_mean": 860.0, "wow_arrival_pct_change": 38.5 },
+      { "commodity": "Soyabean", "arrival_value": 80.0, "share_pct_of_state_arrivals": 5.8, "markets_trading": 1, "modal_price_mean": 3950.0, "wow_arrival_pct_change": null },
+      { "commodity": "Garlic", "arrival_value": 55.0, "share_pct_of_state_arrivals": 4.0, "markets_trading": 1, "modal_price_mean": 9180.0, "wow_arrival_pct_change": 175.0 }
+    ]
+  },
+  "price_change": {
+    "available": true,
+    "top_gainers": [
+      { "commodity": "Garlic", "pct_change": 24.73, "current_modal_price": 9180.0, "prior_modal_price": 7360.0 },
+      { "commodity": "Onion", "pct_change": 10.0, "current_modal_price": 1100.0, "prior_modal_price": 1000.0 },
+      { "commodity": "Wheat", "pct_change": 6.89, "current_modal_price": 2458.57, "prior_modal_price": 2300.0 }
+    ],
+    "top_decliners": [
+      { "commodity": "Tomato", "pct_change": -31.42, "current_modal_price": 860.0, "prior_modal_price": 1254.0 }
+    ]
+  }
+}

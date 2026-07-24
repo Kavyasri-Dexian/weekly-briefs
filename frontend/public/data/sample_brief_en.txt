@@ -1,0 +1,11 @@
+Madhya Pradesh Weekly Mandi Summary — 2026-07-17 to 2026-07-23
+
+Total arrivals across Madhya Pradesh markets for the week were 1,385.0, a change of +313.4% over the previous week.
+Wheat was the most-traded commodity by arrival volume (780.0, 56.3% of state arrivals), traded across 1 markets.
+Other leading commodities by arrival volume: Onion (380.0), Tomato (90.0), Soyabean (80.0), Garlic (55.0).
+Largest week-on-week price increases: Garlic +24.73% (Rs 9,180.0 from Rs 7,360.0); Onion +10.0% (Rs 1,100.0 from Rs 1,000.0); Wheat +6.89% (Rs 2,458.57 from Rs 2,300.0).
+Largest week-on-week price decreases: Tomato -31.42% (Rs 860.0 from Rs 1,254.0).
+Of 4 market yards seen in the source data, 4 reported at least once this week. 1 markets reported on all 7 days, 1 reported on 5-6 days, and 0 filed no return for the week.
+Indore reported the most days (7 of the week).
+
+Note: Roster = every market appearing at least once in the loaded CSV/PDF exports for this state, not an independently sourced canonical market list (~240-340+ markets for Madhya Pradesh per Agmarknet).
