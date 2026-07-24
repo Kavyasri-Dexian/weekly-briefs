@@ -118,11 +118,21 @@ def build_examples(dataset_dir: str):
 
         for lang, narrate_fn, examples in (("en", narrate_english, examples_en), ("hi", narrate_hindi, examples_hi)):
             template_text = narrate_fn(fact_sheet)
-            body = _body_only(template_text)
-            bulleted = "\n".join(f"- {line}" for line in body.splitlines() if line.strip())
+            # narrate_english/narrate_hindi already emit the target register —
+            # 3 "\n\n"-separated flowing-prose paragraphs — so the training
+            # completion is just the title-stripped body, unmodified. Kept
+            # as its own step (not inlined) because that's the exact value
+            # the model must learn to reproduce; changing template shape
+            # again should visibly break here rather than silently ship.
+            completion = _body_only(template_text)
+
+            # _slim_fact_sheet trims top_commodities/price_trend to what the
+            # narration prompt actually needs — same function production
+            # inference uses, so the training prompt shape can never drift
+            # from what the model will actually see when serving.
             slim = _slim_fact_sheet(fact_sheet)
             prompt = f"{PROMPT_INSTRUCTIONS[lang]}\n\nJSON fact sheet:\n{json.dumps(slim, ensure_ascii=False)}"
-            examples.append({"prompt": prompt, "completion": bulleted})
+            examples.append({"prompt": prompt, "completion": completion})
 
         print(f"  built example for week {week_start}..{week_end}", file=sys.stderr)
 

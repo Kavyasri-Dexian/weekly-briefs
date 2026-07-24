@@ -2,7 +2,7 @@
   "state": "Madhya Pradesh",
   "week_start": "2026-07-14",
   "week_end": "2026-07-20",
-  "generated_at": "2026-07-24T09:11:12.465644+00:00",
+  "generated_at": "2026-07-24T12:37:15.347376+00:00",
   "source": "agmarknet.gov.in live API (api.agmarknet.gov.in/v1/prices-and-arrivals/market-report/daily)",
   "fetch_errors": {
     "current_week": [],
@@ -11,7 +11,7 @@
     "last_year_same_week": []
   },
   "overall_arrivals": {
-    "total_arrivals": 457686.24,
+    "total_arrivals": 457686.36,
     "total_arrivals_basis": "arrival_qty",
     "prior_week_total_arrivals": 456446.6,
     "wow_pct_change": 0.3
@@ -132,7 +132,55 @@
         "wow_arrival_pct_change": 33.2
       }
     ],
-    "total_commodities_traded": 146
+    "total_commodities_traded": 146,
+    "concentration_hhi": 0.216,
+    "donut_slices": [
+      {
+        "commodity": "Wheat",
+        "arrival_value": 189380.53,
+        "share_pct_of_state_arrivals": 41.4
+      },
+      {
+        "commodity": "Onion",
+        "arrival_value": 69998.66,
+        "share_pct_of_state_arrivals": 15.3
+      },
+      {
+        "commodity": "Soyabean",
+        "arrival_value": 52844.07,
+        "share_pct_of_state_arrivals": 11.5
+      },
+      {
+        "commodity": "Green Gram(Moong)(Whole)",
+        "arrival_value": 22936.1,
+        "share_pct_of_state_arrivals": 5.0
+      },
+      {
+        "commodity": "Bengal Gram(Gram)(Whole)",
+        "arrival_value": 17683.65,
+        "share_pct_of_state_arrivals": 3.9
+      },
+      {
+        "commodity": "Paddy(Common)",
+        "arrival_value": 15163.55,
+        "share_pct_of_state_arrivals": 3.3
+      },
+      {
+        "commodity": "Maize",
+        "arrival_value": 13015.08,
+        "share_pct_of_state_arrivals": 2.8
+      },
+      {
+        "commodity": "Garlic",
+        "arrival_value": 12346.77,
+        "share_pct_of_state_arrivals": 2.7
+      },
+      {
+        "commodity": "Remaining 138 commodities",
+        "arrival_value": 64317.95,
+        "share_pct_of_state_arrivals": 14.1
+      }
+    ]
   },
   "price_change": {
     "available": true,
@@ -170,7 +218,7 @@
         "prior_modal_price": 21256.67
       },
       {
-        "commodity": "mango powder",
+        "commodity": "Mango Powder",
         "pct_change": -18.33,
         "current_modal_price": 5112.75,
         "prior_modal_price": 6260.56
@@ -276,17 +324,227 @@
       }
     ]
   },
+  "coverage": {
+    "completeness_pct": 68.6,
+    "records_processed": 11350,
+    "records_missing_price": 0,
+    "note": "completeness_pct = share of registered market yards that reported at least once. records_missing_price = rows returned by the source API without a modal price value (not a validation-rejection count — this pipeline performs no separate row-rejection step)."
+  },
+  "price_bands": [
+    {
+      "commodity": "Wheat",
+      "min_price": 24.5,
+      "max_price": 7975.0,
+      "modal_price": 2497.6
+    },
+    {
+      "commodity": "Onion",
+      "min_price": 100.0,
+      "max_price": 8600.0,
+      "modal_price": 1518.73
+    },
+    {
+      "commodity": "Soyabean",
+      "min_price": 400.0,
+      "max_price": 9525.0,
+      "modal_price": 7118.97
+    },
+    {
+      "commodity": "Green Gram(Moong)(Whole)",
+      "min_price": 200.0,
+      "max_price": 10976.0,
+      "modal_price": 6785.64
+    },
+    {
+      "commodity": "Bengal Gram(Gram)(Whole)",
+      "min_price": 30.0,
+      "max_price": 10428.86,
+      "modal_price": 5792.31
+    },
+    {
+      "commodity": "Paddy(Common)",
+      "min_price": 1100.0,
+      "max_price": 4636.0,
+      "modal_price": 3410.39
+    },
+    {
+      "commodity": "Maize",
+      "min_price": 2.4,
+      "max_price": 2631.0,
+      "modal_price": 2215.76
+    },
+    {
+      "commodity": "Garlic",
+      "min_price": 200.0,
+      "max_price": 31700.0,
+      "modal_price": 6820.56
+    },
+    {
+      "commodity": "Black Gram(Urd Beans)(Whole)",
+      "min_price": 1000.0,
+      "max_price": 11699.33,
+      "modal_price": 9411.51
+    },
+    {
+      "commodity": "Mustard",
+      "min_price": 1500.0,
+      "max_price": 8641.0,
+      "modal_price": 7406.64
+    }
+  ],
+  "perishables": [
+    {
+      "commodity": "Tomato",
+      "arrival_value": 2003.55,
+      "arrival_wow_pct_change": -14.4,
+      "modal_price": 1596.94,
+      "prior_modal_price": 1682.22,
+      "price_wow_pct_change": -5.1,
+      "distress_composite": false,
+      "status": "normal"
+    },
+    {
+      "commodity": "Onion",
+      "arrival_value": 69998.66,
+      "arrival_wow_pct_change": -8.1,
+      "modal_price": 1518.73,
+      "prior_modal_price": 1616.43,
+      "price_wow_pct_change": -6.0,
+      "distress_composite": false,
+      "status": "normal"
+    },
+    {
+      "commodity": "Potato",
+      "arrival_value": 6515.21,
+      "arrival_wow_pct_change": 2.6,
+      "modal_price": 789.67,
+      "prior_modal_price": 882.38,
+      "price_wow_pct_change": -10.5,
+      "distress_composite": false,
+      "status": "watch"
+    }
+  ],
+  "reporting_exceptions": {
+    "partial_reporting_market_yards": 192,
+    "non_reporting_market_yards": 139,
+    "full_reporting_market_yards": 111,
+    "nil_transactions_reported": 0,
+    "nil_transactions_note": "Nil transactions = market yards with at least one row this week explicitly declaring zero arrival quantity, as distinct from a market that filed no return at all.",
+    "note": "Reporting split is by reporting-day coverage: partial = reported on 1-6 of 7 days, non-reporting = reported on 0 of 7 days. Nil transactions reported is a separate, narrower count of markets whose return explicitly declared zero arrival."
+  },
+  "alerts": {
+    "alerts": [
+      {
+        "severity": "Critical",
+        "type": "Price volatility",
+        "entity": "Mango(Raw-Ripe)",
+        "trigger": "Modal price increase of 52.62% week-on-week to Rs 5,523.08",
+        "owner": "State Marketing Cell"
+      },
+      {
+        "severity": "Critical",
+        "type": "Price volatility",
+        "entity": "Bael",
+        "trigger": "Modal price increase of 32.38% week-on-week to Rs 5,070.4",
+        "owner": "State Marketing Cell"
+      },
+      {
+        "severity": "Critical",
+        "type": "Price volatility",
+        "entity": "Asgand",
+        "trigger": "Modal price increase of 30.88% week-on-week to Rs 12,058.53",
+        "owner": "State Marketing Cell"
+      },
+      {
+        "severity": "Critical",
+        "type": "Price volatility",
+        "entity": "Chili Red",
+        "trigger": "Modal price decline of 41.47% week-on-week to Rs 6,430.7",
+        "owner": "State Marketing Cell"
+      },
+      {
+        "severity": "Critical",
+        "type": "Price volatility",
+        "entity": "Ashwagandha",
+        "trigger": "Modal price decline of 26.92% week-on-week to Rs 15,533.33",
+        "owner": "State Marketing Cell"
+      },
+      {
+        "severity": "High",
+        "type": "Price volatility",
+        "entity": "Mango Powder",
+        "trigger": "Modal price decline of 18.33% week-on-week to Rs 5,112.75",
+        "owner": "State Marketing Cell"
+      },
+      {
+        "severity": "High",
+        "type": "Reporting default",
+        "entity": "139 of 442 market yards, state-wide",
+        "trigger": "31.4% of registered market yards filed no return this week",
+        "owner": "State Marketing Cell"
+      }
+    ],
+    "counts": {
+      "Critical": 5,
+      "High": 2,
+      "Watch": 0
+    }
+  },
+  "action_points": [
+    {
+      "priority": "Critical",
+      "action": "Review price volatility — Mango(Raw-Ripe): Modal price increase of 52.62% week-on-week to Rs 5,523.08.",
+      "owner": "State Marketing Cell",
+      "target_date": "2026-07-27"
+    },
+    {
+      "priority": "Critical",
+      "action": "Review price volatility — Bael: Modal price increase of 32.38% week-on-week to Rs 5,070.4.",
+      "owner": "State Marketing Cell",
+      "target_date": "2026-07-27"
+    },
+    {
+      "priority": "Critical",
+      "action": "Review price volatility — Asgand: Modal price increase of 30.88% week-on-week to Rs 12,058.53.",
+      "owner": "State Marketing Cell",
+      "target_date": "2026-07-27"
+    },
+    {
+      "priority": "Critical",
+      "action": "Review price volatility — Chili Red: Modal price decline of 41.47% week-on-week to Rs 6,430.7.",
+      "owner": "State Marketing Cell",
+      "target_date": "2026-07-27"
+    },
+    {
+      "priority": "Critical",
+      "action": "Review price volatility — Ashwagandha: Modal price decline of 26.92% week-on-week to Rs 15,533.33.",
+      "owner": "State Marketing Cell",
+      "target_date": "2026-07-27"
+    },
+    {
+      "priority": "High",
+      "action": "Review price volatility — Mango Powder: Modal price decline of 18.33% week-on-week to Rs 5,112.75.",
+      "owner": "State Marketing Cell",
+      "target_date": "2026-07-31"
+    },
+    {
+      "priority": "High",
+      "action": "Review reporting default — 139 of 442 market yards, state-wide: 31.4% of registered market yards filed no return this week.",
+      "owner": "State Marketing Cell",
+      "target_date": "2026-07-31"
+    }
+  ],
   "narration_meta": {
     "en": {
       "model": "Qwen/Qwen2.5-0.5B-Instruct",
       "provider": "local",
       "attempts": 3,
       "used_model": false,
-      "reason": "failed numeric gate after 3 attempts, unsupported: [3.0, 457664.0]",
-      "last_rejected_draft": "- Total arrivals rose 3% week-on-week to 457,664 tonnes.\n- The top traded commodity is Wheat with a share of 41.4%.\n- Other leading commodities include Onion at 15.3%, Soyabean at 11.5%, Green Gram at 5.0%, and Black Gram at 2.7%.\n- The largest price gainers are Mango(Raw-Ripe) at 52.62%, Bael at 32.38%, Asgand at 30.88%, Chili Red at -41.47%, Ashwagandha at -26.92%, Mustard at -18.33%, and Garlic at -7.3%.\n- The largest price decliners are Bael at -32.38%, Ashwagandha at -26.92%, and Mustard at -18.33%.",
+      "reason": "failed numeric gate after 3 attempts, unsupported: [3.0, 13.0]",
+      "last_rejected_draft": "Madhya Pradesh's weekly mandi prices have risen by 3% compared to the previous week. Wheat is the top traded commodity with a share of 41.4%. The highest price increase was observed on July 7th, when the average price reached $2497.6. On the other hand, onions experienced a decrease of 8.1%, while soyabeans saw a rise of 1.8%. The top price decline occurred on July 13th, when the average price dropped to $2408.06. The same week last month, onions had a slight increase of 3.72%, but wheat remained unchanged at $2471.16. In contrast, the same week last year, onions experienced a significant drop of 2.05%, while wheat increased by 1.07%.",
       "last_unsupported_numbers": [
         3.0,
-        457664.0
+        13.0
       ],
       "numbers_checked": 44,
       "numbers_verified": 44,
@@ -299,11 +557,9 @@
       "provider": "local",
       "attempts": 3,
       "used_model": false,
-      "reason": "failed numeric gate after 3 attempts, unsupported: [-4.0]",
-      "last_rejected_draft": "```json\n{\n    \"state\": \"Madhya Pradesh\",\n    \"overall_arrivals\": {\n        \"total_arrivals\": 457686.24,\n        \"total_arrivals_basis\": \"arrival_qty\",\n        \"prior_week_total_arrivals\": 456446.6,\n        \"wow_pct_change\": 0.3\n    },\n    \"market_compliance\": {\n        \"markets_in_roster\": 442,\n        \"markets_reporting_at_least_once\": 303,\n        \"compliance_bands\": [\n            { \"band\": \"0 days\", \"market_count\": 139 },\n            { \"band\": \"1-2 days\", \"market_count\": 14 },\n            { \"band\": \"3-4 days\", \"market_count\": 25 },\n            { \"band\": \"5-6 days\", \"market_count\": 153 },\n            { \"band\": \"7 days\", \"market_count\": 111 }\n        ],\n        \"markets_reporting_5_to_6_days\": 153,\n        \"markets_reporting_all_7_days\": 111,\n        \"markets_not_reporting",
-      "last_unsupported_numbers": [
-        -4.0
-      ],
+      "reason": "failed numeric gate after 3 attempts, unsupported: []",
+      "last_rejected_draft": "Sure, here is the summarized JSON fact sheet for Madhya Pradesh:\n\n```json\n{\n    \"state\": \"Madhya Pradesh\",\n    \"overall_arrivals\": {\n        \"total_arrivals\": 457686.36,\n        \"total_arrivals_basis\": \"arrival_qty\",\n        \"prior_week_total_arrivals\": 456446.6,\n        \"wow_pct_change\": 0.3\n    },\n    \"market_compliance\": {\n        \"markets_in_roster\": 442,\n        \"markets_reporting_at_least_once\": 303,\n        \"compliance_bands\": [\n            {\n                \"band\": \"0 days\",\n                \"market_count\": 139\n            },\n            {\n                \"band\": \"1-2 days\",\n                \"market_count\": 14\n            },\n            {\n                \"band\": \"3-4 days\",\n                \"market_count\": 25\n            },\n            {\n                \"band\": \"5-6 days\",\n                \"market_count\": 153\n            },\n            {\n                \"band\": \"7 days\",\n                \"market_count\": 111\n            }\n        ],",
+      "last_unsupported_numbers": [],
       "numbers_checked": 42,
       "numbers_verified": 42,
       "accuracy_pct": 100.0,

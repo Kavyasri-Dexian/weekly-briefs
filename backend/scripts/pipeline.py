@@ -167,6 +167,18 @@ def fetch_live_range(week_end: date_cls, num_days: int, market_ids: list, market
 # Aggregation — identical rules to pipeline.ipynb, applied to live-API rows.
 # ---------------------------------------------------------------------------
 
+def display_commodity_name(name: str) -> str:
+    """Title-cases a commodity name for display (e.g. "mango powder" ->
+    "Mango Powder") — Agmarknet's own data is inconsistently cased (most
+    entries are properly capitalized, a handful like "mango powder" or
+    "nigella seeds" are not). Applied only at the aggregation-output layer,
+    never to the raw rows written to dataset/ — the archived audit trail
+    stays exactly what the source returned."""
+    if not name:
+        return name
+    return name.title()
+
+
 def reporting_band(days: int) -> str:
     if days <= 0:
         return "0 days"
@@ -244,7 +256,7 @@ def compute_top_commodities(current_rows: list, prior_rows: list, top_n: int):
             if weighted_price_den.get(commodity) else None
         )
         rows_out.append({
-            "commodity": commodity,
+            "commodity": commodity,  # raw casing — see run() for why this must not be title-cased here
             "arrival_value": round(value, 2),
             "share_pct_of_state_arrivals": round(value / total_state_arrivals * 100, 1) if total_state_arrivals else None,
             "markets_trading": len(markets_trading.get(commodity, ())),
@@ -252,10 +264,40 @@ def compute_top_commodities(current_rows: list, prior_rows: list, top_n: int):
             "wow_arrival_pct_change": wow,
         })
 
+    # HHI is computed over ALL commodities' shares (not just the top_n slice
+    # returned above), matching the standard definition — a truncated HHI
+    # would understate concentration.
+    hhi = (
+        round(sum((v / total_state_arrivals) ** 2 for v in cur_totals.values()), 3)
+        if total_state_arrivals else None
+    )
+
+    donut_top_n = 8
+    donut_ranked = sorted(cur_totals.items(), key=lambda kv: -kv[1])[:donut_top_n]
+    donut_slices = [
+        {
+            "commodity": commodity,
+            "arrival_value": round(value, 2),
+            "share_pct_of_state_arrivals": round(value / total_state_arrivals * 100, 1) if total_state_arrivals else None,
+        }
+        for commodity, value in donut_ranked
+    ]
+    donut_top_total = sum(v for _, v in donut_ranked)
+    remaining_value = total_state_arrivals - donut_top_total
+    remaining_count = len(cur_totals) - len(donut_ranked)
+    if remaining_count > 0 and total_state_arrivals:
+        donut_slices.append({
+            "commodity": f"Remaining {remaining_count} commodities",
+            "arrival_value": round(remaining_value, 2),
+            "share_pct_of_state_arrivals": round(remaining_value / total_state_arrivals * 100, 1),
+        })
+
     return {
         "ranking_basis": "arrival_qty",
         "top_commodities": rows_out,
         "total_commodities_traded": len({r["commodity"] for r in current_rows if r["commodity"]}),
+        "concentration_hhi": hhi,
+        "donut_slices": donut_slices,
     }
 
 
@@ -309,13 +351,228 @@ def compute_price_trend(this_week_rows: list, last_week_rows: list, last_month_r
             return {"avg_price": avg, "pct_change_vs_this_week": pct}
 
         out.append({
-            "commodity": commodity,
+            "commodity": display_commodity_name(commodity),
             "this_week_avg_price": this_week_avg,
             "last_week": period(last_week_rows),
             "last_month_same_week": period(last_month_rows),
             "last_year_same_week": period(last_year_rows),
         })
     return out
+
+
+def compute_price_bands(current_rows: list, commodity_names: list):
+    """Weekly min/max/arrival-weighted-modal price band per commodity — the
+    band chart wants the full spread traded during the week (min_price/
+    max_price extremes across all rows), not just the single modal figure
+    already carried by top_commodities."""
+    bands = []
+    for name in commodity_names:
+        prices = [r["modal_price"] for r in current_rows if r["commodity"] == name and r["modal_price"] is not None]
+        mins = [r["min_price"] for r in current_rows if r["commodity"] == name and r["min_price"] is not None]
+        maxs = [r["max_price"] for r in current_rows if r["commodity"] == name and r["max_price"] is not None]
+        if not prices:
+            continue
+        bands.append({
+            "commodity": display_commodity_name(name),
+            "min_price": min(mins) if mins else min(prices),
+            "max_price": max(maxs) if maxs else max(prices),
+            "modal_price": _weighted_avg_price(current_rows, name),
+        })
+    return bands
+
+
+PERISHABLES_WATCHLIST = ["tomato", "onion", "potato"]  # raw lowercase casing, matches source rows
+DISTRESS_ARRIVAL_SURGE_PCT = 15.0  # arrival WoW at/above this...
+DISTRESS_PRICE_FALL_PCT = -15.0    # ...together with a price WoW at/below this = a glut signal
+WATCH_PRICE_FALL_PCT = -8.0        # price falling on its own (no arrival surge) still merits a Watch chip
+
+
+def compute_perishables(current_rows: list, prior_rows: list):
+    """Tomato/onion/potato are tracked separately from the top-10 arrival
+    ranking because they drive consumer price sensitivity regardless of
+    their arrival-volume rank. The distress composite rule (arrival surge +
+    price fall in the same commodity/week) mirrors the classic perishables
+    'glut' signal; the two thresholds are simple fixed cutoffs chosen to
+    flag a clearly abnormal week, not a tuned/validated model.
+
+    Matching is case-insensitive: Agmarknet's raw commodity casing is
+    inconsistent (see display_commodity_name's docstring) — a real pull
+    returned 'Onion' for one row shape and would silently produce an empty
+    perishables list against a strict lowercase-only match, not because
+    onion wasn't traded but because '=='-comparing against a hardcoded
+    lowercase name doesn't match a differently-cased raw string."""
+    out = []
+    for name in PERISHABLES_WATCHLIST:
+        cur_val = sum(r["arrival_qty"] for r in current_rows if r["commodity"] and r["commodity"].strip().lower() == name and r["arrival_qty"] is not None)
+        prior_val = sum(r["arrival_qty"] for r in prior_rows if r["commodity"] and r["commodity"].strip().lower() == name and r["arrival_qty"] is not None)
+        if not cur_val and not prior_val:
+            continue  # not traded this cycle — omit rather than fabricate a zero row
+        arrival_wow = round((cur_val - prior_val) / prior_val * 100, 1) if prior_val else None
+        cur_price = _weighted_avg_price_ci(current_rows, name)
+        prior_price = _weighted_avg_price_ci(prior_rows, name)
+        price_wow = round((cur_price - prior_price) / prior_price * 100, 1) if (cur_price is not None and prior_price) else None
+        distress = arrival_wow is not None and price_wow is not None and arrival_wow >= DISTRESS_ARRIVAL_SURGE_PCT and price_wow <= DISTRESS_PRICE_FALL_PCT
+        watch = not distress and price_wow is not None and price_wow <= WATCH_PRICE_FALL_PCT
+        out.append({
+            "commodity": display_commodity_name(name),
+            "arrival_value": round(cur_val, 2),
+            "arrival_wow_pct_change": arrival_wow,
+            "modal_price": cur_price,
+            "prior_modal_price": prior_price,
+            "price_wow_pct_change": price_wow,
+            "distress_composite": distress,
+            "status": "action" if distress else ("watch" if watch else "normal"),
+        })
+    return out
+
+
+def compute_reporting_exceptions(market_compliance: dict, current_rows: list):
+    """The reference design's 'nil transaction' count is a market yard that
+    filed a return explicitly declaring zero arrival for a commodity. The
+    live API mixes these into the same row stream as real transactions
+    rather than a separate return type, so they're identified here as rows
+    with an explicit arrival_qty of 0 (as opposed to a missing/None
+    quantity, which just means the field wasn't reported for that row).
+    If none show up in a given week's pull, that's a real, computed zero —
+    not an unknown — so it's reported as 0, not N/A."""
+    band_counts = {b["band"]: b["market_count"] for b in market_compliance["compliance_bands"]}
+    partial = band_counts.get("1-2 days", 0) + band_counts.get("3-4 days", 0) + band_counts.get("5-6 days", 0)
+    nil_markets = {r["market"] for r in current_rows if r["arrival_qty"] == 0 and r["market"]}
+    return {
+        "partial_reporting_market_yards": partial,
+        "non_reporting_market_yards": band_counts.get("0 days", 0),
+        "full_reporting_market_yards": band_counts.get("7 days", 0),
+        "nil_transactions_reported": len(nil_markets),
+        "nil_transactions_note": (
+            "Nil transactions = market yards with at least one row this week explicitly declaring "
+            "zero arrival quantity, as distinct from a market that filed no return at all."
+        ),
+        "note": (
+            "Reporting split is by reporting-day coverage: partial = reported on 1-6 of 7 days, "
+            "non-reporting = reported on 0 of 7 days. Nil transactions reported is a separate, "
+            "narrower count of markets whose return explicitly declared zero arrival."
+        ),
+    }
+
+
+ALERT_PRICE_CRITICAL_PCT = 20.0   # WoW modal-price move at/above this = Critical price-volatility alert
+ALERT_PRICE_HIGH_PCT = 10.0       # ...at/above this (below Critical) = High
+ALERT_NONREPORTING_HIGH_SHARE = 10.0  # % of roster non-reporting at/above this = High rather than Watch
+
+
+def compute_alerts(fs: dict):
+    """Simple deterministic rules engine over numbers already computed
+    elsewhere in the fact sheet (never MSP-based — MSP isn't fetched). Fixed
+    thresholds, documented at point of use above; this intentionally trades
+    sophistication for auditability — every alert traces to one already-
+    published number."""
+    alerts = []
+    pc = fs["price_change"]
+    if pc.get("available"):
+        for g in pc["top_gainers"] + pc["top_decliners"]:
+            mag = abs(g["pct_change"])
+            if mag >= ALERT_PRICE_CRITICAL_PCT:
+                sev = "Critical"
+            elif mag >= ALERT_PRICE_HIGH_PCT:
+                sev = "High"
+            else:
+                continue
+            direction = "increase" if g["pct_change"] >= 0 else "decline"
+            alerts.append({
+                "severity": sev,
+                "type": "Price volatility",
+                "entity": g["commodity"],
+                "trigger": f"Modal price {direction} of {abs(g['pct_change'])}% week-on-week to Rs {g['current_modal_price']:,}",
+                "owner": "State Marketing Cell",
+            })
+    for p in fs.get("perishables", []):
+        if p["distress_composite"]:
+            alerts.append({
+                "severity": "Critical",
+                "type": "Distress composite",
+                "entity": p["commodity"],
+                "trigger": f"Arrival {fmt_pct(p['arrival_wow_pct_change'])} with modal price {fmt_pct(p['price_wow_pct_change'])} in the same week",
+                "owner": "Divisional Joint Directors",
+            })
+    mc = fs["market_compliance"]
+    non_reporting_share = (mc["markets_not_reporting"] / mc["markets_in_roster"] * 100) if mc["markets_in_roster"] else 0
+    if mc["markets_not_reporting"] > 0:
+        sev = "High" if non_reporting_share >= ALERT_NONREPORTING_HIGH_SHARE else "Watch"
+        alerts.append({
+            "severity": sev,
+            "type": "Reporting default",
+            "entity": f"{mc['markets_not_reporting']} of {mc['markets_in_roster']} market yards, state-wide",
+            "trigger": f"{round(non_reporting_share, 1)}% of registered market yards filed no return this week",
+            "owner": "State Marketing Cell",
+        })
+
+    severity_rank = {"Critical": 0, "High": 1, "Watch": 2}
+    alerts.sort(key=lambda a: severity_rank.get(a["severity"], 3))
+    counts = {"Critical": 0, "High": 0, "Watch": 0}
+    for a in alerts:
+        counts[a["severity"]] = counts.get(a["severity"], 0) + 1
+    return {"alerts": alerts, "counts": counts}
+
+
+ACTION_TARGET_DAYS = {"Critical": 3, "High": 7}  # Critical closes within a working week, High within two
+
+
+def compute_action_points(alerts_obj: dict, generated_at_iso: str):
+    """Action points are derived 1:1 from Critical/High alerts — never a
+    separate judgment call. target_date = generated_at + N days, N fixed per
+    severity (see ACTION_TARGET_DAYS)."""
+    gen = datetime.fromisoformat(generated_at_iso)
+    rows = []
+    for a in alerts_obj["alerts"]:
+        days = ACTION_TARGET_DAYS.get(a["severity"])
+        if days is None:
+            continue
+        target = (gen + timedelta(days=days)).date().isoformat()
+        rows.append({
+            "priority": a["severity"],
+            "action": f"Review {a['type'].lower()} — {a['entity']}: {a['trigger']}.",
+            "owner": a["owner"],
+            "target_date": target,
+        })
+    return rows
+
+
+def compute_coverage(current_rows: list, full_market_names: list):
+    """completeness_pct is the same ratio market_compliance already reports
+    (markets_reporting_at_least_once / markets_in_roster), surfaced here for
+    the coverage bar. records_missing_price counts rows the API returned
+    without a modal price — the pipeline has no separate row-validation/
+    rejection step, so this is a completeness signal, not a 'rejected in
+    validation' count (that concept doesn't exist in this pipeline)."""
+    reporting = len({r["market"] for r in current_rows if r["market"]})
+    records_missing_price = sum(1 for r in current_rows if r["modal_price"] is None)
+    completeness_pct = round(reporting / len(full_market_names) * 100, 1) if full_market_names else None
+    return {
+        "completeness_pct": completeness_pct,
+        "records_processed": len(current_rows),
+        "records_missing_price": records_missing_price,
+        "note": (
+            "completeness_pct = share of registered market yards that reported at least once. "
+            "records_missing_price = rows returned by the source API without a modal price value "
+            "(not a validation-rejection count — this pipeline performs no separate row-rejection step)."
+        ),
+    }
+
+
+def _weighted_avg_price_ci(rows: list, commodity_lower: str):
+    """Case-insensitive counterpart to _weighted_avg_price, for the fixed
+    perishables watchlist (see compute_perishables) where the raw casing of
+    a hardcoded name like 'onion' isn't guaranteed to match the source
+    row's casing."""
+    num = den = 0.0
+    for r in rows:
+        if r["commodity"] and r["commodity"].strip().lower() == commodity_lower and r["modal_price"] is not None and r["arrival_qty"] is not None:
+            num += r["modal_price"] * r["arrival_qty"]
+            den += r["arrival_qty"]
+    if den:
+        return round(num / den, 2)
+    prices = [r["modal_price"] for r in rows if r["commodity"] and r["commodity"].strip().lower() == commodity_lower and r["modal_price"] is not None]
+    return round(sum(prices) / len(prices), 2) if prices else None
 
 
 def compute_price_change(current_rows: list, prior_rows: list):
@@ -354,7 +611,7 @@ def compute_price_change(current_rows: list, prior_rows: list):
 
     def to_rows(names):
         return [
-            {"commodity": c, "pct_change": changes[c], "current_modal_price": round(cur[c], 2), "prior_modal_price": round(prior[c], 2)}
+            {"commodity": display_commodity_name(c), "pct_change": changes[c], "current_modal_price": round(cur[c], 2), "prior_modal_price": round(prior[c], 2)}
             for c in names
         ]
 
@@ -374,10 +631,77 @@ def compute_price_change(current_rows: list, prior_rows: list):
 # ---------------------------------------------------------------------------
 
 COMMODITY_NAME_HI = {
-    "wheat": "गेहूँ", "soyabean": "सोयाबीन", "soybean": "सोयाबीन", "onion": "प्याज",
-    "garlic": "लहसुन", "tomato": "टमाटर", "gram": "चना", "maize": "मक्का",
-    "mustard": "सरसों", "potato": "आलू", "tur": "तुअर", "paddy": "धान",
-    "lentil": "मसूर", "coriander": "धनिया", "rice": "चावल",
+    "absinthe": "आबसिंथ", "adulsa": "अडूसा", "ajwan": "अजवाइन",
+    "akarkara": "अकरकरा", "amaltas": "अमलतास", "amaranthus": "चौलाई",
+    "amarbel": "अमरबेल", "ambady/mesta/patson": "अंबाडी", "ambrette seed/muskmallow": "मुश्कदाना",
+    "amla(nelli kai)": "आंवला", "amranthas red": "लाल चौलाई", "apple": "सेब",
+    "aretha": "रीठा", "asalia": "हलीम", "asgand": "असगंध",
+    "ashoka": "अशोक", "ashwagandha": "अश्वगंधा", "asparagus": "शतावरी",
+    "baboolphali": "बबूल फली", "bael": "बेल", "bajra(pearl millet/cumbu)": "बाजरा",
+    "banana": "केला", "barley(jau)": "जौ", "beans": "सेम",
+    "beetroot": "चुकंदर", "behada": "बहेड़ा", "bengal gram(gram)(whole)": "चना",
+    "ber(zizyphus/borehannu)": "बेर", "bhindi(ladies finger)": "भिंडी", "bhringraj": "भृंगराज",
+    "bhui amlaya": "भूई आंवला", "bitter gourd": "करेला", "black gram(urd beans)(whole)": "उड़द",
+    "bottle gourd": "लौकी", "brahmi": "ब्राह्मी", "brinjal": "बैंगन",
+    "cabbage": "पत्तागोभी", "calendula": "गेंदा", "capsicum": "शिमला मिर्च",
+    "carrot": "गाजर", "castor seed": "अरंडी", "cauliflower": "फूलगोभी",
+    "chandrashoor": "चंद्रशूर", "chena": "छेना", "chiaseeds": "चिया बीज",
+    "chikoos(sapota)": "चीकू", "chili red": "लाल मिर्च", "chilly capsicum": "मिर्च शिमला",
+    "cluster beans": "ग्वार फली", "colacasia": "अरबी", "coriander(leaves)": "हरा धनिया",
+    "corriander seed": "धनिया बीज", "cotton": "कपास", "cowpea(lobia/karamani)": "लोबिया",
+    "cowpea(veg)": "लोबिया सब्जी", "cucumbar(kheera)": "खीरा", "cummin seed(jeera)": "जीरा",
+    "drumstick": "सहजन", "duster beans": "ग्वार फली", "flax seeds": "अलसी",
+    "french beans(frasbean)": "फ्रेंच बीन्स", "garlic": "लहसुन", "gataran": "गटारन",
+    "giloy": "गिलोय", "ginger(dry)": "सोंठ", "ginger(green)": "अदरक",
+    "gokhru": "गोखरू", "gond": "गोंद", "gram raw(chholia)": "छोलिया",
+    "grapes": "अंगूर", "green chilli": "हरी मिर्च", "green gram(moong)(whole)": "मूंग",
+    "green peas": "हरी मटर", "groundnut": "मूंगफली", "groundnut pods(raw)": "कच्ची मूंगफली फली",
+    "guar": "ग्वार", "guava": "अमरूद", "gudmar": "गुड़मार",
+    "gur(jaggery)": "गुड़", "harrah": "हरड़", "heena": "मेहंदी",
+    "hingot": "हिंगोट", "indian beans(seam)": "सेम", "isabgul(psyllium)": "ईसबगोल",
+    "jack fruit(ripe)": "पका कटहल", "jackfruit seed": "कटहल बीज", "jackfruit(green/raw/unripe)": "कच्चा कटहल",
+    "jaee": "जई", "jamun": "जामुन", "jamun(narale hannu)": "जामुन",
+    "jowar(sorghum)": "ज्वार", "kabuli chana(chickpeas-white)": "काबुली चना", "kalmegh": "कालमेघ",
+    "kantakari": "कंटकारी", "karbuja(musk melon)": "खरबूजा", "kaunch": "कौंच",
+    "kinnow": "किन्नू", "kodo millet(varagu)": "कोदो", "kulthi(horse gram)": "कुलथी",
+    "kutki": "कुटकी", "ladies finger": "भिंडी", "laha": "लाहा",
+    "lak(teora)": "लाख", "leafy vegetable": "पत्तेदार सब्जी", "lemon": "नींबू",
+    "lentil(masur)(whole)": "मसूर", "lime": "नींबू", "linseed": "अलसी",
+    "litchi": "लीची", "little gourd(kundru)": "कुंदरू", "long melon(kakri)": "ककड़ी",
+    "mahua": "महुआ", "maize": "मक्का", "mango": "आम",
+    "mango(raw-ripe)": "आम (कच्चा-पका)", "marigold(calcutta)": "गेंदा फूल", "methi seeds": "मेथी दाना",
+    "methi(leaves)": "मेथी पत्ती", "mousambi(sweet lime)": "मौसमी", "muesli": "मूसली",
+    "muleti": "मुलेठी", "muskmelon seeds": "खरबूजा बीज", "mustard": "सरसों",
+    "nagarmotha": "नागरमोथा", "neem seed": "नीम बीज", "niger seed(ramtil)": "रामतिल",
+    "onion": "प्याज", "onion green": "हरा प्याज", "orange": "संतरा",
+    "other green and fresh vegetables": "अन्य हरी सब्जियां", "paddy(common)": "धान", "palash flowers": "पलाश फूल",
+    "papaya": "पपीता", "papaya(raw)": "कच्चा पपीता", "pea pod/pea cod/हरी मटर": "हरी मटर फली",
+    "pear(marasebu)": "नाशपाती", "peas wet": "हरी मटर", "peas(dry)": "सूखी मटर",
+    "pineapple": "अनानास", "plum": "आलूबुखारा", "pointed gourd(parval)": "परवल",
+    "pomegranate": "अनार", "potato": "आलू", "pumpkin": "कद्दू",
+    "pupadia": "पुपाड़िया", "quinoa": "क्विनोआ", "raddish": "मूली",
+    "ragi(finger millet)": "रागी", "rajgir": "राजगिरा", "ramphal": "रामफल",
+    "ratanjot": "रतनजोत", "rayee": "राई", "red gram/arhar/tur(whole)": "अरहर",
+    "ridgeguard(tori)": "तोरई", "rose(loose))": "गुलाब", "round gourd": "टिंडा",
+    "safflower": "कुसुम", "saffron": "केसर", "sahjan leaf": "सहजन पत्ती",
+    "same/savi": "सामा", "sanai/sunhemp": "सनई", "seetapal": "सीताफल",
+    "sem": "सेम", "sesamum(sesame,gingelly,til)": "तिल", "shankhpushpi": "शंखपुष्पी",
+    "snakeguard": "चिचिंडा", "soanf": "सौंफ", "soapnut(antawala/retha)": "रीठा",
+    "soha": "सोहा", "soyabean": "सोयाबीन", "spinach": "पालक",
+    "sponge gourd": "तोरई", "sunflower/sunflower seed": "सूरजमुखी", "sweet potato": "शकरकंद",
+    "tamarind fruit": "इमली", "taramira": "तारामीरा", "taro (arvi) stem": "अरबी डंठल",
+    "tender coconut": "नारियल पानी", "tesu flower": "टेसू फूल", "tinda": "टिंडा",
+    "tobacco": "तंबाकू", "tomato": "टमाटर", "turmeric": "हल्दी",
+    "water melon": "तरबूज", "water chestnut": "सिंघाड़ा", "wheat": "गेहूँ",
+    "white muesli": "सफेद मूसली", "wild melon": "जंगली खरबूजा", "basil": "तुलसी",
+    "buttery": "बटरी", "dhawai flowers": "धवई फूल", "dried mango": "सूखा आम",
+    "gulli": "गुल्ली", "karanja seeds": "करंज बीज", "liquor turmeric": "लीकर हल्दी",
+    "mango powder": "आम पाउडर", "nigella": "कलौंजी", "nigella seeds": "कलौंजी बीज",
+    "pippali": "पिप्पली", "poppy seeds": "खसखस", "sanay": "सनाय",
+    "spikenard": "जटामांसी", "stevia": "स्टीविया", "vadang": "वायविडंग",
+    "soybean": "सोयाबीन", "rice": "चावल", "paddy": "धान",
+    "gram": "चना", "tur": "अरहर", "lentil": "मसूर",
+    "coriander": "धनिया",
 }
 
 
@@ -416,95 +740,119 @@ def _fmt_trend_period_hi(label: str, period: dict) -> str:
 
 
 def narrate_english(fs: dict) -> str:
+    """Deterministic fallback, written as flowing prose paragraphs (not
+    bullets) — this is also the shape the fine-tuned model is trained to
+    imitate (self-distillation, see train_lora.py), so the template's own
+    output must already look like the target register, not a bulleted
+    outline of it."""
     oa, mc, tc, pc = fs["overall_arrivals"], fs["market_compliance"], fs["top_commodities"], fs["price_change"]
-    lines = [f"Madhya Pradesh Weekly Mandi Summary — {format_date_readable(fs['week_start'])} to {format_date_readable(fs['week_end'])}", ""]
-    lines.append(
-        f"Total arrivals across Madhya Pradesh markets for the week were "
-        f"{oa['total_arrivals']:,} tonnes, a change of {fmt_pct(oa['wow_pct_change'])} over the previous week."
+    title = f"Madhya Pradesh Weekly Mandi Summary — {format_date_readable(fs['week_start'])} to {format_date_readable(fs['week_end'])}"
+
+    p1 = (
+        f"Total arrivals across Madhya Pradesh markets for the week were {oa['total_arrivals']:,} tonnes, "
+        f"{fmt_pct(oa['wow_pct_change'])} against the previous week."
     )
     if tc["top_commodities"]:
         top = tc["top_commodities"][0]
         share = f", {top['share_pct_of_state_arrivals']}% of state arrivals" if top["share_pct_of_state_arrivals"] is not None else ""
-        lines.append(
-            f"{top['commodity']} was the most-traded commodity by arrival volume "
-            f"({top['arrival_value']:,} tonnes{share}), traded across {top['markets_trading']} markets."
+        p1 += (
+            f" {top['commodity']} was the most-traded commodity by arrival volume at {top['arrival_value']:,} "
+            f"tonnes{share}, traded across {top['markets_trading']} markets."
         )
         others = ", ".join(f"{r['commodity']} ({r['arrival_value']:,})" for r in tc["top_commodities"][1:5])
         if others:
-            lines.append(f"Other leading commodities by arrival volume: {others}.")
+            p1 += f" Other leading commodities by arrival volume were {others}."
+
     if pc.get("available"):
-        gainers = "; ".join(f"{g['commodity']} {fmt_pct(g['pct_change'])} (Rs {g['current_modal_price']:,} from Rs {g['prior_modal_price']:,})" for g in pc["top_gainers"])
-        decliners = "; ".join(f"{d['commodity']} {fmt_pct(d['pct_change'])} (Rs {d['current_modal_price']:,} from Rs {d['prior_modal_price']:,})" for d in pc["top_decliners"])
-        lines.append(f"Largest week-on-week price increases: {gainers if gainers else 'none'}.")
-        lines.append(f"Largest week-on-week price decreases: {decliners if decliners else 'none'}.")
+        gainers = "; ".join(f"{g['commodity']} {fmt_pct(g['pct_change'])} to Rs {g['current_modal_price']:,} (from Rs {g['prior_modal_price']:,})" for g in pc["top_gainers"])
+        decliners = "; ".join(f"{d['commodity']} {fmt_pct(d['pct_change'])} to Rs {d['current_modal_price']:,} (from Rs {d['prior_modal_price']:,})" for d in pc["top_decliners"])
+        p2 = f"The largest week-on-week price increases were {gainers if gainers else 'none'}, while the largest declines were {decliners if decliners else 'none'}."
     else:
-        lines.append(f"Week-on-week price comparison is not available this week ({pc.get('reason')}).")
+        p2 = f"Week-on-week price comparison is not available this week ({pc.get('reason')})."
     pt = fs.get("price_trend", {}).get("commodities", [])
     if pt:
         top_trend = pt[0]
-        lines.append(
-            f"{top_trend['commodity']}'s average price this week was "
-            f"Rs {top_trend['this_week_avg_price']:,} — vs "
-            f"{_fmt_trend_period('last week', top_trend['last_week'])}, "
-            f"{_fmt_trend_period('same week last month', top_trend['last_month_same_week'])}, "
-            f"{_fmt_trend_period('same week last year', top_trend['last_year_same_week'])}."
+        p2 += (
+            f" {top_trend['commodity']}'s average price this week was Rs {top_trend['this_week_avg_price']:,}, "
+            f"compared with {_fmt_trend_period('last week', top_trend['last_week'])}, "
+            f"{_fmt_trend_period('the same week last month', top_trend['last_month_same_week'])}, and "
+            f"{_fmt_trend_period('the same week last year', top_trend['last_year_same_week'])}."
         )
-    lines.append(
-        f"Of {mc['markets_in_roster']} registered market yards, {mc['markets_reporting_at_least_once']} "
-        f"reported at least once this week. {mc['markets_reporting_all_7_days']} markets reported on all 7 days, "
+
+    p3 = (
+        f"Of {mc['markets_in_roster']} registered market yards, {mc['markets_reporting_at_least_once']} reported "
+        f"at least once this week: {mc['markets_reporting_all_7_days']} markets reported on all 7 days, "
         f"{mc['markets_reporting_5_to_6_days']} reported on 5-6 days, and {mc['markets_not_reporting']} filed no return."
     )
     if mc["top_reporting_market"]:
-        lines.append(f"{mc['top_reporting_market']} reported the most days ({mc['top_reporting_market_days']} of 7 days).")
-    return "\n".join(lines)
+        p3 += f" {mc['top_reporting_market']} reported the most days, {mc['top_reporting_market_days']} of 7."
+
+    return "\n\n".join([title, p1, p2, p3])
 
 
 def narrate_hindi(fs: dict) -> str:
     oa, mc, tc, pc = fs["overall_arrivals"], fs["market_compliance"], fs["top_commodities"], fs["price_change"]
-    lines = [f"मध्य प्रदेश साप्ताहिक मंडी सारांश — {format_date_readable(fs['week_start'])} से {format_date_readable(fs['week_end'])}", ""]
-    lines.append(
+    title = f"मध्य प्रदेश साप्ताहिक मंडी सारांश — {format_date_readable(fs['week_start'])} से {format_date_readable(fs['week_end'])}"
+
+    p1 = (
         f"मध्य प्रदेश की मंडियों में इस सप्ताह कुल आवक {oa['total_arrivals']:,} टन रही, "
         f"जो पिछले सप्ताह की तुलना में {fmt_pct_hi(oa['wow_pct_change'])} है।"
     )
     if tc["top_commodities"]:
         top = tc["top_commodities"][0]
         share = f", राज्य की आवक का {top['share_pct_of_state_arrivals']}%" if top["share_pct_of_state_arrivals"] is not None else ""
-        lines.append(
-            f"आवक मात्रा के आधार पर {commodity_hi(top['commodity'])} सबसे अधिक कारोबार वाली वस्तु रही "
+        p1 += (
+            f" आवक मात्रा के आधार पर {commodity_hi(top['commodity'])} सबसे अधिक कारोबार वाली वस्तु रही "
             f"({top['arrival_value']:,} टन{share}), जिसका कारोबार {top['markets_trading']} मंडियों में हुआ।"
         )
         others = ", ".join(f"{commodity_hi(r['commodity'])} ({r['arrival_value']:,})" for r in tc["top_commodities"][1:5])
         if others:
-            lines.append(f"आवक मात्रा के आधार पर अन्य प्रमुख वस्तुएँ: {others}.")
+            p1 += f" अन्य प्रमुख वस्तुएँ रहीं: {others}।"
+
     if pc.get("available"):
         gainers = "; ".join(f"{commodity_hi(g['commodity'])} {fmt_pct_hi(g['pct_change'])} (रु {g['current_modal_price']:,}, पूर्व रु {g['prior_modal_price']:,})" for g in pc["top_gainers"])
         decliners = "; ".join(f"{commodity_hi(d['commodity'])} {fmt_pct_hi(d['pct_change'])} (रु {d['current_modal_price']:,}, पूर्व रु {d['prior_modal_price']:,})" for d in pc["top_decliners"])
-        lines.append(f"साप्ताहिक आधार पर सबसे अधिक मूल्य वृद्धि: {gainers if gainers else 'कोई नहीं'}.")
-        lines.append(f"साप्ताहिक आधार पर सबसे अधिक मूल्य गिरावट: {decliners if decliners else 'कोई नहीं'}.")
+        p2 = f"साप्ताहिक आधार पर सबसे अधिक मूल्य वृद्धि रही {gainers if gainers else 'कोई नहीं'}, जबकि सबसे अधिक गिरावट रही {decliners if decliners else 'कोई नहीं'}।"
     else:
-        lines.append("इस सप्ताह मूल्य तुलना उपलब्ध नहीं है (पिछले सप्ताह का डेटा नहीं)।")
+        p2 = "इस सप्ताह मूल्य तुलना उपलब्ध नहीं है (पिछले सप्ताह का डेटा नहीं)।"
     pt = fs.get("price_trend", {}).get("commodities", [])
     if pt:
         top_trend = pt[0]
-        lines.append(
-            f"{commodity_hi(top_trend['commodity'])} का इस सप्ताह औसत मूल्य "
-            f"रु {top_trend['this_week_avg_price']:,} रहा — तुलना में "
+        p2 += (
+            f" {commodity_hi(top_trend['commodity'])} का इस सप्ताह औसत मूल्य रु {top_trend['this_week_avg_price']:,} रहा — तुलना में "
             f"{_fmt_trend_period_hi('पिछला सप्ताह', top_trend['last_week'])}, "
-            f"{_fmt_trend_period_hi('पिछले महीने का यही सप्ताह', top_trend['last_month_same_week'])}, "
+            f"{_fmt_trend_period_hi('पिछले महीने का यही सप्ताह', top_trend['last_month_same_week'])}, और "
             f"{_fmt_trend_period_hi('पिछले वर्ष का यही सप्ताह', top_trend['last_year_same_week'])}।"
         )
-    lines.append(
+
+    p3 = (
         f"{mc['markets_in_roster']} पंजीकृत मंडियों में से {mc['markets_reporting_at_least_once']} मंडियों ने इस सप्ताह "
-        f"कम से कम एक बार रिपोर्ट की। {mc['markets_reporting_all_7_days']} मंडियों ने सातों दिन रिपोर्ट की, "
+        f"कम से कम एक बार रिपोर्ट की: {mc['markets_reporting_all_7_days']} मंडियों ने सातों दिन रिपोर्ट की, "
         f"{mc['markets_reporting_5_to_6_days']} मंडियों ने 5-6 दिन रिपोर्ट की, और {mc['markets_not_reporting']} मंडियों ने कोई रिपोर्ट दर्ज नहीं की।"
     )
     if mc["top_reporting_market"]:
-        lines.append(f"{mc['top_reporting_market']} मंडी ने सबसे अधिक दिन रिपोर्ट की (सप्ताह के {mc['top_reporting_market_days']} दिन)।")
-    return "\n".join(lines)
+        p3 += f" {mc['top_reporting_market']} मंडी ने सबसे अधिक दिन रिपोर्ट की, सप्ताह के {mc['top_reporting_market_days']} दिन।"
+
+    return "\n\n".join([title, p1, p2, p3])
 
 
 def _strip_bullet(line: str) -> str:
     return re.sub(r"^[-•*]\s*", "", line.strip())
+
+
+def _clean_model_paragraphs(text: str) -> str:
+    """Normalizes a model draft into blank-line-separated paragraphs: joins
+    wrapped lines within a paragraph, strips any stray bullet marker left
+    over from the model's pre-paragraph-reformat training data (see
+    train_lora.py), and drops empty paragraphs. Works whether the model
+    already emits '\\n\\n'-separated paragraphs or one block per line."""
+    paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
+    cleaned = []
+    for p in paragraphs:
+        joined = " ".join(_strip_bullet(l) for l in p.splitlines() if l.strip())
+        if joined:
+            cleaned.append(joined)
+    return "\n\n".join(cleaned)
 
 
 def _body_only(text: str) -> str:
@@ -540,7 +888,7 @@ def compose_briefs(fs: dict):
     print("Requesting grounded English narration from the model ...", file=sys.stderr)
     model_en, meta_en = narrate_with_model(fs, "en")
     if model_en:
-        body = "\n".join(_strip_bullet(l) for l in model_en.splitlines() if l.strip())
+        body = _clean_model_paragraphs(model_en)
         english_brief = f"{en_title}\n\n{body}"
     else:
         print(f"  falling back to template ({meta_en['reason']})", file=sys.stderr)
@@ -551,7 +899,7 @@ def compose_briefs(fs: dict):
     print("Requesting grounded Hindi narration from the model ...", file=sys.stderr)
     model_hi, meta_hi = narrate_with_model(fs, "hi")
     if model_hi:
-        body = "\n".join(_strip_bullet(l) for l in model_hi.splitlines() if l.strip())
+        body = _clean_model_paragraphs(model_hi)
         hindi_brief = f"{hi_title}\n\n{body}"
     else:
         print(f"  falling back to template ({meta_hi['reason']})", file=sys.stderr)
@@ -632,7 +980,24 @@ def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
     last_year_rows, last_year_errors = split(last_year_days)
 
     top_commodities = compute_top_commodities(current_rows, prior_rows, TOP_N_COMMODITIES)
+    # Raw casing, straight from the source — must match the raw rows'
+    # "commodity" field exactly for compute_price_trend's filtering below.
+    # Title-casing for display happens after, in top_commodities_display,
+    # once nothing downstream needs to match against it anymore.
     top_commodity_names = [c["commodity"] for c in top_commodities["top_commodities"]]
+    top_commodities_display = {
+        **top_commodities,
+        "top_commodities": [
+            {**c, "commodity": display_commodity_name(c["commodity"])}
+            for c in top_commodities["top_commodities"]
+        ],
+        "donut_slices": [
+            # "Remaining N commodities" is generated label text, not a raw
+            # commodity name — must not be run through display_commodity_name.
+            {**s, "commodity": s["commodity"] if s["commodity"].startswith("Remaining ") else display_commodity_name(s["commodity"])}
+            for s in top_commodities["donut_slices"]
+        ],
+    }
 
     fact_sheet = {
         "state": STATE_NAME,
@@ -648,7 +1013,7 @@ def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
         },
         "overall_arrivals": compute_overall_arrivals(current_rows, prior_rows),
         "market_compliance": compute_market_compliance(current_rows, full_market_names),
-        "top_commodities": top_commodities,
+        "top_commodities": top_commodities_display,
         "price_change": compute_price_change(current_rows, prior_rows),
         "price_trend": {
             "definition": (
@@ -670,6 +1035,13 @@ def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
         dataset_path = write_raw_dataset(current_rows, dataset_dir, week_start, week_end)
         fact_sheet["raw_dataset_file"] = dataset_path
         print(f"Wrote {len(current_rows)} raw rows to {dataset_path}", file=sys.stderr)
+
+    fact_sheet["coverage"] = compute_coverage(current_rows, full_market_names)
+    fact_sheet["price_bands"] = compute_price_bands(current_rows, top_commodity_names)
+    fact_sheet["perishables"] = compute_perishables(current_rows, prior_rows)
+    fact_sheet["reporting_exceptions"] = compute_reporting_exceptions(fact_sheet["market_compliance"], current_rows)
+    fact_sheet["alerts"] = compute_alerts(fact_sheet)
+    fact_sheet["action_points"] = compute_action_points(fact_sheet["alerts"], fact_sheet["generated_at"])
 
     english_brief, hindi_brief, narration_meta = compose_briefs(fact_sheet)
     fact_sheet["narration_meta"] = narration_meta

@@ -71,6 +71,68 @@
       }
     ]
   },
+  "coverage": {
+    "completeness_pct": 100.0,
+    "records_processed": 9,
+    "records_missing_price": 0,
+    "note": "completeness_pct = share of registered market yards that reported at least once. records_missing_price = rows returned by the source API without a modal price value (not a validation-rejection count — this pipeline performs no separate row-rejection step)."
+  },
+  "price_bands": [
+    { "commodity": "Wheat", "min_price": 2200.0, "max_price": 2650.0, "modal_price": 2458.57 },
+    { "commodity": "Onion", "min_price": 900.0, "max_price": 1350.0, "modal_price": 1100.0 },
+    { "commodity": "Tomato", "min_price": 600.0, "max_price": 1100.0, "modal_price": 860.0 },
+    { "commodity": "Soyabean", "min_price": 3700.0, "max_price": 4200.0, "modal_price": 3950.0 },
+    { "commodity": "Garlic", "min_price": 5200.0, "max_price": 11800.0, "modal_price": 9180.0 }
+  ],
+  "perishables": [
+    {
+      "commodity": "Tomato", "arrival_value": 90.0, "arrival_wow_pct_change": 38.5,
+      "modal_price": 860.0, "prior_modal_price": 1254.0, "price_wow_pct_change": -31.42,
+      "distress_composite": true, "status": "action"
+    },
+    {
+      "commodity": "Onion", "arrival_value": 380.0, "arrival_wow_pct_change": 153.3,
+      "modal_price": 1100.0, "prior_modal_price": 1000.0, "price_wow_pct_change": 10.0,
+      "distress_composite": false, "status": "normal"
+    }
+  ],
+  "reporting_exceptions": {
+    "partial_reporting_market_yards": 2,
+    "non_reporting_market_yards": 0,
+    "full_reporting_market_yards": 1,
+    "note": "Split is by reporting-day coverage, not by declared-zero-arrival returns: the source API returns rows only for actual transactions, so a compliant 'nil return' cannot be distinguished from a missing return. Partial = reported on 1-6 of 7 days. Non-reporting = reported on 0 of 7 days."
+  },
+  "alerts": {
+    "alerts": [
+      {
+        "severity": "Critical", "type": "Price volatility", "entity": "Garlic",
+        "trigger": "Modal price increase of 24.73% week-on-week to Rs 9,180", "owner": "State Marketing Cell"
+      },
+      {
+        "severity": "Critical", "type": "Distress composite", "entity": "Tomato",
+        "trigger": "Arrival +38.5% with modal price -31.42% in the same week", "owner": "Divisional Joint Directors"
+      },
+      {
+        "severity": "High", "type": "Price volatility", "entity": "Tomato",
+        "trigger": "Modal price decline of 31.42% week-on-week to Rs 860", "owner": "State Marketing Cell"
+      }
+    ],
+    "counts": { "Critical": 2, "High": 1, "Watch": 0 }
+  },
+  "action_points": [
+    {
+      "priority": "Critical", "action": "Review price volatility — Garlic: Modal price increase of 24.73% week-on-week to Rs 9,180.",
+      "owner": "State Marketing Cell", "target_date": "2026-07-26"
+    },
+    {
+      "priority": "Critical", "action": "Review distress composite — Tomato: Arrival +38.5% with modal price -31.42% in the same week.",
+      "owner": "Divisional Joint Directors", "target_date": "2026-07-26"
+    },
+    {
+      "priority": "High", "action": "Review price volatility — Tomato: Modal price decline of 31.42% week-on-week to Rs 860.",
+      "owner": "State Marketing Cell", "target_date": "2026-07-30"
+    }
+  ],
   "narration_meta": {
     "en": {
       "model": "template", "provider": "local", "attempts": 0, "used_model": false,

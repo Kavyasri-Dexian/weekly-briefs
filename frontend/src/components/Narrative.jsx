@@ -1,9 +1,27 @@
 import { useState } from "react";
 
 function parseBrief(text) {
-  const lines = text.split("\n").map((l) => l.trim()).filter(Boolean);
-  const [lead, ...points] = lines;
-  return { lead, points };
+  // Body paragraphs are blank-line separated (see pipeline.py narrate_english/
+  // narrate_hindi and _clean_model_paragraphs) — title is its own leading
+  // paragraph, dropped here since App.jsx already renders it via the masthead.
+  const paragraphs = text.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
+  const [, ...body] = paragraphs;
+  return body.length ? body : paragraphs;
+}
+
+const NUMBER_RE = /(\d[\d,]*\.?\d*%?)/g;
+
+/** Bolds numeric tokens within a paragraph for the "board report" register
+ * (mirrors the reference design's <b> around key figures) without using
+ * dangerouslySetInnerHTML — the text is our own generated prose, but this
+ * keeps rendering to plain React nodes regardless. String.split() with a
+ * capturing group interleaves the matched numbers at odd indices, so no
+ * separate regex.test() pass is needed — reusing a `g`-flagged regex across
+ * repeated .test() calls would silently desync via its own lastIndex. */
+function withBoldNumbers(text) {
+  return text.split(NUMBER_RE).map((part, i) =>
+    i % 2 === 1 ? <b key={i}>{part}</b> : <span key={i}>{part}</span>
+  );
 }
 
 function ScoreBadge({ meta }) {
@@ -14,10 +32,6 @@ function ScoreBadge({ meta }) {
       <span className={`score-pill ${good ? "score-good" : "score-warn"}`}>
         {meta.accuracy_pct}% numbers verified
       </span>
-      <span className="score-detail">
-        {meta.numbers_verified}/{meta.numbers_checked} checked · {meta.used_model ? "model draft" : "template"}
-        {meta.used_model ? ` (${meta.attempts} attempt${meta.attempts === 1 ? "" : "s"})` : ""}
-      </span>
     </div>
   );
 }
@@ -25,13 +39,13 @@ function ScoreBadge({ meta }) {
 export default function Narrative({ briefEn, briefHi, narrationMeta }) {
   const [lang, setLang] = useState("en");
   const text = lang === "en" ? briefEn : briefHi;
-  const { lead, points } = parseBrief(text);
+  const paragraphs = parseBrief(text);
   const meta = narrationMeta?.[lang];
 
   return (
-    <section className="panel narrative-panel">
-      <div className="narrative-header">
-        <h2 className="panel-title narrative-title">Executive Summary</h2>
+    <div className="narr">
+      <div className="narr-h">
+        <span>Executive Narrative</span>
         <div className="lang-toggle" role="tablist" aria-label="Language">
           <button
             role="tab"
@@ -52,12 +66,9 @@ export default function Narrative({ briefEn, briefHi, narrationMeta }) {
         </div>
       </div>
       <ScoreBadge meta={meta} />
-      {lead ? <p className="narrative-lead">{lead}</p> : null}
-      <ul className="narrative-list">
-        {points.map((point, i) => (
-          <li key={i}>{point}</li>
-        ))}
-      </ul>
-    </section>
+      {paragraphs.map((p, i) => (
+        <p key={i}>{withBoldNumbers(p)}</p>
+      ))}
+    </div>
   );
 }

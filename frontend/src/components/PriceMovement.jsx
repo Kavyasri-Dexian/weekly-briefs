@@ -1,8 +1,10 @@
+import SectionHeading from "./SectionHeading.jsx";
+
 export default function PriceMovement({ priceChange }) {
   if (!priceChange?.available) {
     return (
       <section className="panel">
-        <h2 className="panel-title">Weekly Price Movement — Gainers & Decliners</h2>
+        <SectionHeading n="05" title="Price movement — gainers and decliners" tag="Week on week" />
         <p className="panel-empty">
           Not available this week ({priceChange?.reason ?? "no prior-week data loaded"}).
         </p>
@@ -21,15 +23,23 @@ export default function PriceMovement({ priceChange }) {
   // reads top-to-bottom as "worst to best", matching the reference layout.
   const rows = [...decliners].reverse().concat([...gainers].reverse());
 
+  const topGainer = gainers[0];
+  const topDecliner = decliners[0];
+  const highlightParts = [];
+  if (topGainer) highlightParts.push(`${topGainer.commodity} gained ${Math.abs(topGainer.pct_change)} per cent`);
+  if (topDecliner) highlightParts.push(`${topDecliner.commodity} declined ${Math.abs(topDecliner.pct_change)} per cent`);
+  const highlight = highlightParts.length ? `${highlightParts.join(" and ")} against the previous week.` : null;
+
   return (
     <section className="panel">
-      <h2 className="panel-title">Weekly Price Movement — Gainers & Decliners</h2>
+      <SectionHeading n="05" title="Price movement — gainers and decliners" tag="Week on week" />
       {priceChange.min_trading_days_for_ranking ? (
         <p className="panel-subtitle">
           Only commodities traded on at least {priceChange.min_trading_days_for_ranking} days in both weeks are
           eligible{priceChange.commodities_excluded_thin_trade ? ` — ${priceChange.commodities_excluded_thin_trade} excluded as thin trade` : ""}.
         </p>
       ) : null}
+      {highlight ? <div className="section-highlight">{highlight}</div> : null}
       <div className="diverging-chart">
         {rows.map((r) => {
           const good = r.pct_change >= 0;
@@ -53,6 +63,7 @@ export default function PriceMovement({ priceChange }) {
                 {good ? "+" : ""}
                 {r.pct_change}%
               </div>
+              <div className="diverging-price tabular">Rs {r.current_modal_price.toLocaleString()}</div>
             </div>
           );
         })}

@@ -1,10 +1,73 @@
+import SectionHeading from "./SectionHeading.jsx";
+
+function rankingBasisLabel(basis) {
+  if (basis === "arrival_qty") return "arrival volume (tonnes)";
+  if (basis?.startsWith("price_quote_count")) return "number of price quotes (arrival volume unavailable this week)";
+  return basis;
+}
+
+// Fixed hex swatches (not theme tokens) so donut segments keep consistent
+// contrast against each other regardless of light/dark mode, same rationale
+// as the bar-fill colors elsewhere in this file.
+const DONUT_COLORS = ["#1F5C3D", "#2E7D52", "#4E9670", "#1B3A5C", "#3D6489", "#B8791C", "#D0A054", "#A8321E", "#C9CFC7"];
+
+function hhiLabel(hhi) {
+  if (hhi == null) return null;
+  if (hhi < 0.15) return "Low concentration";
+  if (hhi < 0.25) return "Moderate concentration";
+  return "High concentration";
+}
+
+function CommodityDonut({ slices, hhi }) {
+  if (!slices?.length) return null;
+  let cumulative = 0;
+  const stops = slices.map((s, i) => {
+    const pct = s.share_pct_of_state_arrivals ?? 0;
+    const start = cumulative;
+    cumulative += pct;
+    return `${DONUT_COLORS[i % DONUT_COLORS.length]} ${start}% ${cumulative}%`;
+  });
+  return (
+    <div className="donut-wrap">
+      <div className="donut-chart" style={{ background: `conic-gradient(${stops.join(", ")})` }}>
+        <div className="donut-hole">
+          {hhi != null ? (
+            <>
+              <span className="donut-hhi tabular">{hhi}</span>
+              <span className="donut-hhi-label">HHI · {hhiLabel(hhi)}</span>
+            </>
+          ) : null}
+        </div>
+      </div>
+      <ul className="donut-legend">
+        {slices.map((s, i) => (
+          <li key={s.commodity}>
+            <span className="donut-swatch" style={{ background: DONUT_COLORS[i % DONUT_COLORS.length] }} />
+            <span className="donut-legend-name">{s.commodity}</span>
+            <span className="donut-legend-value tabular">
+              {s.share_pct_of_state_arrivals != null ? `${s.share_pct_of_state_arrivals}%` : "—"}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function TopCommodities({ topCommodities }) {
   const rows = topCommodities.top_commodities;
   const maxValue = Math.max(...rows.map((r) => r.arrival_value), 1);
+  const top = rows[0];
+  const highlight = top
+    ? `${top.commodity} led state arrivals at ${top.arrival_value.toLocaleString()} tonnes${
+        top.share_pct_of_state_arrivals != null ? ` or ${top.share_pct_of_state_arrivals} per cent` : ""
+      } of total volume.`
+    : null;
 
   return (
     <section className="panel">
-      <h2 className="panel-title">Top Traded Commodities by Arrival Volume</h2>
+      <SectionHeading n="02" title="Commodity arrivals" tag="By arrival volume" />
+      {highlight ? <div className="section-highlight">{highlight}</div> : null}
       <div className="table-scroll">
         <table className="data-table">
           <thead>
@@ -54,8 +117,18 @@ export default function TopCommodities({ topCommodities }) {
         </table>
       </div>
       <p className="panel-footnote">
-        Ranked by arrival volume ({topCommodities.ranking_basis}). {topCommodities.total_commodities_traded} commodities traded this week in total.
+        Ranked by {rankingBasisLabel(topCommodities.ranking_basis)}. {topCommodities.total_commodities_traded} commodities traded this week in total.
       </p>
+      {topCommodities.donut_slices?.length ? (
+        <>
+          <h3 className="panel-subheading">Share of state arrival</h3>
+          <CommodityDonut slices={topCommodities.donut_slices} hhi={topCommodities.concentration_hhi} />
+          <p className="panel-footnote">
+            Concentration is measured by the Herfindahl–Hirschman Index over all commodities' arrival shares, not
+            just those shown above.
+          </p>
+        </>
+      ) : null}
     </section>
   );
 }

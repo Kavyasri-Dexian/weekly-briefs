@@ -78,6 +78,14 @@ def main():
     model = get_peft_model(model, lora_config)
     model.print_trainable_parameters()
 
+    # Gradient checkpointing trades recomputation (slower) for not holding
+    # every layer's activations in memory at once (much lower peak RAM) — a
+    # real fix for training on this machine: the first attempt at ~2700
+    # tokens/example pushed system memory to 98% load without this enabled.
+    model.config.use_cache = False  # incompatible with gradient checkpointing
+    model.gradient_checkpointing_enable()
+    model.enable_input_require_grads()  # required for PEFT + checkpointing together
+
     def to_text(example):
         messages = [
             {"role": "user", "content": example["prompt"]},
@@ -87,7 +95,14 @@ def main():
 
     def tokenize(example):
         text = to_text(example)
-        enc = tokenizer(text, truncation=True, max_length=1536, padding="max_length")
+        # No fixed-length padding here — with per_device_train_batch_size=1,
+        # the collator below pads each micro-batch to its own single
+        # example's length, so there's no wasted compute on padding tokens.
+        # (A real bug caught before this: max_length=1536 with our actual
+        # ~2700-token examples was silently truncating every example, most
+        # likely cutting off the assistant completion entirely — the model
+        # would have trained on almost no real supervision signal.)
+        enc = tokenizer(text, truncation=True, max_length=3072)
         enc["labels"] = list(enc["input_ids"])
         return enc
 

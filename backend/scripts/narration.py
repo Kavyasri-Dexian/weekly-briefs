@@ -39,47 +39,83 @@ NARRATION_PROVIDER = os.environ.get("NARRATION_PROVIDER", "local")
 DEFAULT_MODEL = os.environ.get("HF_NARRATION_MODEL", "Qwen/Qwen2.5-7B-Instruct")
 LOCAL_PYTHON = os.environ.get("LOCAL_PYTHON", r"C:\venv\mlenv\Scripts\python.exe")
 LOCAL_MODEL = os.environ.get("LOCAL_NARRATION_MODEL", "Qwen/Qwen2.5-0.5B-Instruct")
+
+
+def _lora_adapter_path(language: str) -> str:
+    """Per-language LoRA adapter saved by train_lora.py (see that script for
+    what it's trained on — self-distillation from the deterministic
+    template using build_training_data.py's historical-week examples).
+    Loaded automatically if present; falls back to the plain base model
+    silently if not (e.g. before the first training run) — this function
+    only returns a path, _call_local_model checks it actually exists."""
+    override = os.environ.get(f"LOCAL_LORA_ADAPTER_{language.upper()}")
+    if override:
+        return override
+    return os.path.join(os.path.dirname(__file__), "..", f"lora_adapter_{language}")
 LOCAL_TIMEOUT_SECONDS = int(os.environ.get("LOCAL_NARRATION_TIMEOUT", "360"))
 LOCAL_MAX_NEW_TOKENS = int(os.environ.get("LOCAL_MAX_NEW_TOKENS", "250"))  # a 5-8 bullet summary doesn't need 400+
 MAX_ATTEMPTS = 3  # 1 initial draft + 2 corrective retries before falling back to the template
+MIN_NUMBERS_EXPECTED = 15  # a real summary of this fact sheet cites ~40+ numbers; far fewer
+# means the draft is empty, a refusal, or otherwise not an actual summary — see narrate_with_model.
+MIN_SENTENCES = 6  # a real 3-paragraph grounded summary always has well over this many sentences
+
+
+def _looks_like_prose_summary(draft: str):
+    """Catches a second real failure mode the numeric floor alone missed: a
+    model that echoes the input JSON fact sheet back verbatim (inside a
+    ```json code fence) trivially passes the numeric gate at 100% — every
+    number in it matches the source, because it *is* the source, not a
+    summary of it. Rejects anything that looks like raw JSON rather than
+    the requested flowing-paragraph prose. Also rejects drafts too short to
+    be a real 3-paragraph summary (a refusal or a one-line non-answer)."""
+    stripped = draft.strip()
+    if "```" in draft or stripped.startswith("{") or stripped.startswith("["):
+        return False, "draft looks like raw JSON/code, not prose"
+    sentence_count = len(re.findall(r"[.!?।](?:\s|$)", draft))
+    if sentence_count < MIN_SENTENCES:
+        return False, f"only {sentence_count} sentences found (expected >= {MIN_SENTENCES})"
+    return True, None
 
 PROMPT_INSTRUCTIONS = {
     "en": (
         "You are a data-to-text summarizer for an Indian agricultural mandi (market) report. "
         "You are given a JSON fact sheet of verified statistics for Madhya Pradesh's weekly mandi "
-        "prices and arrivals. Write the body of an executive summary as 5-8 short bullet points, "
-        "in English.\n\n"
+        "prices and arrivals. Write the body of an executive narrative as exactly 3 short flowing "
+        "paragraphs of prose, in English, separated by a single blank line.\n\n"
         "Rules — follow exactly:\n"
         "1. Use ONLY numbers that appear verbatim in the JSON below. Do not calculate, estimate, "
         "round differently, or invent any figure not already present in the JSON.\n"
-        "2. Do not include a title, date range, or heading — only the bullet points.\n"
-        "3. Each bullet must be one complete, grammatical sentence — full subject and verb, e.g. "
-        "'Total arrivals rose 3% week-on-week to 457,664 tonnes.' NOT a 'Label: value' fragment "
-        "like 'Week-on-week change: 3%'. Start each line with '- '.\n"
-        "4. Cover: total arrivals and its week-on-week change, the top traded commodity, other "
-        "leading commodities, the largest price gainers and decliners, market reporting "
-        "compliance (how many markets reported, the top reporting market, how many reported 5-6 "
-        "days), and for the top commodity, how this week's average price compares to last week, "
-        "the same week last month, and the same week last year (price_trend in the JSON).\n"
-        "5. Output ONLY the bullet points — no preamble, no closing remarks."
+        "2. Do not include a title, date range, or heading — only the 3 paragraphs.\n"
+        "3. Do NOT use bullet points, dashes, or list formatting of any kind. Write complete, "
+        "grammatical sentences joined into paragraphs, e.g. 'Total arrivals rose 3% week-on-week "
+        "to 457,664 tonnes.' NOT a 'Label: value' fragment like 'Week-on-week change: 3%'.\n"
+        "4. Paragraph 1: total arrivals and its week-on-week change, the top traded commodity and "
+        "its share, and other leading commodities. Paragraph 2: the largest price gainers and "
+        "decliners, and for the top commodity, how this week's average price compares to last "
+        "week, the same week last month, and the same week last year (price_trend in the JSON). "
+        "Paragraph 3: market reporting compliance — how many markets reported, the top reporting "
+        "market, how many reported 5-6 days and how many filed no return.\n"
+        "5. Output ONLY the 3 paragraphs — no preamble, no closing remarks, no headings."
     ),
     "hi": (
         "आप एक भारतीय कृषि मंडी रिपोर्ट के लिए डेटा-से-पाठ सारांशकर्ता हैं। आपको मध्य प्रदेश की "
         "साप्ताहिक मंडी कीमतों और आवक के सत्यापित आंकड़ों वाली एक JSON फैक्ट शीट दी गई है। हिंदी में "
-        "5-8 संक्षिप्त बुलेट पॉइंट के रूप में कार्यकारी सारांश का मुख्य भाग लिखें।\n\n"
+        "कार्यकारी नैरेटिव का मुख्य भाग ठीक 3 संक्षिप्त प्रवाहमान अनुच्छेदों में लिखें, प्रत्येक "
+        "अनुच्छेद के बीच एक खाली पंक्ति छोड़ें।\n\n"
         "नियम — बिल्कुल पालन करें:\n"
         "1. केवल वही संख्याएँ उपयोग करें जो नीचे दिए गए JSON में ज्यों की त्यों मौजूद हैं। कोई गणना, "
         "अनुमान, भिन्न पूर्णांकन, या नई संख्या न बनाएं।\n"
-        "2. कोई शीर्षक या दिनांक सीमा शामिल न करें — केवल बुलेट पॉइंट।\n"
-        "3. प्रत्येक बुलेट एक पूर्ण, व्याकरणिक वाक्य होना चाहिए (कर्ता और क्रिया सहित), जैसे "
-        "'इस सप्ताह कुल आवक 3% बढ़कर 457,664 टन हो गई।' — 'साप्ताहिक परिवर्तन: 3%' जैसा खंड नहीं। "
-        "प्रत्येक पंक्ति '- ' से शुरू करें।\n"
-        "4. शामिल करें: कुल आवक और उसका साप्ताहिक परिवर्तन, सबसे अधिक कारोबार वाली वस्तु, अन्य प्रमुख "
-        "वस्तुएँ, सबसे बड़ी मूल्य वृद्धि और गिरावट, मंडी रिपोर्टिंग अनुपालन (कितनी मंडियों ने रिपोर्ट "
-        "की, सबसे अधिक रिपोर्ट करने वाली मंडी, कितनी मंडियों ने 5-6 दिन रिपोर्ट की), और सबसे अधिक "
-        "कारोबार वाली वस्तु के लिए, इस सप्ताह का औसत मूल्य पिछले सप्ताह, पिछले महीने के इसी सप्ताह, और "
-        "पिछले वर्ष के इसी सप्ताह की तुलना में कैसा रहा (JSON में price_trend)।\n"
-        "5. केवल बुलेट पॉइंट आउटपुट करें — कोई भूमिका या समापन टिप्पणी नहीं।\n\n"
+        "2. कोई शीर्षक या दिनांक सीमा शामिल न करें — केवल 3 अनुच्छेद।\n"
+        "3. बुलेट पॉइंट, डैश, या किसी भी प्रकार की सूची का उपयोग न करें। पूर्ण, व्याकरणिक वाक्यों में "
+        "लिखें (कर्ता और क्रिया सहित), जैसे 'इस सप्ताह कुल आवक 3% बढ़कर 457,664 टन हो गई।' — "
+        "'साप्ताहिक परिवर्तन: 3%' जैसा खंड नहीं।\n"
+        "4. अनुच्छेद 1: कुल आवक और उसका साप्ताहिक परिवर्तन, सबसे अधिक कारोबार वाली वस्तु और उसकी "
+        "हिस्सेदारी, तथा अन्य प्रमुख वस्तुएँ। अनुच्छेद 2: सबसे बड़ी मूल्य वृद्धि और गिरावट, और सबसे अधिक "
+        "कारोबार वाली वस्तु के लिए इस सप्ताह का औसत मूल्य पिछले सप्ताह, पिछले महीने के इसी सप्ताह, और "
+        "पिछले वर्ष के इसी सप्ताह की तुलना में कैसा रहा (JSON में price_trend)। अनुच्छेद 3: मंडी "
+        "रिपोर्टिंग अनुपालन — कितनी मंडियों ने रिपोर्ट की, सबसे अधिक रिपोर्ट करने वाली मंडी, कितनी "
+        "मंडियों ने 5-6 दिन रिपोर्ट की और कितनी ने कोई रिपोर्ट दर्ज नहीं की।\n"
+        "5. केवल 3 अनुच्छेद आउटपुट करें — कोई भूमिका, शीर्षक या समापन टिप्पणी नहीं।\n\n"
         "कृषि शब्दावली: गेहूँ=Wheat, मंडी=Mandi, आवक=Arrivals, मोडल मूल्य=Modal Price, "
         "क्विंटल=Quintal, टन=Tonnes — इन्हीं शब्दों का प्रयोग करें।"
     ),
@@ -100,6 +136,19 @@ def _slim_fact_sheet(fs: dict) -> dict:
     targeted fix for that hole — it does not add context-binding in general
     (still a real, documented limitation), it just stops config values from
     being usable as cover for an unrelated wrong number."""
+    top_commodities = dict(fs["top_commodities"])
+    # Trimmed to what the narration prompt actually asks for — "the top
+    # traded commodity" plus "other leading commodities" (up to 4 more) — the
+    # remaining entries up to TOP_N_COMMODITIES exist for the UI table, not
+    # for narration. This must match what build_training_data.py trains on;
+    # they share this function specifically so the two can never drift apart.
+    top_commodities["top_commodities"] = top_commodities["top_commodities"][:5]
+
+    price_trend = {k: v for k, v in fs.get("price_trend", {}).items() if k != "definition"}
+    if "commodities" in price_trend:
+        # Only ever narrates the single top commodity's trend.
+        price_trend["commodities"] = price_trend["commodities"][:1]
+
     return {
         "state": fs["state"],
         "overall_arrivals": fs["overall_arrivals"],
@@ -107,15 +156,12 @@ def _slim_fact_sheet(fs: dict) -> dict:
             k: v for k, v in fs["market_compliance"].items()
             if k not in ("roster_caveat",)
         },
-        "top_commodities": fs["top_commodities"],
+        "top_commodities": top_commodities,
         "price_change": {
             k: v for k, v in fs["price_change"].items()
             if k not in ("reason", "min_trading_days_for_ranking", "commodities_excluded_thin_trade")
         },
-        "price_trend": {
-            k: v for k, v in fs.get("price_trend", {}).items()
-            if k != "definition"
-        },
+        "price_trend": price_trend,
     }
 
 
@@ -132,7 +178,14 @@ def _walk_numbers(obj, out: set):
             _walk_numbers(v, out)
 
 
-_NUMBER_RE = re.compile(r"-?\d[\d,]*\.?\d*")
+# (?<!\d) blocks a hyphen that's actually attached to a preceding digit (a
+# range like "5-6 days") from being misread as a minus sign — without it,
+# "5-6" parsed as two numbers [5, -6], and -6 would fail the gate as
+# "unsupported" even in fully correct, 100%-grounded template text (the same
+# failure mode as the earlier ISO-date fix, "2026-07-14" -> [2026, -7, -14],
+# but here it's a real, ongoing false-positive risk rather than a one-off —
+# any range phrase anywhere in either language template can trigger it).
+_NUMBER_RE = re.compile(r"(?<!\d)-?\d[\d,]*\.?\d*")
 
 
 def extract_numbers(text: str):
@@ -223,21 +276,28 @@ def _call_hf_model(prompt: str, model: str, token: str) -> str:
     return completion.choices[0].message.content.strip()
 
 
-def _call_local_model(prompt: str, model: str) -> str:
+def _call_local_model(prompt: str, model: str, language: str) -> str:
     """Runs local_infer.py in the isolated venv as a subprocess — kept out of
     this process entirely so the main pipeline's environment never needs
     torch/transformers installed, and so a model crash/OOM can't take the
     pipeline down with it (a non-zero exit or timeout just raises here, which
     the caller treats the same as any other narration failure: fall back to
-    the template)."""
+    the template). Passes the language's fine-tuned LoRA adapter if one has
+    been trained and saved (see train_lora.py); otherwise runs the plain
+    base model, same as before any fine-tuning existed."""
     if not os.path.exists(LOCAL_PYTHON):
         raise RuntimeError(f"local Python not found at {LOCAL_PYTHON} — see backend/scripts/local_infer.py setup")
 
+    args = [
+        LOCAL_PYTHON, os.path.join(os.path.dirname(__file__), "local_infer.py"),
+        "--model", model, "--max-new-tokens", str(LOCAL_MAX_NEW_TOKENS),
+    ]
+    adapter_path = _lora_adapter_path(language)
+    if os.path.isdir(adapter_path):
+        args += ["--lora-adapter", adapter_path]
+
     result = subprocess.run(
-        [
-            LOCAL_PYTHON, os.path.join(os.path.dirname(__file__), "local_infer.py"),
-            "--model", model, "--max-new-tokens", str(LOCAL_MAX_NEW_TOKENS),
-        ],
+        args,
         input=prompt, capture_output=True, text=True, encoding="utf-8",
         timeout=LOCAL_TIMEOUT_SECONDS,
     )
@@ -276,14 +336,34 @@ def narrate_with_model(fact_sheet: dict, language: str, model: str = None):
             if provider == "hf":
                 draft = _call_hf_model(prompt, model, os.environ.get("HF_TOKEN"))
             else:
-                draft = _call_local_model(prompt, model)
+                draft = _call_local_model(prompt, model, language)
         except Exception as exc:  # noqa: BLE001
             meta["reason"] = f"model call failed: {exc}"
             print(f"  [narration:{language}] attempt {attempt} error: {exc}", file=sys.stderr)
             return None, meta
 
         last_draft = draft
-        ok, unsupported, _total = check_numeric_grounding(draft, slim)
+        ok, unsupported, total = check_numeric_grounding(draft, slim)
+        # A draft with zero numbers trivially has zero *unsupported* numbers
+        # — real failure caught in testing: a fine-tuned model refused the
+        # task outright ("I will not assist with any data analysis...", in
+        # English, for a Hindi request) and that empty non-answer passed the
+        # gate because there was nothing in it to contradict the fact sheet.
+        # A real grounded summary of this fact sheet always cites dozens of
+        # numbers (44 in the reference case), so require a floor, not just
+        # "no unsupported ones."
+        if ok and total < MIN_NUMBERS_EXPECTED:
+            ok = False
+            unsupported = []
+            print(f"  [narration:{language}] attempt {attempt}: rejected — only {total} numbers "
+                  f"found (expected >= {MIN_NUMBERS_EXPECTED}); likely a non-answer, not a real summary",
+                  file=sys.stderr)
+        if ok:
+            prose_ok, prose_reason = _looks_like_prose_summary(draft)
+            if not prose_ok:
+                ok = False
+                unsupported = []
+                print(f"  [narration:{language}] attempt {attempt}: rejected — {prose_reason}", file=sys.stderr)
         if ok:
             meta["used_model"] = True
             meta["reason"] = "passed numeric gate"
@@ -292,10 +372,16 @@ def narrate_with_model(fact_sheet: dict, language: str, model: str = None):
 
         last_unsupported = unsupported
         print(f"  [narration:{language}] attempt {attempt}: failed gate, unsupported numbers: {unsupported}", file=sys.stderr)
-        prompt = (
-            f"{base_prompt}\n\nYour previous draft used these numbers that do NOT appear in the "
-            f"JSON: {unsupported}. Rewrite it using ONLY numbers copied exactly from the JSON above."
-        )
+        if unsupported:
+            prompt = (
+                f"{base_prompt}\n\nYour previous draft used these numbers that do NOT appear in the "
+                f"JSON: {unsupported}. Rewrite it using ONLY numbers copied exactly from the JSON above."
+            )
+        else:
+            prompt = (
+                f"{base_prompt}\n\nYour previous response did not summarize the data at all (too few "
+                f"numbers were cited). Write the actual summary now, following the rules above exactly."
+            )
 
     meta["reason"] = f"failed numeric gate after {MAX_ATTEMPTS} attempts, unsupported: {last_unsupported}"
     # Kept for diagnosis — a rejected draft that still made it to disk is not a

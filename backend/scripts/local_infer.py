@@ -14,6 +14,7 @@ Usage:
 """
 
 import argparse
+import os
 import sys
 
 try:
@@ -23,7 +24,7 @@ try:
     # but not by certifi — without this, the model download's HTTPS request
     # fails with CERTIFICATE_VERIFY_FAILED even though huggingface.co is
     # otherwise reachable fine (confirmed working via urllib elsewhere).
-    import truststore
+    import truststore  # type: ignore[import-not-found]
     truststore.inject_into_ssl()
 except ImportError:
     pass
@@ -33,6 +34,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="Qwen/Qwen2.5-0.5B-Instruct")
     parser.add_argument("--max-new-tokens", type=int, default=400)
+    parser.add_argument("--lora-adapter", default=None,
+                         help="Path to a saved LoRA adapter (see train_lora.py) to load on top of --model")
     args = parser.parse_args()
 
     # sys.stdin.read() decodes using the console's active codepage on Windows
@@ -54,10 +57,17 @@ def main():
     torch.set_num_threads(max(1, torch.get_num_threads()))
 
     print(f"Loading {args.model} ...", file=sys.stderr)
-    tokenizer = AutoTokenizer.from_pretrained(args.model)
+    tokenizer_source = args.lora_adapter if args.lora_adapter and os.path.isdir(args.lora_adapter) else args.model
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_source)
     model = AutoModelForCausalLM.from_pretrained(
         args.model, torch_dtype=torch.bfloat16, low_cpu_mem_usage=True
     )
+
+    if args.lora_adapter and os.path.isdir(args.lora_adapter):
+        from peft import PeftModel
+        print(f"Loading LoRA adapter from {args.lora_adapter} ...", file=sys.stderr)
+        model = PeftModel.from_pretrained(model, args.lora_adapter)
+
     model.eval()
 
     messages = [{"role": "user", "content": prompt}]

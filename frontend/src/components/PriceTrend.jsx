@@ -1,4 +1,4 @@
-import { formatDateRange } from "../lib/formatDate.js";
+import SectionHeading from "./SectionHeading.jsx";
 
 function DeltaCell({ period }) {
   if (period.avg_price == null) {
@@ -24,12 +24,7 @@ export default function PriceTrend({ priceTrend }) {
 
   return (
     <section className="panel">
-      <h2 className="panel-title">Price Trends & Comparisons</h2>
-      <p className="panel-subtitle">
-        Same week last month: {formatDateRange(priceTrend.last_month_same_week_range.start, priceTrend.last_month_same_week_range.end)}
-        {" · "}
-        Same week last year: {formatDateRange(priceTrend.last_year_same_week_range.start, priceTrend.last_year_same_week_range.end)}
-      </p>
+      <SectionHeading n="04" title="Price trends and comparisons" tag="vs prior periods" />
       <div className="table-scroll">
         <table className="data-table">
           <thead>
@@ -60,7 +55,6 @@ export default function PriceTrend({ priceTrend }) {
           </tbody>
         </table>
       </div>
-      <p className="panel-footnote">{priceTrend.definition}</p>
     </section>
   );
 }
