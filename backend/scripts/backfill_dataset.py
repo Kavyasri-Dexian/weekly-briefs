@@ -100,7 +100,9 @@ def backfill(end_date: date_cls, num_weeks: int, dataset_dir: str, force: bool =
 
 def main():
     parser = argparse.ArgumentParser(description="Backfill N weeks of Madhya Pradesh mandi data into week-wise dataset folders")
-    parser.add_argument("--end-date", default=None, help="YYYY-MM-DD, defaults to yesterday")
+    parser.add_argument("--end-date", default=None,
+                         help="YYYY-MM-DD, defaults to 2 days before today (matches pipeline.py's "
+                              "own default — see there for why: Agmarknet's reporting lag).")
     parser.add_argument("--weeks", type=int, default=26, help="Number of weeks back to pull (26 ~= 6 months)")
     parser.add_argument("--dataset-dir", default="../dataset")
     parser.add_argument("--force", action="store_true", help="Re-fetch weeks that already have a file on disk")

@@ -55,8 +55,12 @@ def _lora_adapter_path(language: str) -> str:
 LOCAL_TIMEOUT_SECONDS = int(os.environ.get("LOCAL_NARRATION_TIMEOUT", "360"))
 LOCAL_MAX_NEW_TOKENS = int(os.environ.get("LOCAL_MAX_NEW_TOKENS", "250"))  # a 5-8 bullet summary doesn't need 400+
 MAX_ATTEMPTS = 3  # 1 initial draft + 2 corrective retries before falling back to the template
-MIN_NUMBERS_EXPECTED = 15  # a real summary of this fact sheet cites ~40+ numbers; far fewer
-# means the draft is empty, a refusal, or otherwise not an actual summary — see narrate_with_model.
+MIN_NUMBERS_EXPECTED = 10  # was 15, tuned against the old bullet-list narrative format (~40+
+# numbers). After the redesign trimmed the prompt to 3 tightly-scoped paragraphs, a genuinely
+# good draft can legitimately land in the 12-20 range depending on how many gainers/decliners
+# qualify that week — a live run was seen rejecting a valid 14-number draft at the old floor.
+# 10 still reliably catches the real failure modes this exists for (refusals and empty
+# non-answers cite 0-3 numbers at most) without false-rejecting thin-but-correct summaries.
 MIN_SENTENCES = 6  # a real 3-paragraph grounded summary always has well over this many sentences
 
 
@@ -143,6 +147,11 @@ def _slim_fact_sheet(fs: dict) -> dict:
     # for narration. This must match what build_training_data.py trains on;
     # they share this function specifically so the two can never drift apart.
     top_commodities["top_commodities"] = top_commodities["top_commodities"][:5]
+    # concentration_hhi/donut_slices back the UI's donut chart only — the
+    # narrative prompt never asks about commodity concentration, so this
+    # shallow copy of fs["top_commodities"] must not carry them through.
+    top_commodities.pop("concentration_hhi", None)
+    top_commodities.pop("donut_slices", None)
 
     price_trend = {k: v for k, v in fs.get("price_trend", {}).items() if k != "definition"}
     if "commodities" in price_trend:
@@ -349,9 +358,9 @@ def narrate_with_model(fact_sheet: dict, language: str, model: str = None):
         # task outright ("I will not assist with any data analysis...", in
         # English, for a Hindi request) and that empty non-answer passed the
         # gate because there was nothing in it to contradict the fact sheet.
-        # A real grounded summary of this fact sheet always cites dozens of
-        # numbers (44 in the reference case), so require a floor, not just
-        # "no unsupported ones."
+        # A real grounded 3-paragraph summary of this fact sheet reliably
+        # cites at least MIN_NUMBERS_EXPECTED numbers, so require a floor,
+        # not just "no unsupported ones."
         if ok and total < MIN_NUMBERS_EXPECTED:
             ok = False
             unsupported = []

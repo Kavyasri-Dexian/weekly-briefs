@@ -1061,7 +1061,11 @@ def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
 
 def main():
     parser = argparse.ArgumentParser(description="Live Madhya Pradesh weekly mandi summary pipeline")
-    parser.add_argument("--week-end", default=None, help="YYYY-MM-DD, defaults to yesterday (today's data is usually incomplete)")
+    parser.add_argument("--week-end", default=None,
+                         help="YYYY-MM-DD, defaults to 2 days before today — Agmarknet's own "
+                              "reporting lag means the last 1-2 days' rows are usually still "
+                              "incomplete when markets file late, so a same-day or 1-day-lag "
+                              "refresh would understate the most recent day(s) of the week.")
     parser.add_argument("--out-dir", default="../data/output")
     parser.add_argument("--dataset-dir", default="../dataset",
                          help="Where the current week's raw row-level pull is archived as CSV. "
@@ -1070,7 +1074,7 @@ def main():
 
     week_end = (
         datetime.strptime(args.week_end, "%Y-%m-%d").date()
-        if args.week_end else (datetime.now(timezone.utc).date() - timedelta(days=1))
+        if args.week_end else (datetime.now(timezone.utc).date() - timedelta(days=2))
     )
     run(week_end, args.out_dir, dataset_dir=args.dataset_dir or None)
 

@@ -183,17 +183,16 @@ Error generating stack: `+e.message+`
     numeric grounding before publication; when the check fails, a fixed, guaranteed-accurate template is
     published instead.
   </div>`}var ge=`
+  /* Downloaded/printed report is always light mode, regardless of the
+     viewer's OS/browser dark-mode preference — a distributed document
+     shouldn't shift appearance depending on who opens it or how. No
+     prefers-color-scheme override here on purpose. */
   :root {
+    color-scheme: light;
     --page:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
     --gridline:#e1e0d9; --border:rgba(11,11,11,.12); --good:#006300; --bad:#d03b3b;
     --accent:#2a78d6; --warn:#fab219; --chip-ok-bg:#cdeccd; --chip-watch-bg:#fde9c4;
     --chip-act-bg:#f6d3d3;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --page:#0d0d0d; --surface:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --muted:#898781;
-      --gridline:#2c2c2a; --border:rgba(255,255,255,.14); --good:#0ca30c; --bad:#e66767; --accent:#3987e5;
-    }
   }
   * { box-sizing: border-box; }
   body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--page); max-width: 900px; margin: 0 auto; padding: 24px 20px 64px; }
