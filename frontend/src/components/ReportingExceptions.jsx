@@ -1,10 +1,9 @@
 import SectionHeading from "./SectionHeading.jsx";
 
-/** Partial-vs-non-reporting split — see pipeline.py's compute_reporting_
- * exceptions for why this isn't the reference design's "nil transaction vs
- * non-reporting" split: the source API returns rows only for actual
- * transactions, so a compliant zero-arrival return can't be distinguished
- * from a missing one with the data this pipeline has. */
+/** Reporting split is by reporting-day coverage (partial/non-reporting); nil
+ * transactions reported is a separate, narrower count identified from rows
+ * with an explicit arrival_qty of 0 — see pipeline.py's
+ * compute_reporting_exceptions for the full derivation. */
 export default function ReportingExceptions({ reportingExceptions: rx }) {
   if (!rx) return null;
   return (
@@ -25,8 +24,8 @@ export default function ReportingExceptions({ reportingExceptions: rx }) {
         </div>
         <div className="xbox nil">
           <h4>Nil transactions reported</h4>
-          <p className="def">A return declaring zero arrival for the week (compliant, distinct from not reporting).</p>
-          <span className="xbig tabular">{rx.nil_transactions_reported}</span>
+          <p className="def">At least one row this week explicitly declared zero arrival quantity — compliant, and distinct from filing no return at all.</p>
+          <span className="xbig tabular">{rx.nil_transactions_reported ?? 0}</span>
           <span style={{ fontSize: 12, color: "var(--text-muted)" }}> market yards</span>
         </div>
       </div>

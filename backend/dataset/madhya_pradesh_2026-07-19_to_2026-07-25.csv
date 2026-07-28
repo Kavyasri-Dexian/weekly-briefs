@@ -1,4 +1,631 @@
 state,district,market,commodity,variety,grade,arrival_date,min_price,max_price,modal_price,arrival_qty,price_unit,arrival_unit
+Madhya Pradesh,Shajapur,Agar APMC,Maize,Local,FAQ,2026-07-19,2295.0,2315.0,2315.0,96.04500000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Alampur APMC,Mustard,Mustard,Non-FAQ,2026-07-19,7900.0,8100.0,8100.0,9.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Alampur APMC,Mustard,Sarson(Black),Non-FAQ,2026-07-19,7400.0,7680.0,7450.0,11.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Alampur APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2400.0,2460.0,2450.0,32.45,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Alirajpur,Alirajpur APMC,Bajra(Pearl Millet/Cumbu),Millet,Non-FAQ,2026-07-19,1600.0,1600.0,1600.0,6.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Alirajpur,Alirajpur APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,FAQ,2026-07-19,5000.0,8000.0,8000.0,24.78,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Alirajpur,Alirajpur APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,6000.0,6000.0,6000.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Alirajpur,Alirajpur APMC,Mahua,Mahua Seed / Bunch,FAQ,2026-07-19,5000.0,5300.0,5300.0,60.31,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Alirajpur,Alirajpur APMC,Soyabean,Soyabeen,FAQ,2026-07-19,7000.0,7000.0,7000.0,11.200000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Alirajpur,Alirajpur APMC,Wheat,Wheat,FAQ,2026-07-19,2300.0,2300.0,2300.0,4.9,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Amarpatan APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2290.0,2320.0,2320.0,35.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Amarpatan APMC,dried mango,Aam khatai,Non-FAQ,2026-07-19,4610.0,4610.0,4610.0,2.84,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Anjad APMC,Wheat,Wheat,FAQ,2026-07-19,2400.0,2400.0,2400.0,6.2700000000000005,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Anupur,Anuppur APMC,Paddy(Common),Dhan,Non-FAQ,2026-07-19,2000.0,2000.0,2000.0,14.700000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Anupur,Anuppur APMC,Wheat,Wheat,FAQ,2026-07-19,2400.0,3000.0,2400.0,19.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Anupur,Anuppur APMC,buttery,Buttery,FAQ,2026-07-19,3000.0,3000.0,3000.0,13.200000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,Badamalhera APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2390.0,2425.0,2400.0,54.34,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,Badamalhera APMC,Wheat,Mill Quality,FAQ,2026-07-19,2400.0,2415.0,2400.0,107.09000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Badnagar APMC,Wheat,Wheat,FAQ,2026-07-19,2601.0,2601.0,2601.0,7.255,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Badnawar APMC,Soyabean,Yellow,FAQ,2026-07-19,7000.0,7000.0,7000.0,2.69,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Badnawar(F&V) APMC,Garlic,Garlic,Local,2026-07-19,7500.0,7500.0,7500.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Badnawar(F&V) APMC,Onion,Onion,Local,2026-07-19,900.0,900.0,900.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shajapur,Badod APMC,Maize,Local,FAQ,2026-07-19,2220.0,2220.0,2220.0,1267.7200000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade A,2026-07-19,1050.0,1450.0,1200.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Bitter gourd,Bitter Gourd,Grade A,2026-07-19,1600.0,2100.0,1800.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Bottle gourd,Bottle Gourd,Grade A,2026-07-19,900.0,1300.0,1200.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Brinjal,Other,Grade A,2026-07-19,650.0,1000.0,800.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Cabbage,Cabbage,Grade A,2026-07-19,1200.0,1800.0,1400.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Cauliflower,Cauliflower,Grade A,2026-07-19,1500.0,2000.0,1800.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Colacasia,Arabi,Grade A,2026-07-19,950.0,1200.0,1000.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Coriander(Leaves),Coriander,Grade A,2026-07-19,3800.0,8000.0,6000.0,0.1,Rs./Bundle,Bundle
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade A,2026-07-19,750.0,1050.0,900.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Garlic,Average,Grade Range-1,2026-07-19,11000.0,17000.0,16000.0,0.05,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Ginger(Green),Green Ginger,Grade A,2026-07-19,5100.0,7000.0,6000.0,0.05,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Green Chilli,Green Chilly,Grade A,2026-07-19,2450.0,3800.0,3000.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Onion,1st Sort,Grade A,2026-07-19,1200.0,2600.0,2000.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Pumpkin,Other,Grade A,2026-07-19,675.0,1200.0,800.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Spinach,Organic,Grade A,2026-07-19,1400.0,1800.0,1500.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Sponge gourd,Sponge gourd,Grade A,2026-07-19,950.0,2200.0,1800.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Tomato,Deshi,Grade A,2026-07-19,1600.0,2400.0,1800.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani APMC,Green Gram(Moong)(Whole),Green (Whole),Non-FAQ,2026-07-19,6300.0,6551.0,6500.0,9.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani APMC,Soanf,Soanf,FAQ,2026-07-19,9000.0,11000.0,9500.0,21.85,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-19,1000.0,1000.0,1000.0,0.738,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Brinjal,Brinjal,Local,2026-07-19,800.0,800.0,800.0,0.635,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-19,1800.0,1800.0,1800.0,0.413,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-19,700.0,700.0,700.0,0.918,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-19,2000.0,2000.0,2000.0,0.426,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Onion,Onion,Local,2026-07-19,1550.0,1550.0,1550.0,0.825,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Potato,Potato,Local,2026-07-19,1100.0,1100.0,1100.0,0.765,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Pumpkin,Pumpkin,Local,2026-07-19,800.0,800.0,800.0,0.811,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Sponge gourd,Sponge gourd,Local,2026-07-19,1000.0,1000.0,1000.0,0.809,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Tinda,Organic,Local,2026-07-19,1200.0,1200.0,1200.0,0.625,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Badwani(F&V) APMC,Tomato,Tomato,Local,2026-07-19,1500.0,1500.0,1500.0,0.621,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Baikunthpur APMC,Lak(Teora),Tiwada,Non-FAQ,2026-07-19,3060.0,3060.0,3060.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Baikunthpur APMC,Mustard,Mustard,FAQ,2026-07-19,7590.0,7610.0,7610.0,12.295000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Baikunthpur APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2415.0,2430.0,2430.0,30.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,Bakswaha APMC,gulli,Gulli,Non-FAQ,2026-07-19,4710.0,4900.0,4900.0,19.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Baktara APMC,Wheat,Wheat,FAQ,2026-07-19,2411.0,2411.0,2411.0,22.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Balaghat,Balaghat APMC,Wheat,Wheat,FAQ,2026-07-19,2050.0,2200.0,2100.0,11.700000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Banda APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-19,5770.0,5820.0,5820.0,19.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Banda APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2430.0,2430.0,2430.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Raisen,Bareli APMC,Wheat,Mill Quality,FAQ,2026-07-19,2400.0,2500.0,2500.0,26.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Bedia APMC,Chili Red,Red,Non-FAQ,2026-07-19,6500.0,7500.0,7000.0,18.423,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Beohari APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,FAQ,2026-07-19,8590.0,8590.0,8590.0,2.2600000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Beohari APMC,Groundnut,Big (With Shell),Non-FAQ,2026-07-19,4500.0,4500.0,4500.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Beohari APMC,Linseed,Other,Non-FAQ,2026-07-19,7500.0,7600.0,7600.0,3.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Beohari APMC,Linseed,Flaxseed,Non-FAQ,2026-07-19,7500.0,7500.0,7500.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Beohari APMC,Mahua,Mahua,Non-FAQ,2026-07-19,4200.0,4200.0,4200.0,4.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Beohari APMC,Mahua,Mahua,FAQ,2026-07-19,4800.0,4800.0,4800.0,7.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Beohari APMC,Mustard,Mustard,FAQ,2026-07-19,6550.0,6550.0,6550.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Beohari APMC,Wheat,Mill Quality,FAQ,2026-07-19,2305.0,2400.0,2400.0,54.77000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Betul,Betul APMC,Maize,Local,Non-FAQ,2026-07-19,2000.0,2000.0,2000.0,94.83,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Betul,Betul APMC,gulli,Gulli,Non-FAQ,2026-07-19,4500.0,4700.0,4700.0,28.845,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Bhikangaon APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-19,5935.0,5985.0,5985.0,0.5910000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Bhikangaon APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,7410.0,7450.0,7450.0,0.8650000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Bhikangaon APMC,Maize,Local,FAQ,2026-07-19,1950.0,2300.0,2200.0,69.32000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Bhikangaon APMC,Soyabean,Soyabeen,FAQ,2026-07-19,6630.0,7200.0,7200.0,2.483,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Bhikangaon APMC,Wheat,Wheat,FAQ,2026-07-19,2375.0,2665.0,2620.0,146.94000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal APMC,Ajwan,Ajwan,FAQ,2026-07-19,25290.58,25290.58,25290.58,0.47000000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal APMC,Cowpea(Lobia/Karamani),Lobia or Moth,FAQ,2026-07-19,9207.34,9207.34,9207.34,0.45,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal APMC,Cummin Seed(Jeera),Cummin Seed(Jeera),FAQ,2026-07-19,24019.22,24019.22,24019.22,2.4000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal APMC,French Beans(Frasbean),French Beans (Frasbean),FAQ,2026-07-19,12563.26,12563.26,12563.26,2.8800000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal APMC,Green Peas,Pea,FAQ,2026-07-19,5977.93,5977.93,5977.93,0.75,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal APMC,Rayee,Raee,FAQ,2026-07-19,9806.9,9806.9,9806.9,1.7300000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Apple,Other,Local,2026-07-19,6000.0,12000.0,8000.0,11.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Banana,Other,Local,2026-07-19,1000.0,2000.0,1500.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-19,700.0,2000.0,1500.0,15.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Bitter gourd,Other,Local,2026-07-19,1000.0,2500.0,1800.0,24.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Bottle gourd,Other,Local,2026-07-19,1500.0,3000.0,2000.0,15.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Brinjal,Other,Local,2026-07-19,600.0,1500.0,1000.0,18.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Cabbage,Other,Local,2026-07-19,500.0,1200.0,800.0,32.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Carrot,Other,Local,2026-07-19,1000.0,2000.0,1500.0,11.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Cauliflower,Other,Local,2026-07-19,1500.0,3000.0,2000.0,13.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Chilly Capsicum,Other,Local,2026-07-19,3000.0,5000.0,4000.0,7.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Colacasia,Other,Local,2026-07-19,1000.0,2500.0,1500.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Coriander(Leaves),Other,Local,2026-07-19,5000.0,8000.0,6000.0,10.0,Rs./Bundle,Bundle
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Cucumbar(Kheera),Other,Local,2026-07-19,600.0,1500.0,1000.0,49.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Drumstick,Drumstick,Local,2026-07-19,2000.0,3000.0,2500.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Ginger(Green),Other,Local,2026-07-19,6000.0,12000.0,8000.0,13.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Green Chilli,Other,Local,2026-07-19,1500.0,4000.0,2500.0,43.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Guava,Other,Local,2026-07-19,1000.0,3000.0,2000.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Jack Fruit(Ripe),Other,Local,2026-07-19,600.0,1500.0,1000.0,17.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Mango,Other,Local,2026-07-19,1500.0,4000.0,2500.0,37.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Mango(Raw-Ripe),Mango - Raw-Ripe,Local,2026-07-19,1500.0,4000.0,3000.0,24.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Onion,Other,Local,2026-07-19,800.0,3000.0,1700.0,23.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Other green and fresh vegetables,Other,Local,2026-07-19,600.0,1200.0,800.0,15.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Papaya,Other,Local,2026-07-19,1000.0,2500.0,1500.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Pointed gourd(Parval),Other,Local,2026-07-19,1000.0,2500.0,1800.0,9.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Potato,Other,Local,2026-07-19,400.0,1000.0,700.0,88.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Pumpkin,Other,Local,2026-07-19,600.0,1000.0,800.0,12.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Round gourd,Other,Local,2026-07-19,600.0,1500.0,1000.0,17.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Tender Coconut,Other,Local,2026-07-19,2000.0,4000.0,3000.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Tinda,Other,Local,2026-07-19,1000.0,2000.0,1500.0,3.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Tomato,Other,Local,2026-07-19,800.0,2500.0,1500.0,47.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Biaora APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-19,4000.0,5700.0,5620.0,5.883,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Biaora APMC,Coriander(Leaves),Coriander,FAQ,2026-07-19,6250.0,16350.0,15400.0,6.447,Rs./Bundle,Bundle
+Madhya Pradesh,Rajgarh,Biaora APMC,Garlic,Garlic,FAQ,2026-07-19,1000.0,16150.0,9000.0,13.945,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Biaora APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,5705.0,7150.0,7140.0,4.8580000000000005,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Biaora APMC,Lentil(Masur)(Whole),Masur Dal,FAQ,2026-07-19,5900.0,8395.0,8300.0,6.516,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Biaora APMC,Mustard,Mustard,FAQ,2026-07-19,7005.0,7280.0,7130.0,2.0980000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Biaora APMC,Soyabean,Soyabeen,FAQ,2026-07-19,6385.0,7270.0,7200.0,35.746,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Biaora APMC,Wheat,Wheat Mix,FAQ,2026-07-19,2460.0,2460.0,2460.0,0.343,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Biaora APMC,Wheat,Wheat,FAQ,2026-07-19,2150.0,2560.0,2495.0,294.456,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,Bijawar APMC,Barley(Jau),Deshi,FAQ,2026-07-19,2399.0,2408.0,2408.0,16.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,Bijawar APMC,gulli,Gulli,FAQ,2026-07-19,4705.0,4755.0,4755.0,12.25,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Budhar APMC,Kodo Millet(Varagu),Kondo,Non-FAQ,2026-07-19,2300.0,2300.0,2300.0,5.300000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Budhar APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2200.0,2200.0,2200.0,7.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur APMC,Wheat,Wheat,Non-FAQ,2026-07-19,1800.0,1995.0,1995.0,21.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Banana,Khandesh,Grade A,2026-07-19,800.0,1600.0,1400.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-19,1600.0,2500.0,2200.0,1.7000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-19,1500.0,2000.0,1800.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-19,800.0,1200.0,1000.0,1.7000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Brinjal,Brinjal,Local,2026-07-19,1000.0,1800.0,1400.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Cabbage,Cabbage,Local,2026-07-19,800.0,1200.0,1000.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Cauliflower,Local,Local,2026-07-19,1800.0,2500.0,2400.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-19,500.0,1000.0,800.0,5.800000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-19,2000.0,4000.0,3600.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Guar,Gwar,Local,2026-07-19,2800.0,4500.0,4000.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Lemon,Lemon,Local,2026-07-19,1800.0,2500.0,2000.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Mango,Badami,Grade A,2026-07-19,2000.0,6500.0,6000.0,6.6000000000000005,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Onion,Local,Local,2026-07-19,1000.0,2000.0,1800.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Papaya,Other,Local,2026-07-19,1000.0,2000.0,1800.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Potato,Local,Local,2026-07-19,800.0,1300.0,1100.0,5.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Pumpkin,Other,Local,2026-07-19,800.0,1200.0,1000.0,3.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Tinda,Tinda,Local,2026-07-19,2500.0,3000.0,2800.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Tomato,Other,Local,2026-07-19,1000.0,2500.0,2200.0,2.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Chaakghat APMC,Lak(Teora),Tiwada,FAQ,2026-07-19,2900.0,2925.0,2900.0,19.700000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Chaakghat APMC,Mustard,Mustard,FAQ,2026-07-19,7050.0,7100.0,7100.0,14.100000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Chaakghat APMC,Wheat,Wheat,FAQ,2026-07-19,2355.0,2355.0,2355.0,3.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Chaakghat APMC,Wheat,Mill Quality,FAQ,2026-07-19,2400.0,2455.0,2450.0,55.254,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,Chhatarpur APMC,Wheat,Mill Quality,FAQ,2026-07-19,2460.0,2500.0,2500.0,29.515,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhindwara,Chhindwara APMC,Maize,Local,FAQ,2026-07-19,2140.0,2140.0,2140.0,65.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Datia,Datia APMC,Wheat,Mill Quality,FAQ,2026-07-19,2450.0,2450.0,2450.0,16.685,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Deori APMC,Lentil(Masur)(Whole),Masur Dal,Non-FAQ,2026-07-19,6000.0,6000.0,6000.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Deori APMC,Lentil(Masur)(Whole),Masur Dal,FAQ,2026-07-19,5900.0,6000.0,6000.0,6.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas APMC,Soyabean,Soyabeen,FAQ,2026-07-19,5472.0,7200.0,6861.0,293.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas APMC,Wheat,Wheat,FAQ,2026-07-19,2399.0,2520.0,2470.0,80.23700000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Bhindi(Ladies Finger),Other,FAQ,2026-07-19,700.0,1800.0,800.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Brinjal,Other,FAQ,2026-07-19,600.0,1500.0,700.0,1.4000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Cabbage,Other,FAQ,2026-07-19,400.0,800.0,600.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Cauliflower,Other,FAQ,2026-07-19,1200.0,2500.0,1400.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Garlic,Other,FAQ,2026-07-19,3200.0,11000.0,4500.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Green Chilli,Other,FAQ,2026-07-19,1500.0,3500.0,1600.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Onion,Other,FAQ,2026-07-19,300.0,2400.0,1000.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Potato,Other,FAQ,2026-07-19,400.0,1500.0,800.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dewas,Dewas(F&V) APMC,Tomato,Other,FAQ,2026-07-19,1200.0,3000.0,1400.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod APMC,Wheat,Wheat,FAQ,2026-07-19,2545.0,2561.0,2561.0,15.480000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Large,2026-07-19,1300.0,1600.0,1400.0,2.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-19,1500.0,1800.0,1600.0,1.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-19,700.0,900.0,800.0,4.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Brinjal,Brinjal,Local,2026-07-19,1000.0,2000.0,1500.0,3.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Cabbage,Cabbage,Local,2026-07-19,700.0,1000.0,900.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Carrot,Carrot,Local,2026-07-19,1000.0,1000.0,1000.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-19,800.0,1500.0,1200.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Coriander(Leaves),Coriander,Local,2026-07-19,1500.0,2500.0,2000.0,0.09000000000000001,Rs./Bundle,Bundle
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-19,600.0,900.0,800.0,6.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-19,2000.0,3000.0,2500.0,1.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Onion,Onion,Local,2026-07-19,1500.0,2000.0,1700.0,1.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Potato,Potato,Local,2026-07-19,1000.0,1200.0,1100.0,1.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Sponge gourd,Sponge gourd,Local,2026-07-19,1000.0,2000.0,1500.0,2.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Tinda,Tinda,Local,2026-07-19,1500.0,2000.0,1700.0,1.9,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Tomato,Tomato,Local,2026-07-19,1200.0,1800.0,1500.0,1.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dindori,Dindori APMC,Paddy(Common),Other,Non-FAQ,2026-07-19,2000.0,2000.0,2000.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Gandhwani APMC,Wheat,Wheat,FAQ,2026-07-19,2550.0,2600.0,2600.0,3.3000000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Garhakota APMC,Wheat,Wheat,FAQ,2026-07-19,2200.0,2300.0,2300.0,41.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dindori,Gorakhpur APMC,Maize,Local,FAQ,2026-07-19,1700.0,1700.0,1700.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Vidisha,Gulabganj APMC,Wheat,Wheat,FAQ,2026-07-19,2450.0,2450.0,2450.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Hanumana APMC,Lak(Teora),Tiwada,FAQ,2026-07-19,2800.0,2800.0,2800.0,7.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Hanumana APMC,Mahua,Gulli,FAQ,2026-07-19,4000.0,4000.0,4000.0,27.200000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Hanumana APMC,Paddy(Common),Common,FAQ,2026-07-19,1600.0,1600.0,1600.0,36.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Hanumana APMC,Wheat,Mill Quality,FAQ,2026-07-19,2300.0,2450.0,2300.0,82.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Hanumana APMC,gulli,Gulli,Non-FAQ,2026-07-19,4000.0,4000.0,4000.0,4.800000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Apple,Apple,Medium,2026-07-19,15000.0,20000.0,18000.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Bhindi(Ladies Finger),Other,Medium,2026-07-19,1250.0,1650.0,1600.0,0.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Bottle gourd,Other,Medium,2026-07-19,900.0,1100.0,1050.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Brinjal,Brinjal,Medium,2026-07-19,850.0,1000.0,950.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Cabbage,Other,Medium,2026-07-19,1050.0,1450.0,1250.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Cauliflower,Other,Medium,2026-07-19,1150.0,1500.0,1300.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Coriander(Leaves),Other,Medium,2026-07-19,5000.0,7000.0,6000.0,0.2,Rs./Bundle,Bundle
+Madhya Pradesh,Harda,Harda(F&V) APMC,Cucumbar(Kheera),Other,Medium,2026-07-19,1100.0,1200.0,1150.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Green Chilli,Green Chilly,Medium,2026-07-19,3500.0,5000.0,4800.0,1.4000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Mango,Neelam,Medium,2026-07-19,2000.0,4000.0,3000.0,3.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Onion,Medium,Medium,2026-07-19,2200.0,3000.0,2500.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Pineapple,Other,Medium,2026-07-19,2500.0,3500.0,3000.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Pomegranate,Pomogranate,Medium,2026-07-19,10000.0,13000.0,12000.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Potato,Desi,Medium,2026-07-19,1200.0,1600.0,1500.0,1.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Ridgeguard(Tori),Other,Medium,2026-07-19,1050.0,1300.0,1100.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Harda(F&V) APMC,Tomato,Deshi,Medium,2026-07-19,2100.0,2500.0,2200.0,1.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Harsood APMC,Wheat,Wheat,FAQ,2026-07-19,2450.0,2500.0,2500.0,20.063000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Harsood APMC,Wheat,Mill Quality,FAQ,2026-07-19,2455.0,2485.0,2485.0,30.52,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,FAQ,2026-07-19,9525.0,10800.0,10800.0,60.27000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),FAQ,2026-07-19,5900.0,5925.0,5925.0,95.10000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Apple,Apple,Local,2026-07-19,6000.0,12000.0,8000.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Banana,Other,Local,2026-07-19,800.0,1800.0,1200.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-19,1000.0,3500.0,2500.0,5.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-19,1000.0,2500.0,1600.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-19,1500.0,4000.0,3000.0,3.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Brinjal,Brinjal,Local,2026-07-19,300.0,700.0,500.0,25.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Cabbage,Cabbage,Local,2026-07-19,400.0,1000.0,600.0,7.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Capsicum,Capsicum,Local,2026-07-19,800.0,2000.0,1400.0,7.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Carrot,Carrot,Local,2026-07-19,600.0,1200.0,800.0,5.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-19,600.0,1200.0,800.0,9.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Coriander(Leaves),Coriander,Local,2026-07-19,6000.0,15000.0,9000.0,9.0,Rs./Bundle,Bundle
+Madhya Pradesh,Indore,Indore(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-19,400.0,1000.0,600.0,17.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Drumstick,Drumstick,Local,2026-07-19,1500.0,5000.0,3500.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-19,1500.0,3500.0,2500.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Mango,Other,Local,2026-07-19,2000.0,9000.0,6000.0,48.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Mousambi(Sweet Lime),Mousambi,Local,2026-07-19,3000.0,6000.0,4000.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Papaya,Papaya,Local,2026-07-19,800.0,2000.0,1400.0,20.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Pineapple,Pine Apple,Local,2026-07-19,1500.0,4500.0,3500.0,9.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Pomegranate,Pomogranate,Local,2026-07-19,1500.0,7000.0,4500.0,3.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Pumpkin,Pumpkin,Local,2026-07-19,400.0,800.0,600.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Spinach,Spinach,Local,2026-07-19,600.0,1000.0,800.0,6.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Indore(F&V) APMC,Tomato,Tomato,Local,2026-07-19,1600.0,3600.0,2800.0,33.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jabalpur,Jabalpur(F&V) APMC,Garlic,Garlic,Local,2026-07-19,2700.0,3600.0,3000.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jabalpur,Jabalpur(F&V) APMC,Onion,Onion,Medium,2026-07-19,1100.0,1700.0,1200.0,97.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Anupur,Jaithari APMC,gulli,Gulli,FAQ,2026-07-19,4600.0,4625.0,4600.0,10.100000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ratlam,Jaora APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),FAQ,2026-07-19,6000.0,6000.0,6000.0,34.85,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Tikamgarh,Jatara APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2350.0,2355.0,2350.0,58.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Damoh,Javera APMC,Wheat,Wheat,FAQ,2026-07-19,2425.0,2440.0,2440.0,80.556,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Damoh,Javera APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2300.0,2415.0,2300.0,97.10000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Jawar APMC,Wheat,Wheat,FAQ,2026-07-19,2251.0,2251.0,2251.0,5.510000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Jeerapur APMC,Soyabean,Soyabeen,Non-FAQ,2026-07-19,6655.0,6655.0,6655.0,2.815,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Jeerapur APMC,Soyabean,Soyabeen,FAQ,2026-07-19,6480.0,6825.0,6550.0,25.450000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Jeerapur APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2500.0,2500.0,2500.0,5.008,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Jeerapur APMC,Wheat,Wheat,FAQ,2026-07-19,2400.0,2475.0,2430.0,8.791,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Jhabua(F&V) APMC,Soyabean,Soyabeen,Local,2026-07-19,6800.0,6810.0,6805.0,24.97,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Alirajpur,Jobat APMC,Bengal Gram(Gram)(Whole),Chana Kabuli,FAQ,2026-07-19,5500.0,5500.0,5500.0,1.0150000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Alirajpur,Jobat APMC,Mahua,Mahua Seed / Bunch,FAQ,2026-07-19,5100.0,5100.0,5100.0,7.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Beetroot,Beetroot,FAQ,2026-07-19,2000.0,2000.0,2000.0,0.022000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Bhindi(Ladies Finger),Bhindi,FAQ,2026-07-19,1100.0,1500.0,1200.0,0.29900000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Bitter gourd,Other,FAQ,2026-07-19,1200.0,1200.0,1200.0,0.17900000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Bottle gourd,Other,FAQ,2026-07-19,500.0,1000.0,500.0,1.324,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Cabbage,Cabbage,FAQ,2026-07-19,1000.0,1000.0,1000.0,0.35000000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Cauliflower,Other,FAQ,2026-07-19,2000.0,2000.0,2000.0,0.16200000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Chili Red,Geeli Mirchi,FAQ,2026-07-19,800.0,2000.0,1000.0,1.165,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Colacasia,Arabi,FAQ,2026-07-19,1000.0,1500.0,1500.0,0.21200000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Coriander(Leaves),Coriander,FAQ,2026-07-19,6000.0,10000.0,7000.0,0.255,Rs./Bundle,Bundle
+Madhya Pradesh,Morena,Kailaras APMC,Lemon,Lemon,Medium,2026-07-19,1800.0,2100.0,2100.0,0.36000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Onion,Other,FAQ,2026-07-19,1000.0,1500.0,1500.0,1.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Other green and fresh vegetables,Other green and fresh vegetables,FAQ,2026-07-19,500.0,4000.0,1500.0,0.8310000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Pointed gourd(Parval),Pointed gourd (Parval),FAQ,2026-07-19,3000.0,3000.0,3000.0,0.007000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Potato,Other,FAQ,2026-07-19,600.0,1100.0,600.0,6.65,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Pumpkin,Other,FAQ,2026-07-19,1000.0,1400.0,1400.0,0.5990000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Ramphal,Ramphal,Medium,2026-07-19,600.0,700.0,700.0,0.25,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Seetapal,Seethaphal,Medium,2026-07-19,1000.0,1000.0,1000.0,0.06999999999999999,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Spinach,Spinach,FAQ,2026-07-19,1000.0,1000.0,1000.0,0.021,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Tinda,Tinda,FAQ,2026-07-19,1100.0,1700.0,1700.0,0.26,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Kailaras APMC,Tomato,Other,FAQ,2026-07-19,1300.0,2000.0,2000.0,1.4500000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera APMC,Wheat,Mill Quality,FAQ,2026-07-19,2300.0,2470.0,2300.0,29.89,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Banana,Banana-Organic,Local,2026-07-19,1800.0,3100.0,2600.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-19,800.0,1200.0,1000.0,0.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-19,1000.0,2000.0,1200.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Brinjal,Brinjal,Local,2026-07-19,500.0,1800.0,1000.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-19,2800.0,3800.0,3600.0,0.05,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Onion,Onion,Local,2026-07-19,1500.0,2500.0,2000.0,0.15,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Potato,Potato,Local,2026-07-19,600.0,1400.0,800.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Ridgeguard(Tori),Ridgeguard(Tori),Local,2026-07-19,700.0,1500.0,1000.0,0.25,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Karhi APMC,Kabuli Chana(Chickpeas-White),Dollar Gram,FAQ,2026-07-19,8200.0,8200.0,8200.0,1.0150000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Kasrawad APMC,Wheat,Wheat,FAQ,2026-07-19,2475.0,2475.0,2475.0,6.515000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Katni,Katni APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,5500.0,6500.0,6500.0,7.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Katni,Katni APMC,Kodo Millet(Varagu),Kondo,FAQ,2026-07-19,2200.0,2200.0,2200.0,3.208,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Katni,Katni APMC,Lentil(Masur)(Whole),Masur Dal,FAQ,2026-07-19,5675.0,5675.0,5675.0,41.49,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Katni,Katni APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),FAQ,2026-07-19,7947.13,8205.43,8205.43,281.89000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Katni,Katni APMC,Wheat,Mill Quality,FAQ,2026-07-19,2400.0,2450.0,2450.0,154.20000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Katni,Katni APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2267.0,2475.0,2475.0,75.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Katni,Katni APMC,Wheat,Wheat,FAQ,2026-07-19,2400.0,2400.0,2400.0,24.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Katni,Katni APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2300.0,2450.0,2300.0,36.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Khachrod APMC,Wheat,Wheat,Non-FAQ,2026-07-19,1968.0,1968.0,1968.0,9.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa APMC,Onion,Local,FAQ,2026-07-19,500.0,500.0,500.0,30.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa APMC,Wheat,Mill Quality,FAQ,2026-07-19,2585.0,2585.0,2585.0,3.855,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Bhindi(Ladies Finger),Bhindi,FAQ,2026-07-19,1000.0,2500.0,1400.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Bitter gourd,Bitter Gourd,FAQ,2026-07-19,850.0,2000.0,1500.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Bottle gourd,Bottle Gourd,FAQ,2026-07-19,400.0,800.0,500.0,3.3000000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Brinjal,Brinjal,FAQ,2026-07-19,750.0,1600.0,950.0,3.9000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Cabbage,Cabbage,FAQ,2026-07-19,300.0,600.0,420.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Capsicum,Capsicum,FAQ,2026-07-19,1000.0,3000.0,1650.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Cauliflower,Cauliflower,FAQ,2026-07-19,700.0,1500.0,800.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Coriander(Leaves),Coriander,FAQ,2026-07-19,4000.0,7500.0,5500.0,0.4,Rs./Bundle,Bundle
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Green Chilli,Green Chilly,FAQ,2026-07-19,600.0,2000.0,1000.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Potato,Potato,FAQ,2026-07-19,350.0,850.0,500.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Pumpkin,Pumpkin,FAQ,2026-07-19,300.0,1000.0,500.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Spinach,Spinach,FAQ,2026-07-19,400.0,650.0,500.0,0.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Sponge gourd,Sponge gourd,FAQ,2026-07-19,800.0,1600.0,1000.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Tomato,Tomato,FAQ,2026-07-19,800.0,2200.0,1440.0,2.8000000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Tikamgarh,Khargapur APMC,Wheat,Mill Quality,FAQ,2026-07-19,2400.0,2452.0,2400.0,843.3450000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Khargone APMC,Soyabean,Soyabeen,FAQ,2026-07-19,4520.0,4520.0,4520.0,1.72,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Khargone APMC,Wheat,Wheat,FAQ,2026-07-19,2550.0,2580.0,2575.0,28.060000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Khurai APMC,Lak(Teora),Tiwada,FAQ,2026-07-19,3150.0,3150.0,3150.0,1.153,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Kolaras APMC,Groundnut,Big (With Shell),FAQ,2026-07-19,7500.0,7500.0,7500.0,12.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Krishi Upaj Mandi Samiti Bichhiya,Kutki,Kutki,Non-FAQ,2026-07-19,6500.0,6500.0,6500.0,12.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Krishi Upaj Mandi Samiti Bichhiya,Paddy(Common),Common,Non-FAQ,2026-07-19,1950.0,2130.0,2110.0,69.60000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Krishi Upaj Mandi Samiti Bichhiya,Paddy(Common),Dhan,Non-FAQ,2026-07-19,2111.0,2111.0,2111.0,9.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Krishi Upaj Mandi Samiti Bichhiya,buttery,Buttery,FAQ,2026-07-19,3000.0,3000.0,3000.0,6.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Krishi Upaj Mandi Samiti Bichhiya,gulli,Gulli,Non-FAQ,2026-07-19,4700.0,4700.0,4700.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Krishi Upaj Mandi Samiti Bichhiya,gulli,Gulli,FAQ,2026-07-19,4700.0,5000.0,5000.0,7.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Kukshi APMC,Soyabean,Soyabeen,FAQ,2026-07-19,6900.0,6900.0,6900.0,2.5500000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Kukshi APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2200.0,2200.0,2200.0,24.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Kukshi APMC,Wheat,Wheat,FAQ,2026-07-19,2475.0,2530.0,2525.0,60.03,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Lahar APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,5800.0,6100.0,6100.0,5.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Lahar APMC,Mustard,Mustard,FAQ,2026-07-19,7150.0,7660.0,7486.0,87.26,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Lahar APMC,Wheat,Wheat,FAQ,2026-07-19,2389.0,2460.0,2460.0,106.95,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar APMC,Mustard,Mustard,FAQ,2026-07-19,7300.0,8120.0,7480.0,76.81900000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar APMC,Wheat,Wheat,FAQ,2026-07-19,2370.0,2495.0,2475.0,112.477,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar APMC,Wheat,Mill Quality,FAQ,2026-07-19,2300.0,2300.0,2300.0,33.800000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Beetroot,Beetroot,Grade B,2026-07-19,800.0,1200.0,1000.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade B,2026-07-19,800.0,1200.0,1000.0,0.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Cabbage,Other,Grade B,2026-07-19,800.0,1500.0,1000.0,12.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Carrot,Carrot,Grade B,2026-07-19,2200.0,2800.0,2500.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Cauliflower,Other,Grade B,2026-07-19,2200.0,2800.0,2500.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade B,2026-07-19,1200.0,1600.0,1400.0,30.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Ginger(Green),Green Ginger,Grade B,2026-07-19,5000.0,7000.0,6000.0,4.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Green Chilli,Other,Grade B,2026-07-19,1200.0,1800.0,1500.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Guar,Other,Grade B,2026-07-19,1200.0,1800.0,1500.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Lemon,Other,Grade B,2026-07-19,4000.0,5000.0,4500.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Mango,Dusheri,Grade B,2026-07-19,1500.0,2200.0,1800.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Mango(Raw-Ripe),Mango - Raw-Ripe,Grade B,2026-07-19,1200.0,1800.0,1500.0,14.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Mousambi(Sweet Lime),Mousambi,Grade B,2026-07-19,2000.0,3000.0,2500.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Onion,Other,Grade B,2026-07-19,2000.0,2400.0,2200.0,32.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Potato,Local,Grade B,2026-07-19,700.0,1200.0,1000.0,31.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Pumpkin,Pumpkin,Grade B,2026-07-19,400.0,600.0,500.0,14.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Tinda,Tinda,Grade B,2026-07-19,600.0,1000.0,800.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,LavKush Nagar(Laundi) APMC,Bengal Gram(Gram)(Whole),Desi (F.A.Q. Split),Non-FAQ,2026-07-19,5650.0,5800.0,5800.0,10.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,LavKush Nagar(Laundi) APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-19,5450.0,5480.0,5480.0,6.940000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,LavKush Nagar(Laundi) APMC,Green Peas,Pea,FAQ,2026-07-19,3600.0,3600.0,3600.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,LavKush Nagar(Laundi) APMC,Mustard,Mustard,Non-FAQ,2026-07-19,6780.0,7210.0,7010.0,62.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,LavKush Nagar(Laundi) APMC,Mustard,Mustard,FAQ,2026-07-19,6890.0,6900.0,6900.0,12.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,LavKush Nagar(Laundi) APMC,Wheat,Mill Quality,FAQ,2026-07-19,2350.0,2350.0,2350.0,5.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Chhatarpur,LavKush Nagar(Laundi) APMC,gulli,Gulli,FAQ,2026-07-19,4500.0,4500.0,4500.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shivpuri,Magroni APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2000.0,2312.0,2312.0,18.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Maihar(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-19,1000.0,1000.0,1000.0,1.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Maihar(F&V) APMC,Ridgeguard(Tori),Ridgeguard(Tori),Local,2026-07-19,1500.0,1500.0,1500.0,0.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Maihar(F&V) APMC,Tomato,Tomato,Local,2026-07-19,1400.0,1400.0,1400.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar APMC,Bengal Gram(Gram)(Whole),Gram,Non-FAQ,2026-07-19,5190.0,5200.0,5190.0,11.185,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar APMC,Kabuli Chana(Chickpeas-White),Dollar Gram,FAQ,2026-07-19,6111.0,7500.0,7500.0,11.644,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2550.0,2575.0,2575.0,13.730000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar APMC,Wheat,Wheat,FAQ,2026-07-19,2500.0,2575.0,2575.0,6.76,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade B,2026-07-19,1300.0,1500.0,1400.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Bottle gourd,Bottle Gourd,Grade B,2026-07-19,700.0,900.0,743.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Brinjal,Brinjal,Grade B,2026-07-19,600.0,900.0,732.0,2.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Cabbage,Cabbage,Grade B,2026-07-19,1400.0,1700.0,1500.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Cauliflower,Cauliflower,Grade B,2026-07-19,2000.0,3000.0,2500.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Cluster beans,Cluster Beans,Grade B,2026-07-19,1400.0,2000.0,1500.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Coriander(Leaves),Coriander,Grade B,2026-07-19,2400.0,3000.0,2500.0,0.2,Rs./Bundle,Bundle
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade B,2026-07-19,700.0,850.0,757.0,1.4000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Green Chilli,Green Chilly,Grade B,2026-07-19,1900.0,2500.0,2000.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Onion,Onion,Grade B,2026-07-19,1400.0,1650.0,1595.0,2.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Potato,Potato,Grade B,2026-07-19,1150.0,1400.0,1217.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Pumpkin,Pumpkin,Grade B,2026-07-19,800.0,1000.0,846.0,1.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Sponge gourd,Sponge gourd,Grade B,2026-07-19,1300.0,1500.0,1325.0,0.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Manawar(F&V) APMC,Tomato,Tomato,Grade B,2026-07-19,1800.0,2500.0,2000.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Bengal Gram(Gram)(Whole),Desi (F.A.Q. Split),Non-FAQ,2026-07-19,5000.0,5190.0,5190.0,7.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,6200.0,6205.0,6205.0,9.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Green Peas,Pea,FAQ,2026-07-19,3150.0,3150.0,3150.0,6.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Gur(Jaggery),Jaggery,FAQ,2026-07-19,3060.0,3150.0,3150.0,12.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Kutki,Kutki,Non-FAQ,2026-07-19,7250.0,7500.0,7500.0,10.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Kutki,Kutki,FAQ,2026-07-19,7280.0,7305.0,7300.0,21.200000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Paddy(Common),Common,Non-FAQ,2026-07-19,2000.0,2000.0,2000.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Rayee,Raee,Non-FAQ,2026-07-19,6000.0,6001.0,6001.0,6.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Wheat,Local,Non-FAQ,2026-07-19,2200.0,2250.0,2200.0,34.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2400.0,2405.0,2400.0,19.900000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandla,Mandla APMC,gulli,Gulli,FAQ,2026-07-19,5000.0,5000.0,5000.0,9.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Mandsaur,Mandsaur APMC,Garlic,Garlic,FAQ,2026-07-19,6219.95,6219.95,6219.95,10.799,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Mehar APMC,Wheat,Local,Non-FAQ,2026-07-19,2380.0,2390.0,2390.0,16.03,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Mehar APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2400.0,2410.0,2400.0,25.42,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Mehar APMC,gulli,Gulli,Non-FAQ,2026-07-19,4910.0,5080.0,5080.0,15.840000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Mehgaon APMC,Green Gram(Moong)(Whole),Green (Whole),Non-FAQ,2026-07-19,6000.0,6100.0,6100.0,18.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Mehgaon APMC,Mustard,Mustard,FAQ,2026-07-19,7000.0,7025.0,7000.0,13.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Mhow APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2475.0,2475.0,2475.0,11.600000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Balaghat,Mohgaon APMC,Kodo Millet(Varagu),Kondo,FAQ,2026-07-19,2500.0,2500.0,2500.0,3.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Morena APMC,Other green and fresh vegetables,Other green and fresh vegetables,Non-FAQ,2026-07-19,700.0,800.0,800.0,6.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Morena APMC,Tinda,Tinda,Non-FAQ,2026-07-19,1000.0,1000.0,1000.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Morena(F&V) APMC,Cauliflower,Cauliflower,Grade C,2026-07-19,2500.0,2500.0,2500.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Morena(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade C,2026-07-19,1000.0,1000.0,1000.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Morena(F&V) APMC,Potato,Potato,Non-FAQ,2026-07-19,200.0,400.0,400.0,20.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Morena(F&V) APMC,Tinda,Other,Grade C,2026-07-19,1000.0,1000.0,1000.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Morena(F&V) APMC,Tomato,Tomato,Non-FAQ,2026-07-19,2500.0,2500.0,2500.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Mow APMC,Mustard,Mustard,Non-FAQ,2026-07-19,7050.0,7710.0,7710.0,10.790000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Bhind,Mow APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2050.0,2425.0,2400.0,34.357,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Mundi APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,6500.0,6700.0,6700.0,5.78,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Mundi APMC,Soyabean,Soyabeen,FAQ,2026-07-19,6800.0,7000.0,7000.0,0.6320000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Mundi APMC,Wheat,Wheat,FAQ,2026-07-19,2415.0,2525.0,2505.0,50.845,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Nagod APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2470.0,2470.0,2470.0,5.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Nagod APMC,Wheat,Wheat,FAQ,2026-07-19,2480.0,2480.0,2480.0,23.85,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Nagod APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2400.0,2400.0,2400.0,8.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Nagod APMC,Wheat,Mill Quality,FAQ,2026-07-19,2425.0,2425.0,2425.0,3.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shajapur,Nalkehda APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-19,5500.0,5500.0,5500.0,0.094,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shajapur,Nalkehda APMC,Coriander(Leaves),Coriander,FAQ,2026-07-19,10890.0,14550.0,14550.0,0.53,Rs./Bundle,Bundle
+Madhya Pradesh,Shajapur,Nalkehda APMC,Lentil(Masur)(Whole),Masur Dal,FAQ,2026-07-19,4000.0,7701.0,6500.0,2.054,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shajapur,Nalkehda APMC,Mustard,Mustard,FAQ,2026-07-19,6635.0,6635.0,6635.0,0.10900000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shajapur,Nalkehda APMC,Soyabean,Soyabeen,FAQ,2026-07-19,5200.0,7415.0,7390.0,31.308999999999997,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shajapur,Nalkehda APMC,Wheat,Wheat,FAQ,2026-07-19,2000.0,2517.0,2380.0,30.351,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Narsinghpur,Narsinghpur APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,7000.0,7000.0,7000.0,1.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Neemuch,Neemuch APMC,Soyabean,Soyabeen,FAQ,2026-07-19,6805.99,6805.99,6805.99,7.913,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Neemuch,Neemuch APMC,Wheat,Wheat,FAQ,2026-07-19,2650.0,2650.0,2650.0,2.92,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Tikamgarh,Niwadi APMC,Groundnut,Big (With Shell),FAQ,2026-07-19,5200.0,5200.0,5200.0,7.408,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jabalpur,Paatan APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,FAQ,2026-07-19,7700.0,7700.0,7700.0,30.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Pachaur APMC,Wheat,Mill Quality,FAQ,2026-07-19,2400.0,2450.0,2450.0,9.16,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Pandhana APMC,Bengal Gram(Gram)(Whole),Desi (F.A.Q. Split),FAQ,2026-07-19,5365.0,5375.0,5375.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Pandhana APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),FAQ,2026-07-19,6125.0,6125.0,6125.0,2.035,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Pandhana APMC,Wheat,Lokwan,FAQ,2026-07-19,2545.0,2545.0,2545.0,3.2750000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Panna,Panna APMC,Green Peas,Pea,FAQ,2026-07-19,3925.0,3925.0,3925.0,0.86,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Panna,Panna APMC,Lentil(Masur)(Whole),Masur Dal,FAQ,2026-07-19,5700.0,9000.0,9000.0,5.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Panna,Panna APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2100.0,2100.0,2100.0,1.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Panna,Panna APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2400.0,2400.0,2400.0,8.200000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Panna,Panna APMC,Wheat,Mill Quality,FAQ,2026-07-19,2400.0,2405.0,2405.0,23.700000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad APMC,Wheat,Lokwan,FAQ,2026-07-19,2450.0,2500.0,2450.0,43.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade A,2026-07-19,1000.0,1500.0,1260.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Bitter gourd,Bitter Gourd,Grade A,2026-07-19,2000.0,2000.0,2000.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Bottle gourd,Bottle Gourd,Grade A,2026-07-19,1000.0,1200.0,1013.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Brinjal,Brinjal,Grade A,2026-07-19,700.0,1000.0,871.0,1.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Cabbage,Cabbage,Grade A,2026-07-19,1000.0,1000.0,1000.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Cauliflower,Cauliflower,Grade A,2026-07-19,1600.0,1600.0,1600.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Cluster beans,Cluster Beans,Grade A,2026-07-19,2500.0,2500.0,2500.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade A,2026-07-19,1000.0,1000.0,1000.0,0.714,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Potato,Desi,Grade A,2026-07-19,1000.0,1000.0,1000.0,0.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Pumpkin,Pumpkin,Grade A,2026-07-19,1000.0,1000.0,1000.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Raddish,Raddish,Grade A,2026-07-19,800.0,800.0,800.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Spinach,Spinach,Grade A,2026-07-19,2000.0,2500.0,2250.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Jhabua,Petlawad(F&V) APMC,Tomato,Hybrid,Grade A,2026-07-19,3000.0,3000.0,3000.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Porsa APMC,Onion,Onion,FAQ,2026-07-19,1200.0,1200.0,1200.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Porsa APMC,Other green and fresh vegetables,Other green and fresh vegetables,Non-FAQ,2026-07-19,700.0,700.0,700.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Porsa APMC,Potato,Potato,FAQ,2026-07-19,500.0,500.0,500.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Tikamgarh,Prithvipur APMC,Groundnut,Big (With Shell),FAQ,2026-07-19,7300.0,7300.0,7300.0,36.35,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Raisen,Raisen APMC,Wheat,Wheat,FAQ,2026-07-19,2300.0,2300.0,2300.0,7.620000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Rajgarh APMC,Lentil(Masur)(Whole),Masur Dal,FAQ,2026-07-19,5075.0,5075.0,5075.0,3.915,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Rajgarh APMC,Onion,Onion,FAQ,2026-07-19,300.0,1500.0,1500.0,16.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Rajgarh APMC,Wheat,Lokwan,FAQ,2026-07-19,2770.0,2770.0,2770.0,7.0200000000000005,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Rajgarh APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2325.0,2400.0,2400.0,30.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dhar,Rajgarh APMC,Wheat,Wheat,FAQ,2026-07-19,2300.0,2340.0,2340.0,67.96000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ratlam,Ratlam APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,FAQ,2026-07-19,5500.0,5500.0,5500.0,20.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ratlam,Ratlam APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,4500.0,4500.0,4500.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Rehli APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2390.0,2400.0,2400.0,29.14,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Rehli(F&V) APMC,Brinjal,Brinjal,Grade C,2026-07-19,1500.0,1700.0,1600.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Rehli(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade C,2026-07-19,1300.0,1500.0,1400.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Rehli(F&V) APMC,Onion,Onion,Grade C,2026-07-19,2400.0,2600.0,2500.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Rehli(F&V) APMC,Potato,Potato,Grade C,2026-07-19,900.0,1100.0,1000.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Rehli(F&V) APMC,Tomato,Tomato,Grade C,2026-07-19,2100.0,2300.0,2200.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Rewa APMC,Wheat,Wheat,FAQ,2026-07-19,2425.0,2425.0,2425.0,42.010000000000005,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Rewa APMC,Wheat,Mill Quality,FAQ,2026-07-19,2480.0,2480.0,2480.0,5.86,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Rewa(F&V) APMC,Bitter gourd,Bitter Gourd,Grade B,2026-07-19,1000.0,1000.0,1000.0,12.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Rewa(F&V) APMC,Brinjal,Brinjal,Grade B,2026-07-19,700.0,700.0,700.0,6.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Rewa(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade A,2026-07-19,900.0,900.0,900.0,23.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Rewa(F&V) APMC,Mango,Badami,Grade B,2026-07-19,3200.0,3200.0,3200.0,23.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Rewa(F&V) APMC,Potato,Other,Grade B,2026-07-19,700.0,700.0,700.0,56.7,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rewa,Rewa(F&V) APMC,Tomato,Hybrid,Grade B,2026-07-19,1100.0,1100.0,1100.0,94.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Brinjal,Other,FAQ,2026-07-19,700.0,700.0,700.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Green Chilli,Green Chilly,FAQ,2026-07-19,1200.0,1200.0,1200.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Potato,Jyoti,FAQ,2026-07-19,500.0,800.0,700.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Tomato,Deshi,FAQ,2026-07-19,1000.0,1400.0,1200.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Banana,Medium,Local,2026-07-19,1000.0,1400.0,1200.0,11.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-19,1000.0,1200.0,1100.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-19,600.0,800.0,700.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Brinjal,Brinjal,Local,2026-07-19,600.0,800.0,700.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-19,300.0,600.0,400.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Coriander(Leaves),Other,Local,2026-07-19,3000.0,5000.0,4000.0,0.5,Rs./Bundle,Bundle
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-19,800.0,1000.0,900.0,3.3000000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Ginger(Green),Green Ginger,Local,2026-07-19,6000.0,8000.0,7000.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-19,1500.0,2400.0,1800.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Mango,Other,Local,2026-07-19,3000.0,5000.0,4000.0,7.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Onion,Onion,Local,2026-07-19,1800.0,2600.0,2400.0,29.3,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Other green and fresh vegetables,Other green and fresh vegetables,Local,2026-07-19,600.0,800.0,700.0,2.4000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Papaya,Papaya,Local,2026-07-19,1200.0,1800.0,1400.0,3.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Potato,Local,Local,2026-07-19,800.0,1200.0,1000.0,1.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Raddish,Raddish,Local,2026-07-19,500.0,700.0,600.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Spinach,Spinach,Local,2026-07-19,500.0,700.0,600.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Sponge gourd,Sponge gourd,Local,2026-07-19,1000.0,1200.0,1100.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Sagar(F&V) APMC,Tomato,Local,Local,2026-07-19,1200.0,2000.0,1600.0,6.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ratlam,Sailana APMC,Soyabean,Soyabeen,FAQ,2026-07-19,7500.0,7500.0,7500.0,2.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Sanawad APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2440.0,2440.0,2440.0,2.275,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Bottle gourd,Bottle Gourd,Grade A,2026-07-19,1100.0,1500.0,1300.0,0.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Brinjal,Arkasheela Mattigulla,Grade A,2026-07-19,600.0,800.0,700.0,2.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Cabbage,Cabbage,Grade A,2026-07-19,800.0,1000.0,900.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade A,2026-07-19,400.0,600.0,500.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Green Chilli,Green Chilly,Grade A,2026-07-19,3500.0,4000.0,3800.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Onion,Onion,Grade A,2026-07-19,1500.0,2000.0,1800.0,0.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Pumpkin,Other,Grade A,2026-07-19,1100.0,1500.0,1300.0,0.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Tomato,Deshi,Grade A,2026-07-19,3500.0,4000.0,3800.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade A,2026-07-19,2500.0,3500.0,3000.0,0.15000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Bottle gourd,Bottle Gourd,Grade A,2026-07-19,800.0,1400.0,1100.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Brinjal,Brinjal,Grade A,2026-07-19,800.0,1500.0,1200.0,0.24,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Cauliflower,Cauliflower,Grade A,2026-07-19,500.0,800.0,600.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Green Chilli,Green Chilly,Grade A,2026-07-19,4200.0,5500.0,4800.0,0.03,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Onion,Onion,Grade A,2026-07-19,1300.0,2300.0,1800.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Potato,Potato,Grade A,2026-07-19,800.0,1600.0,1400.0,0.12,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Pumpkin,Pumpkin,Grade A,2026-07-19,500.0,800.0,600.0,0.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Spinach,Spinach,Grade A,2026-07-19,800.0,1500.0,1200.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Sponge gourd,Sponge gourd,Grade A,2026-07-19,2500.0,3800.0,3500.0,0.12,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Indore,Sanwer(F&V) APMC,Tomato,Tomato,Grade A,2026-07-19,2000.0,3000.0,2500.0,0.03,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Sarangpur APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-19,5600.0,6240.0,6240.0,10.416,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Sarangpur APMC,Lentil(Masur)(Whole),Masur Dal,FAQ,2026-07-19,7500.0,7500.0,7500.0,2.5600000000000005,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Rajgarh,Sarangpur APMC,Wheat,Mill Quality,FAQ,2026-07-19,2365.0,2500.0,2500.0,33.108,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Satna APMC,Wheat,Wheat,FAQ,2026-07-19,2425.0,2490.0,2490.0,25.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Satna(F&V) APMC,Mango,Dusheri,Grade A,2026-07-19,1500.0,2000.0,1750.0,14.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Satna(F&V) APMC,Mousambi(Sweet Lime),Mousambi,Grade A,2026-07-19,5500.0,5500.0,5500.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Satna(F&V) APMC,Pomegranate,Pomogranate,Grade A,2026-07-19,8000.0,8000.0,8000.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Satna,Satna(F&V) APMC,Water Melon,Water Melon,Grade A,2026-07-19,1000.0,1000.0,1000.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Khargone,Segaon APMC,Wheat,Wheat,FAQ,2026-07-19,2500.0,2500.0,2500.0,7.015000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore APMC,Wheat,Mill Quality,FAQ,2026-07-19,2350.0,2350.0,2350.0,2.0500000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Banana,Banana - Ripe,Grade Range-1,2026-07-19,2000.0,2500.0,2200.0,1.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Beetroot,Beetroot,Grade Range-1,2026-07-19,1600.0,2500.0,2000.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade Range-1,2026-07-19,1500.0,2000.0,1600.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Bitter gourd,Bitter Gourd,Grade Range-1,2026-07-19,2000.0,3000.0,2500.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Bottle gourd,Bottle Gourd,Grade Range-1,2026-07-19,1000.0,2000.0,1500.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Brinjal,Brinjal,Grade Range-1,2026-07-19,1000.0,2000.0,1600.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Cabbage,Cabbage,Grade Range-1,2026-07-19,1000.0,2000.0,1600.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Capsicum,Capsicum,Grade Range-1,2026-07-19,3000.0,4000.0,3500.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Carrot,Carrot,Grade Range-1,2026-07-19,2000.0,2500.0,2200.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Cauliflower,Cauliflower,Grade Range-1,2026-07-19,3000.0,5000.0,4000.0,0.8,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Coriander(Leaves),Coriander,Grade Range-1,2026-07-19,8000.0,12000.0,10000.0,0.6000000000000001,Rs./Bundle,Bundle
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Cowpea(Veg),Bean Barbati,Grade Range-1,2026-07-19,2000.0,3000.0,2500.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade Range-1,2026-07-19,800.0,1200.0,1000.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Ginger(Green),Green Ginger,Grade Range-1,2026-07-19,12000.0,16000.0,14000.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Green Chilli,Green Chilly,Grade Range-1,2026-07-19,2000.0,3500.0,3000.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Jack Fruit(Ripe),Jack Fruit,Grade Range-1,2026-07-19,1600.0,2000.0,1800.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Lemon,Lemon,Grade Range-1,2026-07-19,4000.0,6000.0,5000.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Mango,Badami,Grade Range-1,2026-07-19,3000.0,6000.0,5000.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Mango(Raw-Ripe),Mango - Raw-Ripe,Grade Range-1,2026-07-19,6000.0,11000.0,10000.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Pumpkin,Pumpkin,Grade Range-1,2026-07-19,1000.0,2000.0,1500.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Spinach,Spinach,Grade Range-1,2026-07-19,3000.0,4000.0,3500.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Sponge gourd,Sponge gourd,Grade Range-1,2026-07-19,2000.0,3000.0,2500.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Sweet Potato,Sweet Potato,Grade Range-1,2026-07-19,1800.0,2000.0,1900.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Tinda,Tinda,Grade Range-1,2026-07-19,2000.0,2500.0,2200.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Sehore(F&V) APMC,Tomato,Tomato,Grade Range-1,2026-07-19,1200.0,2000.0,1500.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-19,1000.0,1400.0,1200.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Bottle gourd,Bottle Gourd,Medium,2026-07-19,700.0,1200.0,900.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Brinjal,Round,Small,2026-07-19,900.0,1400.0,1000.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Cabbage,Cabbage,Medium,2026-07-19,1000.0,1300.0,1100.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Cauliflower,Cauliflower,Medium,2026-07-19,900.0,1500.0,1200.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Green Chilli,Green Chilly,Medium,2026-07-19,1000.0,1400.0,1200.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Onion,Red,Medium,2026-07-19,700.0,1100.0,900.0,1.6,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Pumpkin,Pumpkin,Large,2026-07-19,900.0,1300.0,1000.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Tinda,Tinda,Medium,2026-07-19,900.0,1200.0,1000.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Tomato,Hybrid,Medium,2026-07-19,1000.0,1900.0,1500.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Seoni,Seoni APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2500.0,2500.0,2500.0,3.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Datia,Sevda APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,6950.0,6950.0,6950.0,35.545,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Shahagarh APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2405.0,2450.0,2450.0,43.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sagar,Shahagarh APMC,gulli,Gulli,Non-FAQ,2026-07-19,4300.0,4500.0,4500.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Shahdol APMC,Mahua,Mahua,Non-FAQ,2026-07-19,4500.0,4500.0,4500.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Shahdol APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2300.0,2300.0,2300.0,36.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shehdol,Shahdol APMC,gulli,Gulli,Non-FAQ,2026-07-19,4500.0,4500.0,4500.0,25.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Dindori,Shahpura APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2350.0,2350.0,2350.0,16.900000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan APMC,Mustard,Mustard,FAQ,2026-07-19,7785.0,7850.0,7850.0,9.65,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan APMC,Wheat,Wheat,FAQ,2026-07-19,2455.0,2475.0,2475.0,10.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Banana,Other,Medium,2026-07-19,3000.0,3000.0,3000.0,0.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Medium,2026-07-19,1200.0,1500.0,1400.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Bottle gourd,Bottle Gourd,Medium,2026-07-19,1000.0,1200.0,1100.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Colacasia,Arabi,Medium,2026-07-19,2500.0,2500.0,2500.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Cucumbar(Kheera),Cucumbar,Medium,2026-07-19,1000.0,1500.0,1300.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Green Chilli,Green Chilly,Medium,2026-07-19,1200.0,1500.0,1300.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Mango,Totapuri,Medium,2026-07-19,3500.0,3500.0,3500.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Raddish,Other,Medium,2026-07-19,1500.0,2000.0,1700.0,0.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Ridgeguard(Tori),Ridgeguard(Tori),Medium,2026-07-19,1500.0,2000.0,1800.0,0.4,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sehore,Shyampur APMC,Wheat,Mill Quality,FAQ,2026-07-19,2400.0,2425.0,2425.0,6.636,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sidhi,Sidhi APMC,Green Peas,Pea,Non-FAQ,2026-07-19,3120.0,3130.0,3130.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sidhi,Sidhi APMC,Lak(Teora),Tiwada,Non-FAQ,2026-07-19,3120.0,3130.0,3130.0,4.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sidhi,Sidhi APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2300.0,2320.0,2310.0,36.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sidhi,Sidhi APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2300.0,2325.0,2300.0,32.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sidhi,Sidhi APMC,gulli,Gulli,Non-FAQ,2026-07-19,4100.0,4150.0,4100.0,10.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Raisen,Silvani APMC,Wheat,Wheat,FAQ,2026-07-19,2350.0,2400.0,2400.0,24.900000000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Singroli,Singroli APMC,Kodo Millet(Varagu),Kondo,FAQ,2026-07-19,2200.0,2200.0,2200.0,17.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Singroli,Singroli APMC,Paddy(Common),Dhan,FAQ,2026-07-19,1900.0,1900.0,1900.0,5.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Singroli,Singroli(F&V) APMC,Pointed gourd(Parval),Pointed gourd (Parval),Medium,2026-07-19,1800.0,1800.0,1800.0,1.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Singroli,Singroli(F&V) APMC,Tomato,Other,Medium,2026-07-19,2500.0,2500.0,2500.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Sirali(F&V) APMC,Brinjal,Brinjal,Grade A,2026-07-19,1000.0,1000.0,1000.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Harda,Sirali(F&V) APMC,Pumpkin,Pumpkin,Grade A,2026-07-19,1000.0,1000.0,1000.0,0.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Shajapur,Susner APMC,Maize,Local,FAQ,2026-07-19,2300.0,2325.0,2325.0,254.85500000000002,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Tarana APMC,Wheat,Wheat,FAQ,2026-07-19,2466.0,2507.0,2507.0,29.27,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Narsinghpur,Tendukheda APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-19,6700.0,6750.0,6750.0,5.800000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Tikamgarh,Tikamgarh APMC,Wheat,Mill Quality,FAQ,2026-07-19,2425.0,2435.0,2435.0,29.689999999999998,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Raisen,Udaipura APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-19,5000.0,5000.0,5000.0,2.1,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Medium,2026-07-19,525.0,1760.0,951.0,0.63,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Bitter gourd,Bitter Gourd,Medium,2026-07-19,430.0,1430.0,753.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Bottle gourd,Bottle Gourd,Medium,2026-07-19,435.0,1550.0,819.0,0.41,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Brinjal,Brinjal,Medium,2026-07-19,450.0,1375.0,834.0,0.36000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Cabbage,Cabbage,Medium,2026-07-19,425.0,1440.0,976.0,0.43,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Capsicum,Capsicum,Medium,2026-07-19,410.0,1875.0,1289.0,0.8250000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Cauliflower,Cauliflower,Medium,2026-07-19,425.0,1550.0,846.0,0.42000000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Coriander(Leaves),Coriander,Medium,2026-07-19,440.0,2000.0,1237.0,0.9,Rs./Bundle,Bundle
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Ginger(Green),Green Ginger,Medium,2026-07-19,650.0,2330.0,1483.0,0.51,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Green Chilli,Green Chilly,Medium,2026-07-19,675.0,2375.0,1428.0,1.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Spinach,Spinach,Medium,2026-07-19,435.0,1750.0,837.0,0.34,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Sponge gourd,Sponge gourd,Medium,2026-07-19,450.0,1600.0,926.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Tinda,Tinda,Medium,2026-07-19,445.0,1675.0,964.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Tomato,Deshi,Medium,2026-07-19,550.0,1930.0,1357.0,0.55,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Bengal Gram(Gram)(Whole),Gram,Non-FAQ,2026-07-19,5200.0,5650.0,5650.0,9.825000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,Non-FAQ,2026-07-19,9300.0,9300.0,9300.0,12.625,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Kodo Millet(Varagu),Kondo,Non-FAQ,2026-07-19,2705.0,2705.0,2705.0,7.01,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Kutki,Kutki,Non-FAQ,2026-07-19,7400.0,7500.0,7500.0,4.71,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Linseed,Flaxseed,FAQ,2026-07-19,8000.0,8100.0,8100.0,4.960000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Paddy(Common),Dhan,Non-FAQ,2026-07-19,1800.0,1800.0,1800.0,11.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),Non-FAQ,2026-07-19,6200.0,6200.0,6200.0,6.075,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2325.0,2400.0,2360.0,63.2,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Wheat,Local,Non-FAQ,2026-07-19,2430.0,2430.0,2430.0,6.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2400.0,2450.0,2425.0,38.300000000000004,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,Wheat,Wheat,FAQ,2026-07-19,2300.0,2350.0,2340.0,224.093,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,buttery,Buttery,Non-FAQ,2026-07-19,3111.0,3111.0,3111.0,6.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,gulli,Gulli,FAQ,2026-07-19,4500.0,4800.0,4500.0,27.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Umariya,Umariya APMC,gulli,Gulli,Non-FAQ,2026-07-19,4300.0,5100.0,4400.0,29.12,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Ujjain,Unhel APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-19,5500.0,5500.0,5500.0,0.9720000000000001,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Balaghat,Varaseoni APMC,Maize,Local,Non-FAQ,2026-07-19,1800.0,2200.0,2200.0,26.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Balaghat,Varaseoni APMC,Paddy(Common),Paddy,Non-FAQ,2026-07-19,2090.0,3715.0,3300.0,25.697000000000003,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Balaghat,Varaseoni APMC,Paddy(Common),Paddy,FAQ,2026-07-19,2065.0,3525.0,2930.0,11.58,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Vijaypur APMC,Mustard,Mustard,Non-FAQ,2026-07-19,7700.0,7700.0,7700.0,2.5,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Vijaypur APMC,Mustard,Mustard,FAQ,2026-07-19,7530.0,7725.0,7725.0,4.54,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Vijaypur APMC,Wheat,Wheat,Non-FAQ,2026-07-19,2325.0,2325.0,2325.0,8.0,Rs./Quintal,Metric Tonnes
+Madhya Pradesh,Sheopur,Vijaypur APMC,Wheat,Mill Quality,Non-FAQ,2026-07-19,2425.0,2445.0,2440.0,61.760000000000005,Rs./Quintal,Metric Tonnes
 Madhya Pradesh,Ratlam,A lot APMC,Garlic,Garlic,FAQ,2026-07-20,500.0,13801.0,4500.0,9.475,Rs./Quintal,Metric Tonnes
 Madhya Pradesh,Ratlam,A lot APMC,Onion,Onion,FAQ,2026-07-20,301.0,1691.0,1500.0,3.058,Rs./Quintal,Metric Tonnes
 Madhya Pradesh,Ratlam,A lot APMC,Soyabean,Soyabeen,FAQ,2026-07-20,7079.0,7431.0,7079.0,24.022000000000002,Rs./Quintal,Metric Tonnes
@@ -9304,518 +9931,3 @@ Madhya Pradesh,Balaghat,Varaseoni APMC,Paddy(Common),Paddy,Non-FAQ,2026-07-25,20
 Madhya Pradesh,Sheopur,Vijaypur APMC,Mustard,Mustard,FAQ,2026-07-25,7700.0,7800.0,7800.0,10.207,Rs./Quintal,Metric Tonnes
 Madhya Pradesh,Sheopur,Vijaypur APMC,Wheat,Mill Quality,Non-FAQ,2026-07-25,2520.0,2520.0,2520.0,7.525,Rs./Quintal,Metric Tonnes
 Madhya Pradesh,Sheopur,Vijaypur APMC,Wheat,Wheat,Non-FAQ,2026-07-25,2400.0,2400.0,2400.0,12.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ratlam,A lot APMC,Wheat,Wheat,FAQ,2026-07-26,2305.0,2550.0,2320.0,116.92200000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhind,Alampur APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2420.0,2550.0,2430.0,84.30000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Amarpatan APMC,Wheat,Wheat,FAQ,2026-07-26,2475.0,2475.0,2475.0,7.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Amarpatan APMC,Wheat,Mill Quality,FAQ,2026-07-26,2500.0,2515.0,2515.0,10.056000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Amarwda APMC,buttery,Buttery,FAQ,2026-07-26,2400.0,2400.0,2400.0,8.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Anjad APMC,Maize,Yellow,FAQ,2026-07-26,1900.0,2000.0,2000.0,18.585,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Anupur,Anuppur APMC,Lak(Teora),Tiwada,Non-FAQ,2026-07-26,2800.0,2800.0,2800.0,4.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Anupur,Anuppur APMC,Lentil(Masur)(Whole),Masur Dal,Non-FAQ,2026-07-26,5700.0,5700.0,5700.0,2.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Anupur,Anuppur APMC,Mahua,Mahua,FAQ,2026-07-26,5000.0,5000.0,5000.0,16.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Anupur,Anuppur APMC,Paddy(Common),Dhan,Non-FAQ,2026-07-26,2050.0,2200.0,2200.0,20.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Anupur,Anuppur(F&V) APMC,Potato,Potato,Grade C,2026-07-26,1000.0,1000.0,1000.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Badnawar(F&V) APMC,Garlic,Garlic,Local,2026-07-26,8000.0,8000.0,8000.0,0.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Badnawar(F&V) APMC,Onion,Onion,Local,2026-07-26,800.0,800.0,800.0,0.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade A,2026-07-26,825.0,1100.0,950.0,0.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Bitter gourd,Bitter Gourd,Grade A,2026-07-26,850.0,1200.0,900.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Bottle gourd,Bottle Gourd,Grade A,2026-07-26,800.0,1200.0,900.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Brinjal,Other,Grade A,2026-07-26,900.0,1300.0,1000.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Cabbage,Cabbage,Grade A,2026-07-26,1650.0,2100.0,1800.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Cauliflower,Cauliflower,Grade A,2026-07-26,1765.0,2200.0,1850.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Colacasia,Arabi,Grade A,2026-07-26,865.0,1100.0,950.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade A,2026-07-26,610.0,950.0,800.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Ginger(Green),Green Ginger,Grade A,2026-07-26,4600.0,7000.0,5200.0,0.05,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Green Chilli,Green Chilly,Grade A,2026-07-26,2800.0,4500.0,3000.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Onion,1st Sort,Grade A,2026-07-26,1350.0,2450.0,2000.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Pumpkin,Other,Grade A,2026-07-26,625.0,1000.0,900.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Spinach,Organic,Grade A,2026-07-26,1400.0,2000.0,1800.0,0.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Sponge gourd,Sponge gourd,Grade A,2026-07-26,695.0,1200.0,800.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Badwah(F&V) APMC,Tomato,Deshi,Grade A,2026-07-26,1365.0,2800.0,2240.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Badwaha APMC,Wheat,Wheat,FAQ,2026-07-26,2511.0,2550.0,2550.0,10.990000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-26,5025.0,5025.0,5025.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani APMC,Kabuli Chana(Chickpeas-White),Dollar Gram,FAQ,2026-07-26,7150.0,7345.0,7345.0,35.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani APMC,Wheat,Lokwan,Non-FAQ,2026-07-26,2300.0,2300.0,2300.0,8.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani APMC,Wheat,Wheat,FAQ,2026-07-26,2200.0,2300.0,2300.0,26.595,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani APMC,Wheat,Lokwan,FAQ,2026-07-26,2200.0,2300.0,2300.0,26.595,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-26,900.0,900.0,900.0,0.618,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Cabbage,Cabbage,Local,2026-07-26,1000.0,1000.0,1000.0,0.532,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-26,1500.0,1500.0,1500.0,0.507,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-26,900.0,900.0,900.0,0.825,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-26,1700.0,1700.0,1700.0,0.322,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Onion,Onion,Local,2026-07-26,1250.0,1250.0,1250.0,1.112,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Potato,Potato,Local,2026-07-26,1000.0,1000.0,1000.0,0.911,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Pumpkin,Pumpkin,Local,2026-07-26,900.0,900.0,900.0,0.836,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Sponge gourd,Sponge gourd,Local,2026-07-26,1200.0,1200.0,1200.0,0.639,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Badwani(F&V) APMC,Tomato,Tomato,Local,2026-07-26,1500.0,1500.0,1500.0,0.602,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Baikunthpur APMC,Lentil(Masur)(Whole),Masur Dal,Non-FAQ,2026-07-26,5600.0,5610.0,5610.0,5.1000000000000005,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Baikunthpur APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2400.0,2450.0,2410.0,95.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Baikunthpur APMC,Wheat,Wheat,FAQ,2026-07-26,2445.0,2460.0,2460.0,30.395,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Baikunthpur APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2400.0,2475.0,2400.0,75.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhatarpur,Bakswaha APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2300.0,2340.0,2300.0,33.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Baktara APMC,Wheat,Wheat,FAQ,2026-07-26,2510.0,2510.0,2510.0,23.41,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Raisen,Bareli APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),FAQ,2026-07-26,7000.0,7150.0,7150.0,6.9,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Raisen,Bareli APMC,Wheat,Mill Quality,FAQ,2026-07-26,2400.0,2500.0,2400.0,48.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Bedia APMC,Chili Red,Red,FAQ,2026-07-26,9400.0,10800.0,10800.0,5.128,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shehdol,Beohari APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),Non-FAQ,2026-07-26,6000.0,6000.0,6000.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shehdol,Beohari APMC,Wheat,Mill Quality,FAQ,2026-07-26,2480.0,2510.0,2510.0,31.515,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal APMC,Chili Red,Dry,FAQ,2026-07-26,8711.61,8711.61,8711.61,4.4799999999999995,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Apple,Other,Local,2026-07-26,5000.0,12000.0,8000.0,23.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Banana,Other,Local,2026-07-26,1000.0,2000.0,1500.0,15.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,1200.0,2000.0,1600.0,20.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Bitter gourd,Other,Local,2026-07-26,800.0,2000.0,1400.0,8.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Bottle gourd,Other,Local,2026-07-26,800.0,1500.0,1200.0,4.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Brinjal,Other,Local,2026-07-26,600.0,1200.0,800.0,14.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Cabbage,Other,Local,2026-07-26,500.0,1200.0,800.0,31.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Carrot,Other,Local,2026-07-26,1000.0,1800.0,1200.0,11.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Cauliflower,Other,Local,2026-07-26,800.0,1800.0,1200.0,52.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Chilly Capsicum,Other,Local,2026-07-26,2000.0,5000.0,3000.0,9.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Coriander(Leaves),Other,Local,2026-07-26,2000.0,4000.0,3000.0,9.700000000000001,Rs./Bundle,Bundle
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Cucumbar(Kheera),Other,Local,2026-07-26,600.0,1200.0,800.0,11.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Ginger(Green),Other,Local,2026-07-26,4000.0,10000.0,7000.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Green Chilli,Other,Local,2026-07-26,1500.0,4000.0,3000.0,76.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Lime,Other,Local,2026-07-26,1500.0,3000.0,2000.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Mango,Other,Local,2026-07-26,1500.0,4000.0,2500.0,55.800000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Mango(Raw-Ripe),Mango - Raw-Ripe,Local,2026-07-26,1500.0,4000.0,3000.0,12.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Methi(Leaves),Other,Local,2026-07-26,2000.0,4000.0,3000.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Onion,Other,Local,2026-07-26,800.0,3000.0,1800.0,18.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Other green and fresh vegetables,Other,Local,2026-07-26,500.0,1200.0,800.0,6.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Pointed gourd(Parval),Other,Local,2026-07-26,2000.0,4000.0,3000.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Potato,Other,Local,2026-07-26,400.0,1000.0,700.0,221.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Pumpkin,Other,Local,2026-07-26,600.0,1000.0,800.0,16.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Round gourd,Other,Local,2026-07-26,600.0,1500.0,1000.0,4.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhopal,Bhopal(F&V) APMC,Tomato,Other,Local,2026-07-26,800.0,2500.0,1500.0,176.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rajgarh,Biaora APMC,Garlic,Garlic,FAQ,2026-07-26,7600.0,7600.0,7600.0,0.58,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur APMC,Wheat,Wheat,FAQ,2026-07-26,2300.0,2300.0,2300.0,8.58,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Banana,Khandesh,Grade A,2026-07-26,700.0,1400.0,1000.0,4.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,1000.0,2000.0,1800.0,4.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-26,1000.0,1600.0,1400.0,1.9000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-26,1000.0,1600.0,1400.0,1.7000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Brinjal,Brinjal,Local,2026-07-26,1000.0,2000.0,1800.0,4.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Cabbage,Cabbage,Local,2026-07-26,600.0,1200.0,1000.0,4.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Cauliflower,Local,Local,2026-07-26,1600.0,2200.0,2000.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-26,500.0,800.0,650.0,4.7,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-26,2500.0,4500.0,4000.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Guar,Gwar,Local,2026-07-26,2500.0,4500.0,4000.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Lemon,Lemon,Local,2026-07-26,1500.0,2200.0,2000.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Mousambi(Sweet Lime),Mousambi,Local,2026-07-26,1800.0,3500.0,3000.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Onion,Local,Local,2026-07-26,1000.0,1600.0,1400.0,4.800000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Papaya,Other,Local,2026-07-26,1500.0,2500.0,2200.0,1.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Potato,Local,Local,2026-07-26,900.0,1400.0,1200.0,5.300000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Pumpkin,Other,Local,2026-07-26,1000.0,1200.0,1000.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Tinda,Tinda,Local,2026-07-26,2000.0,2600.0,2200.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Burhanpur,Burhanpur(F&V) APMC,Tomato,Other,Local,2026-07-26,1000.0,2200.0,2000.0,3.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Chaakghat APMC,Lak(Teora),Tiwada,FAQ,2026-07-26,2900.0,3100.0,2900.0,7.7,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Chaakghat APMC,Linseed,Flaxseed,FAQ,2026-07-26,7500.0,7500.0,7500.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Chaakghat APMC,Mustard,Mustard,FAQ,2026-07-26,7100.0,7150.0,7100.0,8.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Chaakghat APMC,Wheat,Wheat,FAQ,2026-07-26,2565.0,2565.0,2565.0,3.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Chaakghat APMC,Wheat,Mill Quality,FAQ,2026-07-26,2450.0,2460.0,2450.0,85.61200000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chaurai APMC,Gur(Jaggery),Jaggery,FAQ,2026-07-26,4225.0,4225.0,4225.0,30.080000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chaurai APMC,Maize,Local,FAQ,2026-07-26,2100.0,2100.0,2100.0,36.65,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chaurai APMC,Wheat,Mill Quality,FAQ,2026-07-26,2420.0,2420.0,2420.0,7.6000000000000005,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rajgarh,Chhapiheda APMC,Wheat,Wheat,FAQ,2026-07-26,2550.0,2550.0,2550.0,2.972,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhatarpur,Chhatarpur APMC,Wheat,Mill Quality,FAQ,2026-07-26,2485.0,2540.0,2540.0,9.670000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhatarpur,Chhatarpur APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2450.0,2500.0,2450.0,71.95,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Beetroot,Beetroot,Local,2026-07-26,900.0,1100.0,1000.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,1600.0,2000.0,1800.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-26,1700.0,1900.0,1800.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-26,900.0,1100.0,1000.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Brinjal,Arkasheela Mattigulla,Local,2026-07-26,600.0,800.0,700.0,1.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Cabbage,Cabbage,Local,2026-07-26,200.0,400.0,300.0,3.3000000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Capsicum,Capsicum,Local,2026-07-26,1700.0,1900.0,1800.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Carrot,Carrot,Local,2026-07-26,900.0,1100.0,1000.0,0.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-26,400.0,600.0,500.0,2.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-26,800.0,1000.0,900.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Drumstick,Drumstick,Local,2026-07-26,1400.0,1600.0,1500.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-26,1700.0,1900.0,1800.0,1.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Onion,Red,Local,2026-07-26,1200.0,1600.0,1400.0,3.7,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Potato,Desi,Local,2026-07-26,1200.0,1400.0,1300.0,4.800000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Spinach,Organic,Local,2026-07-26,900.0,1100.0,1000.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Sponge gourd,Sponge gourd,Local,2026-07-26,1400.0,1600.0,1500.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhindwara,Chindwara(F&V) APMC,Tomato,Deshi,Local,2026-07-26,700.0,900.0,800.0,4.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Damoh,Damoh APMC,gulli,Gulli,FAQ,2026-07-26,5200.0,5200.0,5200.0,3.8450000000000006,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Deori APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-26,6700.0,6700.0,6700.0,2.9850000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Deori APMC,Soyabean,Soyabeen,Non-FAQ,2026-07-26,6200.0,6250.0,6250.0,5.5680000000000005,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Deori APMC,Wheat,Mill Quality,FAQ,2026-07-26,2425.0,2495.0,2495.0,30.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Deori APMC,buttery,Buttery,Non-FAQ,2026-07-26,3255.0,3255.0,3255.0,6.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dewas,Dewas APMC,Soyabean,Soyabeen,FAQ,2026-07-26,6835.0,7375.0,7100.0,204.77,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dewas,Dewas APMC,Wheat,Wheat,FAQ,2026-07-26,2400.0,2500.0,2500.0,31.069000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod APMC,Wheat,Wheat,FAQ,2026-07-26,2400.0,2400.0,2400.0,17.27,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,1200.0,1800.0,1500.0,2.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-26,1400.0,1800.0,1600.0,1.7,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-26,1200.0,1400.0,1300.0,0.9,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Brinjal,Brinjal,Local,2026-07-26,1100.0,1500.0,1300.0,1.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Cabbage,Cabbage,Local,2026-07-26,1200.0,1200.0,1200.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-26,1000.0,1300.0,1200.0,1.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Coriander(Leaves),Coriander,Local,2026-07-26,2000.0,4000.0,3000.0,0.08000000000000002,Rs./Bundle,Bundle
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-26,600.0,700.0,600.0,3.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-26,2000.0,3200.0,2500.0,1.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Onion,Onion,Local,2026-07-26,1500.0,2400.0,1800.0,3.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Potato,Potato,Local,2026-07-26,800.0,1200.0,1000.0,2.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Sponge gourd,Sponge gourd,Local,2026-07-26,1200.0,1600.0,1400.0,1.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Tinda,Tinda,Local,2026-07-26,1800.0,2100.0,1900.0,1.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhamnod(F&V) APMC,Tomato,Tomato,Local,2026-07-26,2000.0,3000.0,2500.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhar APMC,Wheat,Local,FAQ,2026-07-26,2400.0,2400.0,2400.0,12.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhar APMC,Wheat,Sharbati,FAQ,2026-07-26,2400.0,2400.0,2400.0,7.7,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhar APMC,Wheat,PISSI,FAQ,2026-07-26,2400.0,2400.0,2400.0,7.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Dhar APMC,Wheat,Lokwan,FAQ,2026-07-26,2400.0,2400.0,2400.0,6.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Raisen,Gairatganj APMC,Lak(Teora),Tiwada,FAQ,2026-07-26,3200.0,3200.0,3200.0,3.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Gandhwani APMC,Neem Seed,Neem Seed,FAQ,2026-07-26,1000.0,1020.0,1000.0,18.108,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Garhakota APMC,Wheat,Wheat,FAQ,2026-07-26,2400.0,2400.0,2400.0,4.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Gautampura APMC,Wheat,Wheat,FAQ,2026-07-26,2400.0,2525.0,2525.0,11.045000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Narsinghpur,Gotegaon APMC,Green Gram(Moong)(Whole),Green (Whole),Non-FAQ,2026-07-26,6000.0,6050.0,6050.0,24.400000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Guna,Guna APMC,Mustard,Mustard,FAQ,2026-07-26,7000.0,7000.0,7000.0,2.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Hanumana APMC,Lak(Teora),Tiwada,FAQ,2026-07-26,2900.0,3000.0,3000.0,21.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rewa,Hanumana APMC,Wheat,Mill Quality,FAQ,2026-07-26,2350.0,2350.0,2350.0,16.7,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Apple,Apple,Medium,2026-07-26,14500.0,17500.0,16500.0,0.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Bhindi(Ladies Finger),Other,Medium,2026-07-26,1500.0,1650.0,1600.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Bottle gourd,Other,Medium,2026-07-26,1000.0,1200.0,1100.0,1.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Brinjal,Brinjal,Medium,2026-07-26,900.0,1100.0,1000.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Cabbage,Other,Medium,2026-07-26,2000.0,2500.0,2200.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Cauliflower,Other,Medium,2026-07-26,1250.0,1500.0,1350.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Coriander(Leaves),Other,Medium,2026-07-26,5000.0,7000.0,6500.0,0.2,Rs./Bundle,Bundle
-Madhya Pradesh,Harda,Harda(F&V) APMC,Cucumbar(Kheera),Other,Medium,2026-07-26,1000.0,1200.0,1150.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Green Chilli,Green Chilly,Medium,2026-07-26,3500.0,4800.0,4500.0,1.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Mango,Neelam,Medium,2026-07-26,3000.0,4000.0,3500.0,3.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Onion,Medium,Medium,2026-07-26,2000.0,3000.0,2500.0,1.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Pineapple,Other,Medium,2026-07-26,2800.0,3200.0,3000.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Pomegranate,Pomogranate,Medium,2026-07-26,9000.0,11000.0,10000.0,0.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Potato,Desi,Medium,2026-07-26,1200.0,1600.0,1500.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Ridgeguard(Tori),Other,Medium,2026-07-26,1500.0,1800.0,1600.0,0.9,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Harda(F&V) APMC,Tomato,Deshi,Medium,2026-07-26,2100.0,2300.0,2200.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Chhatarpur,Harpalpur APMC,Wheat,Wheat,FAQ,2026-07-26,2455.0,2455.0,2455.0,7.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,FAQ,2026-07-26,10075.0,10221.0,10221.0,118.17000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore APMC,Garlic,Garlic,FAQ,2026-07-26,3500.0,3500.0,3500.0,0.036,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore APMC,Green Peas,Pea,FAQ,2026-07-26,4020.0,4020.0,4020.0,41.760000000000005,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),FAQ,2026-07-26,5875.0,6050.0,6050.0,171.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Apple,Apple,Local,2026-07-26,4000.0,10000.0,8000.0,4.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Banana,Other,Local,2026-07-26,800.0,1400.0,1000.0,14.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,600.0,1600.0,1200.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-26,1500.0,2500.0,2000.0,8.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-26,800.0,1600.0,1200.0,12.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Brinjal,Brinjal,Local,2026-07-26,600.0,1200.0,800.0,25.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Capsicum,Capsicum,Local,2026-07-26,800.0,2000.0,1400.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-26,400.0,1200.0,800.0,5.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-26,400.0,1000.0,600.0,30.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Drumstick,Drumstick,Local,2026-07-26,1500.0,4000.0,2500.0,5.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-26,3000.0,6000.0,4000.0,8.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Mango,Other,Local,2026-07-26,1500.0,6000.0,4000.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Papaya,Papaya,Local,2026-07-26,1200.0,2800.0,1800.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Pineapple,Pine Apple,Local,2026-07-26,1500.0,4000.0,3000.0,9.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Pomegranate,Pomogranate,Local,2026-07-26,1500.0,8000.0,5000.0,2.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Pumpkin,Pumpkin,Local,2026-07-26,400.0,1000.0,600.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Indore(F&V) APMC,Tomato,Tomato,Local,2026-07-26,1200.0,3600.0,2400.0,18.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Jabalpur,Jabalpur APMC,Paddy(Common),Dhan,Non-FAQ,2026-07-26,1800.0,1850.0,1850.0,20.47,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Jabalpur,Jabalpur APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2500.0,2500.0,2500.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Jabalpur,Jabalpur(F&V) APMC,Banana,Medium,Medium,2026-07-26,1100.0,2200.0,1200.0,10.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Jabalpur,Jabalpur(F&V) APMC,Onion,Onion,Medium,2026-07-26,1000.0,1600.0,1200.0,60.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ratlam,Jaora APMC,Soyabean,Soyabeen,FAQ,2026-07-26,6006.0,8000.0,8000.0,7.340000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Tikamgarh,Jatara APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2445.0,2486.0,2486.0,24.159000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Damoh,Javera APMC,Paddy(Common),Dhan,FAQ,2026-07-26,1800.0,1900.0,1900.0,25.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Damoh,Javera APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2475.0,2520.0,2520.0,10.700000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Damoh,Javera APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2300.0,2535.0,2520.0,154.02,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Alirajpur,Jobat APMC,Maize,Local,FAQ,2026-07-26,1808.0,1825.0,1825.0,5.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Alirajpur,Jobat APMC,Soyabean,Soyabeen,FAQ,2026-07-26,6500.0,6850.0,6800.0,13.36,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Alirajpur,Jobat APMC,Wheat,Wheat,FAQ,2026-07-26,2500.0,2550.0,2500.0,9.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Bhindi(Ladies Finger),Bhindi,FAQ,2026-07-26,1000.0,1200.0,1200.0,0.06999999999999999,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Bottle gourd,Other,FAQ,2026-07-26,1000.0,1000.0,1000.0,0.05,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Cabbage,Cabbage,FAQ,2026-07-26,2000.0,2000.0,2000.0,0.288,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Cauliflower,Other,FAQ,2026-07-26,2200.0,2200.0,2200.0,0.135,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Colacasia,Arabi,FAQ,2026-07-26,1600.0,1600.0,1600.0,0.15300000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Coriander(Leaves),Coriander,FAQ,2026-07-26,5000.0,5000.0,5000.0,0.020000000000000004,Rs./Bundle,Bundle
-Madhya Pradesh,Morena,Kailaras APMC,Indian Beans(Seam),Beans or Semi,FAQ,2026-07-26,6000.0,6000.0,6000.0,0.023000000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Pumpkin,Other,FAQ,2026-07-26,600.0,1000.0,600.0,0.526,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Spinach,Spinach,FAQ,2026-07-26,1000.0,1000.0,1000.0,0.08000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Sponge gourd,Sponge gourd,FAQ,2026-07-26,1200.0,1500.0,1500.0,0.04000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Tomato,Other,FAQ,2026-07-26,2000.0,2000.0,2000.0,0.44000000000000006,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Kailaras APMC,Wheat,Local,FAQ,2026-07-26,2560.0,2560.0,2560.0,7.290000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dewas,Kannod APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-26,5500.0,5500.0,5500.0,1.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera APMC,Wheat,Mill Quality,FAQ,2026-07-26,2300.0,2320.0,2320.0,23.11,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Banana,Banana-Organic,Local,2026-07-26,1800.0,2800.0,2500.0,0.85,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,800.0,1100.0,1000.0,0.16,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Brinjal,Brinjal,Local,2026-07-26,600.0,1000.0,800.0,0.34,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-26,2800.0,3600.0,3500.0,0.04,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Onion,Onion,Local,2026-07-26,1400.0,2600.0,2000.0,0.15,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Potato,Potato,Local,2026-07-26,500.0,1400.0,800.0,0.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Ridgeguard(Tori),Ridgeguard(Tori),Local,2026-07-26,700.0,1200.0,1000.0,0.19,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Karera(F&V) APMC,Tomato,Tomato,Local,2026-07-26,1800.0,2800.0,2400.0,0.09,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Katni,Katni APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),FAQ,2026-07-26,7950.0,8300.0,8050.98,418.9100000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Katni,Katni APMC,Wheat,Wheat,FAQ,2026-07-26,2375.0,2375.0,2375.0,8.200000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,FAQ,2026-07-26,6500.0,6500.0,6500.0,2.5100000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa APMC,Wheat,Wheat,FAQ,2026-07-26,2450.0,2690.0,2690.0,33.12,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Bhindi(Ladies Finger),Bhindi,FAQ,2026-07-26,1000.0,2000.0,1400.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Bitter gourd,Bitter Gourd,FAQ,2026-07-26,1000.0,2500.0,1500.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Bottle gourd,Bottle Gourd,FAQ,2026-07-26,400.0,600.0,500.0,1.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Cabbage,Cabbage,FAQ,2026-07-26,300.0,600.0,420.0,0.9,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Cauliflower,Cauliflower,FAQ,2026-07-26,600.0,1000.0,800.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Green Chilli,Green Chilly,FAQ,2026-07-26,800.0,1500.0,1000.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Spinach,Spinach,FAQ,2026-07-26,400.0,600.0,500.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Sponge gourd,Sponge gourd,FAQ,2026-07-26,800.0,1500.0,1000.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Khandwa(F&V) APMC,Tomato,Tomato,FAQ,2026-07-26,1000.0,2000.0,1442.0,1.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Tikamgarh,Khargapur APMC,Soyabean,Soyabeen,FAQ,2026-07-26,6500.0,6500.0,6500.0,0.6400000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Tikamgarh,Khargapur APMC,Wheat,Mill Quality,FAQ,2026-07-26,2500.0,2550.0,2550.0,52.345000000000006,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Khargone APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-26,7050.0,7050.0,7050.0,2.465,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Khargone APMC,Kabuli Chana(Chickpeas-White),Dollar Gram,FAQ,2026-07-26,6700.0,7100.0,7000.0,14.61,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Khargone APMC,Soyabean,Soyabeen,FAQ,2026-07-26,6300.0,6500.0,6350.0,32.45,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Khargone APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2500.0,2570.0,2570.0,8.18,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Khargone APMC,Wheat,Wheat,FAQ,2026-07-26,2525.0,2600.0,2600.0,31.910000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Khatora APMC,Wheat,Wheat,FAQ,2026-07-26,2425.0,2460.0,2460.0,24.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rajgarh,Khujner APMC,Wheat,Wheat,FAQ,2026-07-26,2475.0,2475.0,2475.0,5.752000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shivpuri,Kolaras APMC,Maize,Local,FAQ,2026-07-26,1840.0,1895.0,1895.0,13.66,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandla,Krishi Upaj Mandi Samiti Bichhiya,Paddy(Common),Common,Non-FAQ,2026-07-26,2000.0,2000.0,2000.0,19.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandla,Krishi Upaj Mandi Samiti Bichhiya,Wheat,Mill Quality,Non-FAQ,2026-07-26,2300.0,2300.0,2300.0,8.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Kukshi APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-26,4800.0,6000.0,6000.0,3.912,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Kukshi APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-26,6200.0,6500.0,6500.0,12.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Kukshi APMC,Neem Seed,Neem Seed,FAQ,2026-07-26,1425.0,1450.0,1450.0,23.700000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Kukshi APMC,Soyabean,Soyabeen,FAQ,2026-07-26,6900.0,6900.0,6900.0,2.75,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Kukshi APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2500.0,2500.0,2500.0,7.275,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rajgarh,Kurawar APMC,Mustard,Mustard,FAQ,2026-07-26,6800.0,6810.0,6810.0,5.720000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhind,Lahar APMC,Mustard,Mustard,FAQ,2026-07-26,7361.0,7566.0,7512.0,35.22,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhind,Lahar APMC,Mustard,Sarson(Black),FAQ,2026-07-26,7563.0,7563.0,7563.0,2.6300000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhind,Lahar APMC,Wheat,Wheat,FAQ,2026-07-26,2401.0,2519.0,2500.0,97.94,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhind,Lahar APMC,Wheat,Mill Quality,FAQ,2026-07-26,2410.0,2460.0,2415.0,32.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Seoni,Lakhnadon APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2201.0,2215.0,2215.0,11.700000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar APMC,Mustard,Mustard,FAQ,2026-07-26,7360.0,8080.0,7920.0,20.133000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2285.0,2285.0,2285.0,1.8760000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar APMC,Wheat,Wheat,FAQ,2026-07-26,2200.0,2580.0,2210.0,99.654,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar APMC,Wheat,Mill Quality,FAQ,2026-07-26,2300.0,2300.0,2300.0,68.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,800.0,1200.0,1000.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-26,800.0,1100.0,1000.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Cabbage,Cabbage,Local,2026-07-26,1600.0,2000.0,1800.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-26,1600.0,2000.0,1800.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Chilly Capsicum,Chilly Capsicum,Local,2026-07-26,2200.0,2800.0,2500.0,1.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Colacasia,Other,Medium,2026-07-26,1200.0,1800.0,1500.0,2.4000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Coriander(Leaves),Coriander,Local,2026-07-26,8000.0,12000.0,10000.0,1.0,Rs./Bundle,Bundle
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-26,800.0,1200.0,1000.0,24.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Ginger(Green),Green Ginger,Medium,2026-07-26,5000.0,7000.0,6000.0,0.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-26,1200.0,1800.0,1500.0,8.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Mango(Raw-Ripe),Mango - Raw-Ripe,Local,2026-07-26,1200.0,1800.0,1500.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Onion,Local,Medium,2026-07-26,2000.0,2400.0,2200.0,22.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Potato,Local,Local,2026-07-26,700.0,1200.0,1000.0,40.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Gwalior,Lashkar(F&V) APMC,Pumpkin,Pumpkin,Local,2026-07-26,500.0,700.0,600.0,12.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Vidisha,Lateri APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),Non-FAQ,2026-07-26,4850.0,4980.0,4980.0,9.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dewas,Loharda APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-26,5500.0,5500.0,5500.0,2.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dewas,Loharda APMC,Wheat,Wheat,FAQ,2026-07-26,2631.0,2671.0,2654.0,82.84,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rajgarh,Machalpur APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2550.0,2550.0,2550.0,17.62,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Maihar(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,700.0,700.0,700.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Maihar(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-26,1500.0,1500.0,1500.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Maihar(F&V) APMC,Brinjal,Brinjal,Local,2026-07-26,1300.0,1300.0,1300.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Maihar(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-26,1500.0,1500.0,1500.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Maihar(F&V) APMC,Pumpkin,Pumpkin,Local,2026-07-26,1000.0,1000.0,1000.0,2.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Neemuch,Manasa APMC,Maize,Local,FAQ,2026-07-26,2000.0,2050.0,2050.0,26.700000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar APMC,Kabuli Chana(Chickpeas-White),Dollar Gram,Non-FAQ,2026-07-26,6365.0,6525.0,6525.0,6.207000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar APMC,Kabuli Chana(Chickpeas-White),Dollar Gram,FAQ,2026-07-26,6325.0,7611.75,7611.75,34.62,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2525.0,2605.0,2600.0,58.58,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade B,2026-07-26,1200.0,1350.0,1250.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Bitter gourd,Bitter Gourd,Grade B,2026-07-26,2400.0,2800.0,2500.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Bottle gourd,Bottle Gourd,Grade B,2026-07-26,700.0,850.0,714.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Brinjal,Brinjal,Grade B,2026-07-26,500.0,800.0,607.0,2.8000000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Cabbage,Cabbage,Grade B,2026-07-26,1600.0,1900.0,1750.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Cauliflower,Cauliflower,Grade B,2026-07-26,1900.0,2500.0,2000.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Cluster beans,Cluster Beans,Grade B,2026-07-26,2400.0,3000.0,2500.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Coriander(Leaves),Coriander,Grade B,2026-07-26,2700.0,3000.0,2766.0,0.2,Rs./Bundle,Bundle
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade B,2026-07-26,500.0,800.0,600.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Green Chilli,Green Chilly,Grade B,2026-07-26,2600.0,3000.0,2725.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Onion,Onion,Grade B,2026-07-26,1500.0,2000.0,1563.0,1.9000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Pea Pod/Pea Cod/हरी मटर,Pea,Grade B,2026-07-26,1300.0,1800.0,1400.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Potato,Potato,Grade B,2026-07-26,1100.0,1250.0,1156.0,1.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Pumpkin,Pumpkin,Grade B,2026-07-26,600.0,800.0,666.0,0.9,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Sponge gourd,Sponge gourd,Grade B,2026-07-26,1000.0,1200.0,1033.0,1.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Manawar(F&V) APMC,Tomato,Tomato,Grade B,2026-07-26,2400.0,3000.0,2500.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandla,Mandla APMC,Green Gram(Moong)(Whole),Green (Whole),FAQ,2026-07-26,6100.0,6100.0,6100.0,3.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandla,Mandla APMC,Green Peas,Pea,Non-FAQ,2026-07-26,3300.0,3450.0,3300.0,22.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandla,Mandla APMC,Kutki,Kutki,FAQ,2026-07-26,6901.0,6901.0,6901.0,2.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandla,Mandla APMC,Paddy(Common),Paddy,Non-FAQ,2026-07-26,1900.0,1905.0,1905.0,17.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandla,Mandla APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2400.0,2525.0,2405.0,74.9,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandla,Mandla APMC,Wheat,Mill Quality,FAQ,2026-07-26,2500.0,2500.0,2500.0,31.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Mehar APMC,Wheat,Local,Non-FAQ,2026-07-26,2475.0,2475.0,2475.0,6.050000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Mehar APMC,Wheat,Local,FAQ,2026-07-26,2400.0,2430.0,2430.0,12.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Mehar APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2420.0,2450.0,2425.0,23.55,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Mhow APMC,Soyabean,Soyabeen,FAQ,2026-07-26,7200.0,7200.0,7200.0,4.71,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Morena APMC,Brinjal,Round,Non-FAQ,2026-07-26,600.0,1000.0,1000.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Morena APMC,Potato,Desi,Non-FAQ,2026-07-26,200.0,500.0,500.0,52.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Morena(F&V) APMC,Brinjal,Brinjal,Grade C,2026-07-26,600.0,1000.0,1000.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Morena(F&V) APMC,Potato,Potato,Non-FAQ,2026-07-26,200.0,500.0,200.0,52.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Morena(F&V) APMC,Tomato,Tomato,Non-FAQ,2026-07-26,350.0,350.0,350.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhind,Mow APMC,Mustard,Mustard,Non-FAQ,2026-07-26,7280.0,7770.0,7750.0,16.965,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Bhind,Mow APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2400.0,2485.0,2460.0,22.53,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Betul,Multai APMC,Maize,Local,Non-FAQ,2026-07-26,1900.0,1900.0,1900.0,10.446,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Nagod APMC,Wheat,Wheat,FAQ,2026-07-26,2570.0,2580.0,2575.0,30.075000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Nagod APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2400.0,2400.0,2400.0,16.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Nagod APMC,Wheat,Mill Quality,FAQ,2026-07-26,2510.0,2515.0,2515.0,15.609000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Narsinghpur,Narsinghpur APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2520.0,2520.0,2520.0,5.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Raisen,Obedullaganj APMC,Wheat,Local,Non-FAQ,2026-07-26,2600.0,2600.0,2600.0,14.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rajgarh,Pachaur APMC,Wheat,Mill Quality,FAQ,2026-07-26,2500.0,2500.0,2500.0,3.497,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Panna,Panna APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2450.0,2450.0,2450.0,7.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,500.0,1400.0,800.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-26,500.0,1200.0,800.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Brinjal,Brinjal,Local,2026-07-26,250.0,800.0,600.0,2.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Cabbage,Cabbage,Local,2026-07-26,800.0,3000.0,1400.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-26,1000.0,3500.0,2400.0,1.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Coriander(Leaves),Coriander,Local,2026-07-26,1200.0,7000.0,3500.0,0.04000000000000001,Rs./Bundle,Bundle
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Garlic,Garlic,Local,2026-07-26,10000.0,20000.0,14000.0,0.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Onion,Onion,Local,2026-07-26,1300.0,2800.0,2200.0,4.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Potato,Potato,Local,2026-07-26,600.0,1300.0,900.0,8.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Pumpkin,Pumpkin,Local,2026-07-26,500.0,1400.0,700.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Sponge gourd,Sponge gourd,Local,2026-07-26,800.0,2000.0,1600.0,1.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Pipariya(F&V) APMC,Tomato,Tomato,Local,2026-07-26,1000.0,3000.0,2000.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Tikamgarh,Prithvipur APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2500.0,2540.0,2540.0,11.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Rahatgarh APMC,Soyabean,Soyabeen,FAQ,2026-07-26,6525.0,6595.0,6595.0,4.125,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Rajgarh APMC,Onion,Onion,FAQ,2026-07-26,300.0,1000.0,1000.0,12.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Rajgarh APMC,Soyabean,Yellow,FAQ,2026-07-26,3999.0,6600.0,4000.0,169.10000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Dhar,Rajgarh APMC,Wheat,Lokwan,FAQ,2026-07-26,2700.0,2770.0,2770.0,42.415,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Ramnagar APMC,Black Gram(Urd Beans)(Whole),Urda/Urd,Non-FAQ,2026-07-26,7200.0,7200.0,7200.0,4.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Rehli(F&V) APMC,Brinjal,Brinjal,Grade C,2026-07-26,1400.0,1600.0,1500.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Rehli(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade C,2026-07-26,800.0,1000.0,900.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Rehli(F&V) APMC,Onion,Onion,Grade C,2026-07-26,1500.0,1700.0,1600.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Rehli(F&V) APMC,Potato,Potato,Grade C,2026-07-26,800.0,1000.0,900.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Rehli(F&V) APMC,Tomato,Tomato,Grade C,2026-07-26,1800.0,2000.0,1900.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Green Chilli,Green Chilly,FAQ,2026-07-26,1000.0,1000.0,1000.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Onion,Onion,FAQ,2026-07-26,1000.0,1000.0,1000.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Potato,Desi,FAQ,2026-07-26,500.0,500.0,500.0,6.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Pumpkin,Other,FAQ,2026-07-26,1000.0,1000.0,1000.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Morena,Sabalgarh(F&V) APMC,Tomato,Deshi,FAQ,2026-07-26,1200.0,1200.0,1200.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar APMC,Wheat,Wheat,FAQ,2026-07-26,2300.0,2335.0,2300.0,42.02,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Bitter gourd,Bitter Gourd,Local,2026-07-26,1000.0,1200.0,1100.0,4.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Bottle gourd,Bottle Gourd,Local,2026-07-26,600.0,800.0,700.0,4.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Brinjal,Brinjal,Local,2026-07-26,600.0,800.0,700.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Cauliflower,Cauliflower,Local,2026-07-26,300.0,700.0,500.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Cucumbar(Kheera),Cucumbar,Local,2026-07-26,800.0,1000.0,900.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Ginger(Green),Green Ginger,Local,2026-07-26,4000.0,6000.0,5000.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Green Chilli,Green Chilly,Local,2026-07-26,1200.0,2000.0,1600.0,1.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Lemon,Lemon,Local,2026-07-26,2000.0,4000.0,3000.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Mango,Other,Local,2026-07-26,3000.0,5000.0,4000.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Mousambi(Sweet Lime),Mousambi,Local,2026-07-26,3000.0,6000.0,4000.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Onion,Onion,Local,2026-07-26,1500.0,2400.0,1800.0,12.700000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Other green and fresh vegetables,Other green and fresh vegetables,Local,2026-07-26,600.0,800.0,700.0,1.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Potato,Local,Local,2026-07-26,800.0,1000.0,900.0,21.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Spinach,Spinach,Local,2026-07-26,500.0,700.0,600.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Sponge gourd,Sponge gourd,Local,2026-07-26,800.0,1000.0,900.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Sagar(F&V) APMC,Tomato,Local,Local,2026-07-26,1200.0,2000.0,1600.0,15.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ratlam,Sailana APMC,Wheat,Wheat,FAQ,2026-07-26,2200.0,2210.0,2210.0,10.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Sanawad APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2500.0,2500.0,2500.0,7.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khargone,Sanawad APMC,Wheat,Wheat,FAQ,2026-07-26,2475.0,2475.0,2475.0,4.0600000000000005,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade A,2026-07-26,1500.0,2000.0,1800.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Brinjal,Arkasheela Mattigulla,Grade A,2026-07-26,600.0,800.0,700.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade A,2026-07-26,300.0,500.0,400.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Green Chilli,Green Chilly,Grade A,2026-07-26,4500.0,5000.0,4800.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Onion,Onion,Grade A,2026-07-26,1500.0,2000.0,1800.0,0.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Khandwa,Sanawad(F&V) APMC,Tomato,Deshi,Grade A,2026-07-26,1500.0,2000.0,1800.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer APMC,Soyabean,Soyabeen,FAQ,2026-07-26,5500.0,6500.0,6500.0,19.487000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade A,2026-07-26,1500.0,2000.0,1800.0,0.15000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Bottle gourd,Bottle Gourd,Grade A,2026-07-26,800.0,1200.0,1000.0,0.18000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Brinjal,Brinjal,Grade A,2026-07-26,800.0,1200.0,1000.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Cauliflower,Cauliflower,Grade A,2026-07-26,500.0,700.0,600.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Green Chilli,Green Chilly,Grade A,2026-07-26,4500.0,6000.0,5000.0,0.05,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Onion,Onion,Grade A,2026-07-26,1000.0,1800.0,1700.0,0.15000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Potato,Potato,Grade A,2026-07-26,800.0,1600.0,1400.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Pumpkin,Pumpkin,Grade A,2026-07-26,500.0,800.0,600.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Spinach,Spinach,Grade A,2026-07-26,1000.0,1300.0,1100.0,0.12,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Sponge gourd,Sponge gourd,Grade A,2026-07-26,2500.0,3500.0,3000.0,0.13,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Indore,Sanwer(F&V) APMC,Tomato,Tomato,Grade A,2026-07-26,2000.0,2800.0,2500.0,0.04000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rajgarh,Sarangpur APMC,Wheat,Mill Quality,FAQ,2026-07-26,2400.0,2515.0,2515.0,62.54500000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Satna APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2459.0,2459.0,2459.0,4.796,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Satna APMC,Wheat,Wheat,FAQ,2026-07-26,2525.0,2550.0,2550.0,21.900000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Satna(F&V) APMC,Mango,Dusheri,Grade A,2026-07-26,1500.0,1500.0,1500.0,6.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Satna(F&V) APMC,Mousambi(Sweet Lime),Mousambi,Grade A,2026-07-26,5000.0,5000.0,5000.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Satna(F&V) APMC,Pear(Marasebu),Kouternal,Grade A,2026-07-26,4000.0,4000.0,4000.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Satna,Satna(F&V) APMC,Pomegranate,Pomogranate,Grade A,2026-07-26,6000.0,6000.0,6000.0,0.30000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Banana,Banana - Ripe,Grade Range-1,2026-07-26,1800.0,2400.0,2000.0,1.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Beetroot,Beetroot,Grade Range-1,2026-07-26,1600.0,3000.0,2500.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Grade Range-1,2026-07-26,1500.0,2000.0,1800.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Bitter gourd,Bitter Gourd,Grade Range-1,2026-07-26,2000.0,2500.0,2200.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Bottle gourd,Bottle Gourd,Grade Range-1,2026-07-26,1200.0,2000.0,1500.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Brinjal,Brinjal,Grade Range-1,2026-07-26,1000.0,2000.0,1500.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Cabbage,Cabbage,Grade Range-1,2026-07-26,1200.0,2000.0,1600.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Capsicum,Capsicum,Grade Range-1,2026-07-26,3000.0,4000.0,3500.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Carrot,Carrot,Grade Range-1,2026-07-26,2500.0,3000.0,2800.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Cauliflower,Cauliflower,Grade Range-1,2026-07-26,3500.0,4000.0,3800.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Cowpea(Veg),Bean Barbati,Grade Range-1,2026-07-26,1500.0,2000.0,1600.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Cucumbar(Kheera),Cucumbar,Grade Range-1,2026-07-26,1000.0,2000.0,1500.0,2.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Ginger(Green),Green Ginger,Grade Range-1,2026-07-26,10000.0,13000.0,11000.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Green Chilli,Green Chilly,Grade Range-1,2026-07-26,2500.0,4000.0,3500.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Jack Fruit(Ripe),Jack Fruit,Grade Range-1,2026-07-26,1600.0,2500.0,2000.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Lemon,Lemon,Grade Range-1,2026-07-26,3000.0,4000.0,3500.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Mango,Badami,Grade Range-1,2026-07-26,3000.0,4000.0,3500.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Mango(Raw-Ripe),Mango - Raw-Ripe,Grade Range-1,2026-07-26,8000.0,9000.0,8500.0,0.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Pumpkin,Pumpkin,Grade Range-1,2026-07-26,1000.0,2000.0,1500.0,1.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Spinach,Spinach,Grade Range-1,2026-07-26,1600.0,2000.0,1800.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Sponge gourd,Sponge gourd,Grade Range-1,2026-07-26,1600.0,2500.0,2000.0,0.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sehore,Sehore(F&V) APMC,Tinda,Tinda,Grade Range-1,2026-07-26,1600.0,2000.0,1800.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Hoshangabad,Semriharchand APMC,Paddy(Common),Basmati,FAQ,2026-07-26,3320.0,3450.0,3450.0,112.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa APMC,Wheat,Wheat,FAQ,2026-07-26,2600.0,2690.0,2690.0,3.69,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Local,2026-07-26,800.0,1300.0,1000.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Bottle gourd,Bottle Gourd,Medium,2026-07-26,700.0,1200.0,900.0,1.2000000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Brinjal,Round,Small,2026-07-26,800.0,1300.0,900.0,0.7000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Cabbage,Cabbage,Medium,2026-07-26,700.0,1400.0,1000.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Cauliflower,Cauliflower,Medium,2026-07-26,900.0,1500.0,1100.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Cucumbar(Kheera),Cucumbar,Medium,2026-07-26,600.0,1000.0,800.0,2.6,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Green Chilli,Green Chilly,Medium,2026-07-26,1000.0,1400.0,1200.0,0.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Onion,Red,Medium,2026-07-26,700.0,1200.0,900.0,1.9000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Pumpkin,Pumpkin,Large,2026-07-26,700.0,1300.0,900.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Tinda,Tinda,Medium,2026-07-26,700.0,1200.0,900.0,1.4000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Badwani,Sendhwa(F&V) APMC,Tomato,Hybrid,Medium,2026-07-26,1000.0,1800.0,1300.0,1100.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Seoni,Seoni APMC,Paddy(Common),Paddy,FAQ,2026-07-26,3100.0,3100.0,3100.0,27.460000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Datia,Sevda APMC,Wheat,Wheat,FAQ,2026-07-26,2425.0,2475.0,2435.0,63.300000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sagar,Shahagarh APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2500.0,2540.0,2540.0,7.4,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shehdol,Shahdol APMC,Kutki,Kutki,Non-FAQ,2026-07-26,7450.0,7450.0,7450.0,12.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shehdol,Shahdol APMC,Red gram/Arhar/Tur(whole),Arhar Dal(Tur),Non-FAQ,2026-07-26,6500.0,6500.0,6500.0,3.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shehdol,Shahdol APMC,Soyabean,Soyabeen,Non-FAQ,2026-07-26,6300.0,6300.0,6300.0,1.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shehdol,Shahdol APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2300.0,2400.0,2400.0,50.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shehdol,Shahdol APMC,buttery,Buttery,Non-FAQ,2026-07-26,3000.0,3000.0,3000.0,6.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shehdol,Shahdol APMC,gulli,Gulli,Non-FAQ,2026-07-26,4500.0,4500.0,4500.0,20.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Jabalpur,Shahpura Bhitoni (F&V) APMC,Wheat,Mill Quality,FAQ,2026-07-26,2400.0,2400.0,2400.0,7.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandsaur,Shamgarh APMC,Bengal Gram(Gram)(Whole),Gram,Non-FAQ,2026-07-26,5785.0,5815.0,5805.0,24.64,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandsaur,Shamgarh APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-26,5600.0,5650.0,5650.0,16.949,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurbadod APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2400.0,2400.0,2400.0,6.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Banana,Other,Medium,2026-07-26,3000.0,3000.0,3000.0,0.5,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Medium,2026-07-26,1500.0,1700.0,1600.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Bitter gourd,Bitter Gourd,Medium,2026-07-26,1600.0,1800.0,1700.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Brinjal,Brinjal,Medium,2026-07-26,1500.0,2000.0,1800.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Cabbage,Cabbage,Medium,2026-07-26,2000.0,2500.0,2300.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Colacasia,Arabi,Medium,2026-07-26,1600.0,1800.0,1700.0,0.2,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Mango,Other,Medium,2026-07-26,3000.0,4000.0,3500.0,0.8,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Pumpkin,Pumpkin,Medium,2026-07-26,500.0,700.0,600.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sheopur,Sheopurkalan(F&V) APMC,Ridgeguard(Tori),Ridgeguard(Tori),Medium,2026-07-26,2000.0,2500.0,2300.0,0.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sidhi,Sidhi APMC,Kodo Millet(Varagu),Kondo,Non-FAQ,2026-07-26,2300.0,2315.0,2310.0,30.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sidhi,Sidhi APMC,Mustard,Mustard,Non-FAQ,2026-07-26,6000.0,6000.0,6000.0,3.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sidhi,Sidhi APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2300.0,2420.0,2300.0,186.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Sidhi,Sidhi APMC,gulli,Gulli,Non-FAQ,2026-07-26,4100.0,4150.0,4150.0,15.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Raisen,Silvani APMC,Bengal Gram(Gram)(Whole),Gram,FAQ,2026-07-26,5768.0,5900.0,5900.0,39.7,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Singroli,Singroli(F&V) APMC,Pointed gourd(Parval),Pointed gourd (Parval),Medium,2026-07-26,1500.0,1500.0,1500.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Singroli,Singroli(F&V) APMC,Tomato,Other,Medium,2026-07-26,2500.0,2500.0,2500.0,2.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Sirali(F&V) APMC,Bottle gourd,Bottle Gourd,Grade A,2026-07-26,1000.0,1000.0,1000.0,0.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Harda,Sirali(F&V) APMC,Brinjal,Brinjal,Grade A,2026-07-26,1000.0,1000.0,1000.0,0.1,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Vidisha,Sironj APMC,Wheat,Wheat,FAQ,2026-07-26,2185.0,2500.0,2350.0,118.75999999999999,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Mandsaur,Sitmau APMC,Wheat,Lokwan,Non-FAQ,2026-07-26,2345.0,2350.0,2350.0,17.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shajapur,Soyatkalan APMC,Onion,Onion,Non-FAQ,2026-07-26,1250.0,1250.0,1250.0,6.0,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shajapur,Soyatkalan APMC,Onion,Onion,FAQ,2026-07-26,1405.0,1405.0,1405.0,4.008,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Shajapur,Susner APMC,Maize,Local,FAQ,2026-07-26,2300.0,2300.0,2300.0,35.21,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Rajgarh,Suthalia APMC,Wheat,Wheat,FAQ,2026-07-26,2400.0,2430.0,2430.0,21.69,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Tarana APMC,Soyabean,Soyabeen,FAQ,2026-07-26,7250.0,7300.0,7300.0,4.455,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Tarana APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2225.0,2225.0,2225.0,8.25,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Tarana APMC,Wheat,Wheat,FAQ,2026-07-26,2466.0,2511.0,2466.0,28.322000000000003,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Tikamgarh,Tikamgarh APMC,Wheat,Wheat,FAQ,2026-07-26,2438.0,2565.0,2500.0,66.3,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Bhindi(Ladies Finger),Bhindi,Medium,2026-07-26,425.0,1900.0,948.0,0.6200000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Bitter gourd,Bitter Gourd,Medium,2026-07-26,450.0,1525.0,741.0,0.42000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Bottle gourd,Bottle Gourd,Medium,2026-07-26,400.0,1560.0,852.0,0.8300000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Brinjal,Brinjal,Medium,2026-07-26,425.0,1500.0,873.0,0.6000000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Cabbage,Cabbage,Medium,2026-07-26,440.0,1475.0,968.0,0.67,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Capsicum,Capsicum,Medium,2026-07-26,500.0,1900.0,1238.0,0.9,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Cauliflower,Cauliflower,Medium,2026-07-26,415.0,1625.0,872.0,0.22999999999999998,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Coriander(Leaves),Coriander,Medium,2026-07-26,575.0,1975.0,1256.0,0.87,Rs./Bundle,Bundle
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Ginger(Green),Green Ginger,Medium,2026-07-26,625.0,2325.0,1469.0,0.36000000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Green Chilli,Green Chilly,Medium,2026-07-26,700.0,2350.0,1423.0,0.78,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Spinach,Spinach,Medium,2026-07-26,400.0,1925.0,817.0,0.63,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Sponge gourd,Sponge gourd,Medium,2026-07-26,475.0,1650.0,952.0,1.1199999999999999,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Tinda,Tinda,Medium,2026-07-26,435.0,1725.0,907.0,0.53,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Ujjain,Ujjain(F&V) APMC,Tomato,Deshi,Medium,2026-07-26,640.0,1970.0,1346.0,1.04,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Umariya,Umariya APMC,Green Peas,Pea,Non-FAQ,2026-07-26,3500.0,3500.0,3500.0,16.405,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Umariya,Umariya APMC,Kodo Millet(Varagu),Kondo,Non-FAQ,2026-07-26,2705.0,2705.0,2705.0,14.200000000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Umariya,Umariya APMC,Wheat,Local,Non-FAQ,2026-07-26,2500.0,2500.0,2500.0,31.400000000000002,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Umariya,Umariya APMC,Wheat,Mill Quality,Non-FAQ,2026-07-26,2300.0,2500.0,2500.0,39.980000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Umariya,Umariya APMC,Wheat,Wheat,Non-FAQ,2026-07-26,2275.0,2510.0,2500.0,99.32100000000001,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Umariya,Umariya APMC,Wheat,Wheat,FAQ,2026-07-26,2325.0,2360.0,2360.0,38.800000000000004,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Umariya,Umariya APMC,gulli,Gulli,Non-FAQ,2026-07-26,5000.0,5200.0,5200.0,22.76,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Balaghat,Varaseoni APMC,Maize,Local,FAQ,2026-07-26,2420.0,2420.0,2420.0,69.42999999999999,Rs./Quintal,Metric Tonnes
-Madhya Pradesh,Balaghat,Varaseoni APMC,Paddy(Common),Paddy,Non-FAQ,2026-07-26,2075.0,4305.0,3205.0,46.951,Rs./Quintal,Metric Tonnes

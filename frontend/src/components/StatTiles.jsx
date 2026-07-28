@@ -38,12 +38,10 @@ export default function StatTiles({ factSheet }) {
   const topDecliner = pc?.available ? pc.top_decliners[0] : null;
   const openAlerts = alerts ? alerts.counts.Critical + alerts.counts.High + alerts.counts.Watch : null;
 
+  // Order: yards reporting, compliance, arrival, commodities traded, gainer,
+  // decliner first (the six figures a reader scans first), then the
+  // remaining tiles in their previous relative order.
   const tiles = [
-    {
-      label: "Total arrival",
-      value: oa.total_arrivals.toLocaleString() + unit,
-      delta: <Delta pct={oa.wow_pct_change} />,
-    },
     {
       label: "Market yards reporting",
       value: `${mc.markets_reporting_at_least_once} / ${mc.markets_in_roster}`,
@@ -56,15 +54,13 @@ export default function StatTiles({ factSheet }) {
       chip: compliancePct != null && compliancePct < 85 ? <Chip kind="watch">Watch</Chip> : <Chip kind="ok">Normal</Chip>,
     },
     {
-      label: "Commodities traded",
-      value: tc.total_commodities_traded,
+      label: "Total arrival",
+      value: oa.total_arrivals.toLocaleString() + unit,
+      delta: <Delta pct={oa.wow_pct_change} />,
     },
     {
-      label: "Top commodity by arrival",
-      value: top ? top.commodity : "—",
-      sub: top
-        ? `${top.arrival_value.toLocaleString()} tonnes${top.share_pct_of_state_arrivals != null ? ` · ${top.share_pct_of_state_arrivals}%` : ""}`
-        : null,
+      label: "Commodities traded",
+      value: tc.total_commodities_traded,
     },
     {
       label: "Largest price gain",
@@ -77,6 +73,13 @@ export default function StatTiles({ factSheet }) {
       value: topDecliner ? topDecliner.commodity : "—",
       sub: topDecliner ? `Rs ${topDecliner.current_modal_price.toLocaleString()}` : null,
       chip: topDecliner ? <Chip kind="act">▼ {topDecliner.pct_change}%</Chip> : <Chip kind="na">n/a</Chip>,
+    },
+    {
+      label: "Top commodity by arrival",
+      value: top ? top.commodity : "—",
+      sub: top
+        ? `${top.arrival_value.toLocaleString()} tonnes${top.share_pct_of_state_arrivals != null ? ` · ${top.share_pct_of_state_arrivals}%` : ""}`
+        : null,
     },
     {
       label: "Open alerts",

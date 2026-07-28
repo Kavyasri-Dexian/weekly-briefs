@@ -6,6 +6,18 @@ function rankingBasisLabel(basis) {
   return basis;
 }
 
+// Real Agmarknet MP data is overwhelmingly weight-based (arrival_unit =
+// "Metric Tonnes"), with one confirmed exception found in the archived raw
+// dataset: Coriander(Leaves), reported in Bundles. Hardcoded rather than
+// carried through the fact sheet since the pipeline doesn't currently emit
+// a per-commodity arrival_unit field — matched case-insensitively so raw
+// casing differences (see display_commodity_name in pipeline.py) don't
+// silently drop the flag.
+const NON_WEIGHT_COMMODITIES = new Set(["coriander(leaves)", "egg", "coconut"]);
+function isNonWeightCommodity(name) {
+  return NON_WEIGHT_COMMODITIES.has(String(name ?? "").trim().toLowerCase());
+}
+
 // Fixed hex swatches (not theme tokens) so donut segments keep consistent
 // contrast against each other regardless of light/dark mode, same rationale
 // as the bar-fill colors elsewhere in this file.
@@ -58,6 +70,7 @@ export default function TopCommodities({ topCommodities }) {
   const rows = topCommodities.top_commodities;
   const maxValue = Math.max(...rows.map((r) => r.arrival_value), 1);
   const top = rows[0];
+  const hasNonWeightRow = rows.some((r) => isNonWeightCommodity(r.commodity));
   const highlight = top
     ? `${top.commodity} led state arrivals at ${top.arrival_value.toLocaleString()} tonnes${
         top.share_pct_of_state_arrivals != null ? ` or ${top.share_pct_of_state_arrivals} per cent` : ""
@@ -73,7 +86,7 @@ export default function TopCommodities({ topCommodities }) {
           <thead>
             <tr>
               <th>Commodity</th>
-              <th className="num">Arrivals</th>
+              <th className="num">Arrivals (Quintals/Tonnes)</th>
               <th>Share</th>
               <th className="num">Markets</th>
               <th className="num">Modal price</th>
@@ -83,7 +96,7 @@ export default function TopCommodities({ topCommodities }) {
           <tbody>
             {rows.map((r) => (
               <tr key={r.commodity}>
-                <td>{r.commodity}</td>
+                <td>{r.commodity}{isNonWeightCommodity(r.commodity) ? "*" : ""}</td>
                 <td className="num tabular">{r.arrival_value.toLocaleString()}</td>
                 <td>
                   <div className="bar-cell">
@@ -119,6 +132,9 @@ export default function TopCommodities({ topCommodities }) {
       <p className="panel-footnote">
         Ranked by {rankingBasisLabel(topCommodities.ranking_basis)}. {topCommodities.total_commodities_traded} commodities traded this week in total.
       </p>
+      {hasNonWeightRow ? (
+        <p className="panel-footnote">* Not measured in Quintals/Tonnes for this commodity — reported in its own unit of sale (e.g. bundles).</p>
+      ) : null}
       {topCommodities.donut_slices?.length ? (
         <>
           <h3 className="panel-subheading">Share of state arrival</h3>

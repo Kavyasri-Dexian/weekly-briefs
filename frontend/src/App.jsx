@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { loadWeeklyBrief, refreshWeeklyBrief } from "./lib/loadData.js";
-import { formatDateRange, formatDate } from "./lib/formatDate.js";
-import { downloadReportHtml, openReportForPrint } from "./lib/buildReportHtml.js";
+import { formatDateRange, formatDate, formatDateTime } from "./lib/formatDate.js";
+import { downloadReportHtml, downloadReportPdf } from "./lib/buildReportHtml.js";
 import SectionHeading from "./components/SectionHeading.jsx";
 import StatTiles from "./components/StatTiles.jsx";
 import Narrative from "./components/Narrative.jsx";
@@ -53,7 +53,7 @@ function DownloadMenu({ factSheet, briefEn, briefHi }) {
           <button
             role="menuitem"
             onClick={() => {
-              openReportForPrint(factSheet, briefEn, briefHi);
+              downloadReportPdf(factSheet, briefEn, briefHi);
               setOpen(false);
             }}
           >
@@ -155,6 +155,12 @@ export default function App() {
             <span className="k">Generated</span>
             <span className="v">{generatedDate}</span>
           </div>
+          {factSheet.snapshot_id ? (
+            <div className="mp-item">
+              <span className="k">Snapshot</span>
+              <span className="v">{factSheet.snapshot_id}</span>
+            </div>
+          ) : null}
         </div>
       </header>
 
@@ -175,9 +181,6 @@ export default function App() {
           <span>
             Records processed <b className="tabular">{cov.records_processed.toLocaleString()}</b>
           </span>
-          <span>
-            Missing modal price <b className="tabular">{cov.records_missing_price.toLocaleString()}</b>
-          </span>
         </div>
       ) : null}
 
@@ -194,7 +197,7 @@ export default function App() {
 
       <TopCommodities topCommodities={factSheet.top_commodities} />
       <PriceBands priceBands={factSheet.price_bands} />
-      <PriceTrend priceTrend={factSheet.price_trend} />
+      <PriceTrend priceTrend={factSheet.price_trend} totalCommoditiesTraded={factSheet.top_commodities.total_commodities_traded} />
       <PriceMovement priceChange={factSheet.price_change} />
       <Perishables perishables={factSheet.perishables} />
       <MarketCompliance marketCompliance={factSheet.market_compliance} />
@@ -205,12 +208,12 @@ export default function App() {
       <div className="lineage">
         <h4>Data lineage and reproducibility</h4>
         <div className="lg">
-          <div>Source &nbsp;<b>{factSheet.source ?? "agmarknet.gov.in"}</b></div>
-          <div>Generated &nbsp;<b>{factSheet.generated_at ?? "—"}</b></div>
-          <div>Records processed &nbsp;<b>{cov?.records_processed?.toLocaleString() ?? "—"}</b></div>
-          <div>Missing modal price &nbsp;<b>{cov?.records_missing_price?.toLocaleString() ?? "—"}</b></div>
-          <div>Numeric grounding (EN) &nbsp;<b>{factSheet.narration_meta?.en?.accuracy_pct ?? "—"}% verified</b></div>
-          <div>Numeric grounding (HI) &nbsp;<b>{factSheet.narration_meta?.hi?.accuracy_pct ?? "—"}% verified</b></div>
+          <div className="lg-full">Source: <b>{factSheet.source ?? "agmarknet.gov.in"}</b></div>
+          <div>Generated: <b>{factSheet.generated_at ? formatDateTime(factSheet.generated_at) : "—"}</b></div>
+          {factSheet.snapshot_id ? <div>Snapshot: <b>{factSheet.snapshot_id}</b></div> : null}
+          <div>Records processed: <b>{cov?.records_processed?.toLocaleString() ?? "—"}</b></div>
+          <div>Numeric grounding (EN): <b>{factSheet.narration_meta?.en?.accuracy_pct ?? "—"}% verified</b></div>
+          <div>Numeric grounding (HI): <b>{factSheet.narration_meta?.hi?.accuracy_pct ?? "—"}% verified</b></div>
         </div>
       </div>
       <div className="disclaim">
@@ -218,7 +221,7 @@ export default function App() {
         Every figure in this report is computed deterministically from the current week's raw Agmarknet 2.0
         pull (see the raw dataset archived alongside this fact sheet). The executive narrative is generated
         only from this fact sheet's own values and is machine-validated for numeric grounding before
-        publication; when the check fails, a fixed, guaranteed-accurate template is published instead.
+        publication.
       </div>
 
       <footer className="app-footer">

@@ -2,6 +2,7 @@
   padding: 48px 20px;
   text-align: center;
   color: var(--text-secondary);
+  
 }
 .app-status-error {
   color: var(--delta-bad);
@@ -16,6 +17,7 @@
   margin-bottom: 20px;
 }
 .app-title {
+  
   font-size: 24px;
   margin: 0 0 4px;
 }
@@ -30,23 +32,26 @@
   gap: 10px;
 }
 .theme-toggle-btn {
-  background: var(--surface-1);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  width: 38px;
-  height: 38px;
-  font-size: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  font-size: 15px;
   line-height: 1;
   cursor: pointer;
 }
 .refresh-btn {
-  background: var(--series-blue);
+  
+  background: var(--status-warning);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
-  font-size: 14px;
+  border-radius: 4px;
+  padding: 9px 16px;
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
 }
 .refresh-btn:disabled {
@@ -54,36 +59,41 @@
   cursor: default;
 }
 .download-btn {
-  background: var(--surface-1);
-  color: var(--text-primary);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 10px 16px;
-  font-size: 14px;
+  background: var(--series-blue);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 9px 16px;
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: 0.02em;
   cursor: pointer;
 }
 .download-btn:hover {
-  background: var(--gridline);
+  background: color-mix(in oklab, var(--series-blue) 85%, black);
 }
 
 .banner {
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 10px 14px;
   margin-bottom: 16px;
   font-size: 13px;
   border: 1px solid var(--border);
+  background: var(--surface-1);
 }
 .banner-demo {
-  background: color-mix(in oklab, var(--status-warning) 15%, var(--surface-1));
+  background: var(--status-warning);
   color: var(--text-primary);
+  border-color: var(--status-warning);
 }
 .banner-error {
-  background: color-mix(in oklab, var(--status-critical) 15%, var(--surface-1));
+  background: var(--delta-bad);
   color: var(--text-primary);
+  border-color: var(--delta-bad);
 }
 
 .delta {
+  
   font-weight: 600;
 }
 .delta-good {
@@ -93,8 +103,8 @@
   color: var(--delta-bad);
 }
 .delta-muted {
-  color: var(--text-muted);
-  font-weight: 400;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 .delta-good-bg {
   background: var(--delta-good);
@@ -103,16 +113,19 @@
   background: var(--delta-bad);
 }
 
-/* Panels */
+/* Panels — reference .sec */
 .panel {
   background: var(--surface-1);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 18px 20px;
-  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 24px 28px 28px;
+  margin-bottom: 26px;
 }
 .panel-title {
-  font-size: 16px;
+  
+  font-size: 22px;
+  font-weight: 600;
   margin: 0 0 4px;
 }
 .panel-subtitle {
@@ -122,21 +135,60 @@
 }
 .panel-footnote {
   margin: 12px 0 0;
-  color: var(--text-muted);
-  font-size: 12px;
+  color: var(--text-secondary);
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+.panel-footnote + .panel-footnote {
+  margin-top: 4px;
+}
+.footnote-sep {
+  margin: 0 6px;
+  opacity: 0.6;
 }
 .panel-empty {
   color: var(--text-secondary);
   font-size: 13px;
 }
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+.pagination-btn {
+  
+  background: var(--surface-1);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pagination-btn:hover:not(:disabled) {
+  background: var(--gridline);
+}
+.pagination-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.pagination-status {
+  
+  font-size: 12px;
+  color: var(--text-secondary);
+}
 .panel-subheading {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
-  margin: 22px 0 10px;
-  padding-bottom: 6px;
+  margin: 24px 0 10px;
+  padding-bottom: 5px;
   border-bottom: 1px solid var(--gridline);
 }
 
@@ -155,7 +207,7 @@
 }
 .donut-hole {
   position: absolute;
-  inset: 30px;
+  inset: 44px;
   border-radius: 50%;
   background: var(--surface-1);
   display: flex;
@@ -165,14 +217,16 @@
   text-align: center;
 }
 .donut-hhi {
-  font-size: 22px;
-  font-weight: 700;
+  
+  font-size: 19px;
+  font-weight: 600;
 }
 .donut-hhi-label {
+  
   font-size: 9.5px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin-top: 3px;
 }
 .donut-legend {
@@ -185,7 +239,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 5px 0;
+  padding: 4px 0;
   border-bottom: 1px solid var(--gridline);
 }
 .donut-legend li:last-child { border-bottom: none; }
@@ -193,68 +247,86 @@
   width: 11px;
   height: 11px;
   flex-shrink: 0;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 .donut-legend-name { flex: 1; }
-.donut-legend-value { font-weight: 600; }
+.donut-legend-value { font-weight: 500; }
 @media (max-width: 640px) {
   .donut-wrap { grid-template-columns: 1fr; justify-items: center; }
 }
 
-/* Table */
+/* Table — reference dark-ink header row, alternating tint */
 .table-scroll {
   overflow-x: auto;
 }
 .data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 12.5px;
+  margin-top: 6px;
 }
 .data-table th {
+  
   text-align: left;
-  color: var(--text-muted);
+  color: #fff;
+  background: var(--text-primary);
   font-weight: 600;
-  font-size: 11px;
+  font-size: 10.5px;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
-  border-bottom: 1px solid var(--gridline);
-  padding: 6px 10px;
+  letter-spacing: 0.1em;
+  vertical-align: bottom;
+  padding: 8px 9px;
 }
 .data-table td {
-  padding: 8px 10px;
+  padding: 7px 9px;
   border-bottom: 1px solid var(--gridline);
+  vertical-align: middle;
+}
+.data-table tbody tr:nth-child(even) td {
+  background: var(--gridline);
 }
 .data-table .num {
+  
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.data-table th.num {
   text-align: right;
 }
 
-/* Fixed (non-theme-flipping) light colors here on purpose — this bar is a
-   small decorative element, and a text label that overlays it at a variable
-   position needs one guaranteed-contrast combination rather than chasing the
-   sequential ramp's light/dark inversion (see references/palette.md: the
-   dark-mode ramp steps light->dark in reverse order, which would put white
-   theme text over an equally-light fill in dark mode). */
+/* Zebra striping for the price-trend table only — up to 30 rows now that
+   the backend feeds a wider ranked list, so alternating rows help scanning.
+   Direct hex-adjacent color-mix(in srgb, ...) here rather than oklab: this
+   ships in the live app only, never through the PDF path (which reads its
+   own separate STYLE block in buildReportHtml.js), so the html2canvas
+   oklab restriction doesn't apply — kept as srgb anyway for consistency. */
+.price-trend-table tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--text-primary) 4%, var(--surface-1));
+}
+
 .bar-cell {
   position: relative;
-  background: #e5e4dd;
-  border-radius: 4px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 2px;
   height: 18px;
   min-width: 90px;
 }
 .bar-fill {
   position: absolute;
   inset: 0 auto 0 0;
-  background: #7fb2ee;
-  border-radius: 4px;
+  background: var(--seq-250);
+  border-radius: 2px;
 }
 .bar-label {
   position: relative;
   z-index: 1;
-  font-size: 12px;
+
+  font-size: 11px;
   font-weight: 700;
   padding: 0 6px;
   line-height: 18px;
-  color: #16324f;
+  color: var(--text-primary);
 }
 
 /* Diverging price-movement chart */
@@ -265,14 +337,15 @@
 }
 .diverging-row {
   display: grid;
-  grid-template-columns: 140px 1fr 70px 90px;
+  grid-template-columns: 140px 1fr 70px 108px;
   align-items: center;
   gap: 10px;
   font-size: 13px;
 }
 .diverging-label {
   text-align: right;
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  font-weight: 600;
 }
 .diverging-track {
   position: relative;
@@ -291,25 +364,29 @@
   position: absolute;
   top: 2px;
   bottom: 2px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .diverging-value {
+  
   font-size: 12px;
   font-weight: 600;
 }
 .diverging-price {
+
   font-size: 12px;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--text-primary);
   text-align: right;
 }
 
-/* Section highlight callout */
+/* Section highlight callout — reference .hl */
 .section-highlight {
-  background: color-mix(in oklab, var(--status-good) 12%, var(--surface-1));
-  border-left: 3px solid var(--status-good);
-  border-radius: 4px;
-  padding: 10px 14px;
-  font-size: 13px;
+  background: color-mix(in oklab, var(--status-good) 15%, var(--surface-1));
+  border-left: 4px solid var(--status-good);
+  border-radius: 0;
+  padding: 12px 15px;
+  font-size: 14.5px;
+  font-weight: 450;
   line-height: 1.5;
   margin-bottom: 16px;
 }
@@ -343,23 +420,25 @@
   transition: stroke-dasharray 0.3s ease;
 }
 .gauge-value {
+  
   font-size: 26px;
-  font-weight: 800;
+  font-weight: 600;
   margin-top: -28px;
 }
 .gauge-label {
-  font-size: 11px;
-  color: var(--text-muted);
+  
+  font-size: 10.5px;
+  color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.12em;
   margin-top: 2px;
 }
 
 /* Status colors for the reporting-compliance bars — bad (0 days) to good (7
-   days), using the fixed status palette rather than the sequential ramp:
-   this is a genuine severity encoding, not a magnitude gradient. */
+   days), a genuine severity encoding, not a magnitude gradient. Maps onto
+   the reference's cb-default/cb-poor/cb-partial/cb-good/cb-excellent ramp. */
 .status-critical {
-  background: var(--status-critical);
+  background: var(--delta-bad);
 }
 .status-serious {
   background: var(--status-serious);
@@ -368,10 +447,10 @@
   background: var(--status-warning);
 }
 .status-good-muted {
-  background: color-mix(in oklab, var(--status-good) 55%, var(--gridline));
+  background: color-mix(in oklab, var(--status-good) 15%, var(--surface-1));
 }
 .status-good {
-  background: var(--status-good);
+  background: var(--delta-good);
 }
 
 /* Market compliance bar chart */
@@ -385,10 +464,11 @@
 .compliance-y-axis-label {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 11px;
-  color: var(--text-muted);
+  
+  font-size: 10.5px;
+  color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
   white-space: nowrap;
   padding: 8px 0;
 }
@@ -403,8 +483,9 @@
   justify-content: space-between;
   height: 160px;
   padding-top: 8px;
-  font-size: 11px;
-  color: var(--text-muted);
+  
+  font-size: 10px;
+  color: var(--text-secondary);
   text-align: right;
 }
 .compliance-chart {
@@ -415,14 +496,14 @@
   height: 160px;
   padding-top: 8px;
   flex: 1;
-  border-left: 1px solid var(--baseline);
-  border-bottom: 1px solid var(--baseline);
+  border-left: 1px solid var(--text-primary);
+  border-bottom: 1px solid var(--text-primary);
 }
 .compliance-gridline {
   position: absolute;
   left: 0;
   right: 0;
-  border-top: 1px dashed var(--gridline);
+  border-top: 1px solid var(--gridline);
 }
 .compliance-col {
   position: relative;
@@ -441,27 +522,30 @@
 }
 .compliance-bar-fill {
   width: 100%;
-  border-radius: 4px 4px 0 0;
+  border-radius: 0;
   min-height: 2px;
 }
 .compliance-count {
   margin-top: 6px;
-  font-size: 13px;
+  
+  font-size: 12.5px;
   font-weight: 600;
 }
 .compliance-band-label {
   margin-top: 2px;
-  font-size: 11px;
-  color: var(--text-muted);
+  
+  font-size: 10px;
+  color: var(--text-secondary);
   text-align: center;
 }
 .compliance-x-axis-label {
   margin-top: 6px;
   margin-left: 34px;
-  font-size: 11px;
-  color: var(--text-muted);
+  
+  font-size: 10.5px;
+  color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
   text-align: center;
 }
 
@@ -469,19 +553,21 @@
 .lang-toggle {
   display: flex;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 3px;
   overflow: hidden;
 }
 .lang-btn {
+  
   background: var(--surface-1);
   color: var(--text-secondary);
   border: none;
-  padding: 6px 12px;
-  font-size: 13px;
+  padding: 5px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
   cursor: pointer;
 }
 .lang-btn-active {
-  background: var(--series-blue);
+  background: var(--status-good);
   color: #fff;
 }
 .score-badge {
@@ -492,38 +578,40 @@
   margin-bottom: 14px;
 }
 .score-pill {
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 999px;
+  
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 3px 9px;
+  border-radius: 2px;
 }
 .score-good {
-  background: color-mix(in oklab, var(--status-good) 18%, var(--surface-1));
-  color: var(--delta-good);
+  background: color-mix(in oklab, var(--status-good) 15%, var(--surface-1));
+  color: var(--status-good);
 }
 .score-warn {
-  background: color-mix(in oklab, var(--status-warning) 22%, var(--surface-1));
-  color: var(--text-primary);
+  background: var(--status-warning);
+  color: var(--status-warning);
 }
 .app-footer {
-  color: var(--text-muted);
-  font-size: 12px;
+  color: var(--text-secondary);
+  font-size: 11.5px;
   text-align: center;
   margin-top: 24px;
 }
 
 /* ===========================================================================
    Board-report register — masthead, numbered sections, KPI grid, narrative,
-   chips, alerts/action tables, perishables, exceptions. Reuses the app's
-   existing tokens (index.css) rather than a separate fixed palette, so the
-   whole report still flips with the light/dark toggle. */
+   chips, alerts/action tables, perishables, exceptions — visual language
+   adopted directly from refs/MP_State_Weekly_Market_Summary_W29_2026_SAMPLE
+   1.html, with a dark-mode variant of the same tokens (see index.css). */
 
 .mast {
-  background: var(--surface-1);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  background: color-mix(in oklab, var(--status-good) 65%, black);
+  color: #fff;
   padding: 22px 26px 18px;
-  margin-bottom: 16px;
+  margin: 0 0 16px;
+  border-radius: 10px;
   position: relative;
   overflow: hidden;
 }
@@ -532,7 +620,11 @@
   position: absolute;
   inset: auto 0 0 0;
   height: 4px;
-  background: repeating-linear-gradient(90deg, var(--bright-accent) 0 28px, var(--series-blue) 28px 56px);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--status-warning) 0 32px,
+    var(--delta-good) 32px 64px
+  );
 }
 .mast-top {
   display: flex;
@@ -542,58 +634,71 @@
   flex-wrap: wrap;
 }
 .mast-eyebrow {
+  
   font-size: 11px;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  font-weight: 600;
+  color: #fff;
+  opacity: 0.82;
+  font-weight: 500;
 }
 .mast h1 {
-  font-size: 26px;
-  line-height: 1.15;
+  
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.08;
   margin: 6px 0 2px;
+  letter-spacing: -0.01em;
+  color: #fff;
 }
 .mast h1 em {
   font-style: normal;
   display: block;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
-  color: var(--text-secondary);
+  opacity: 0.9;
+  letter-spacing: 0.01em;
   margin-top: 4px;
 }
 .mast-meta {
-  font-size: 12px;
+  
+  font-size: 11.5px;
   line-height: 1.9;
-  color: var(--text-secondary);
+  color: #fff;
+  opacity: 0.9;
   text-align: right;
   white-space: nowrap;
 }
 .mast-period {
-  display: flex;
-  gap: 22px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px 22px;
   margin-top: 14px;
   padding-top: 12px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
 }
 .mp-item .k {
+  
   font-size: 10px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: #fff;
+  opacity: 0.72;
   display: block;
 }
 .mp-item .v {
+  
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
+  color: #fff;
 }
 
 .cov {
   background: var(--surface-1);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
   margin: 0 0 20px;
-  padding: 11px 20px;
+  padding: 12px 26px;
   display: flex;
   gap: 22px;
   flex-wrap: wrap;
@@ -602,93 +707,110 @@
   color: var(--text-secondary);
 }
 .cov b {
-  font-weight: 700;
+  
+  font-weight: 600;
   color: var(--text-primary);
 }
 .cov-badge {
   font-size: 10.5px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 700;
   padding: 3px 9px;
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--status-warning) 22%, var(--surface-1));
+  border-radius: 2px;
+  background: color-mix(in oklab, var(--status-warning) 25%, var(--surface-1));
   color: var(--text-primary);
 }
 
-/* Numbered section header used inside each report panel */
+/* Numbered section header used inside each report panel — reference .sec-h */
 .sec-head {
   display: flex;
   align-items: baseline;
-  gap: 12px;
-  border-bottom: 2px solid var(--text-primary);
-  padding-bottom: 8px;
+  gap: 14px;
+  padding-bottom: 9px;
   margin-bottom: 4px;
 }
 .sec-num {
+  
   font-size: 12px;
-  font-weight: 700;
-  color: var(--series-blue);
-  letter-spacing: 0.03em;
+  font-weight: 600;
+  color: var(--status-good);
+  letter-spacing: 0.04em;
 }
 .sec-title {
+  
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   flex: 1;
   margin: 0 !important;
 }
 .sec-tag {
-  font-size: 10px;
-  letter-spacing: 0.1em;
+  
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
-/* KPI tile grid (expanded StatTiles) */
+/* KPI tile grid — reference .kpis/.kpi: thin rule-colored grid gutters,
+   plain cards, chip badges carry the status color instead of tinted tiles. */
 .kpi-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 16px 0 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 18px 0 20px;
 }
 .kpi-cell {
   background: var(--surface-1);
-  padding: 12px 13px 11px;
-  min-height: 96px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding: 13px 13px 12px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-/* subtle per-column tint so the KPI row reads as a set rather than a flat grid,
-   without competing with the status chips' own color coding */
-.kpi-cell:nth-child(5n+1) { background: linear-gradient(135deg, color-mix(in oklab, var(--seq-450) 7%, var(--surface-1)), var(--surface-1)); }
-.kpi-cell:nth-child(5n+2) { background: linear-gradient(135deg, color-mix(in oklab, var(--status-good) 6%, var(--surface-1)), var(--surface-1)); }
-.kpi-cell:nth-child(5n+3) { background: linear-gradient(135deg, color-mix(in oklab, var(--bright-accent) 6%, var(--surface-1)), var(--surface-1)); }
-.kpi-cell:nth-child(5n+4) { background: linear-gradient(135deg, color-mix(in oklab, var(--seq-250) 7%, var(--surface-1)), var(--surface-1)); }
-.kpi-cell:nth-child(5n+5) { background: linear-gradient(135deg, color-mix(in oklab, var(--status-warning) 6%, var(--surface-1)), var(--surface-1)); }
+/* Vivid per-column tint so the KPI row reads as colorful/lively rather than a
+   flat grid — the far gradient stop lands on --surface-1 so body text stays
+   legible in both themes. Label color matches each tile's own accent
+   (not the muted default) so labels read bold and bright too. */
+.kpi-cell:nth-child(5n+1) { background: linear-gradient(135deg, color-mix(in oklab, var(--seq-450) 30%, var(--surface-1)), var(--surface-1)); }
+.kpi-cell:nth-child(5n+2) { background: linear-gradient(135deg, color-mix(in oklab, var(--status-good) 26%, var(--surface-1)), var(--surface-1)); }
+.kpi-cell:nth-child(5n+3) { background: linear-gradient(135deg, color-mix(in oklab, var(--bright-accent) 28%, var(--surface-1)), var(--surface-1)); }
+.kpi-cell:nth-child(5n+4) { background: linear-gradient(135deg, color-mix(in oklab, var(--status-warning) 26%, var(--surface-1)), var(--surface-1)); }
+.kpi-cell:nth-child(5n+5) { background: linear-gradient(135deg, color-mix(in oklab, var(--seq-550) 26%, var(--surface-1)), var(--surface-1)); }
+.kpi-cell:nth-child(5n+1) .k { color: var(--seq-550); }
+.kpi-cell:nth-child(5n+2) .k { color: var(--status-good); }
+.kpi-cell:nth-child(5n+3) .k { color: var(--bright-accent); }
+.kpi-cell:nth-child(5n+4) .k { color: color-mix(in oklab, var(--status-warning) 75%, var(--text-primary)); }
+.kpi-cell:nth-child(5n+5) .k { color: var(--seq-650); }
 .kpi-cell .k {
   font-size: 10px;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--text-muted);
   line-height: 1.35;
 }
 .kpi-cell .v {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 6px 0 2px;
+  
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 7px 0 2px;
   line-height: 1.1;
 }
 .kpi-cell .v small {
   font-size: 11px;
-  font-weight: 400;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0;
 }
 .kpi-cell .d {
-  font-size: 11px;
-  font-weight: 600;
+  
+  font-size: 11.5px;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -696,31 +818,31 @@
 }
 
 .chip {
+  
   font-size: 9.5px;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   padding: 2px 6px;
-  border-radius: 3px;
+  border-radius: 2px;
   white-space: nowrap;
 }
-.chip-ok { background: color-mix(in oklab, var(--status-good) 20%, var(--surface-1)); color: var(--delta-good); }
+.chip-ok { background: color-mix(in oklab, var(--status-good) 15%, var(--surface-1)); color: var(--status-good); }
 .chip-watch { background: color-mix(in oklab, var(--status-warning) 25%, var(--surface-1)); color: var(--text-primary); }
-.chip-act { background: color-mix(in oklab, var(--status-critical) 20%, var(--surface-1)); color: var(--delta-bad); }
-.chip-na { background: var(--gridline); color: var(--text-muted); }
+.chip-act { background: color-mix(in oklab, var(--delta-bad) 20%, var(--surface-1)); color: var(--delta-bad); }
+.chip-na { background: var(--gridline); color: var(--text-secondary); }
 
 @media (max-width: 820px) {
   .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-  .mast h1 { font-size: 21px; }
+  .mast h1 { font-size: 23px; }
   .mast-meta { text-align: left; }
 }
 
-/* Executive narrative box */
+/* Executive narrative box — reference .narr */
 .narr {
-  border: 1px solid var(--series-blue);
-  border-left: 5px solid var(--series-blue);
-  background: color-mix(in oklab, var(--series-blue) 5%, var(--surface-1));
-  border-radius: 6px;
+  border: 1px solid var(--status-good);
+  border-left: 5px solid var(--status-good);
+  background: var(--surface-1);
   padding: 18px 20px;
   margin-top: 18px;
 }
@@ -733,49 +855,55 @@
   flex-wrap: wrap;
 }
 .narr-h span {
+  
   font-size: 10.5px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--series-blue);
-  font-weight: 700;
+  color: var(--status-good);
+  font-weight: 600;
 }
 .narr-h em {
   font-style: normal;
+  
   font-size: 10.5px;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 .narr p {
   margin: 0 0 10px;
   font-size: 14.5px;
   line-height: 1.65;
+  text-align: justify;
 }
 .narr p:last-child { margin-bottom: 0; }
-.narr b { font-weight: 700; }
+.narr b { font-weight: 600; font-size: 13.5px; }
 
-/* Perishables cards */
+/* Perishables cards — 6 tracked commodities, 3 columns x 2 rows on desktop */
 .per-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   margin-top: 16px;
 }
+@media (max-width: 960px) {
+  .per-grid { grid-template-columns: repeat(2, 1fr); }
+}
 .per-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: 2px solid var(--border);
   padding: 13px 15px;
   background: var(--surface-1);
 }
-.per-card.action { border-top: 4px solid var(--status-critical); }
-.per-card.watch { border-top: 4px solid var(--status-warning); }
-.per-card.normal { border-top: 4px solid var(--status-good); }
+.per-card.action { border-color: color-mix(in oklab, var(--delta-bad) 80%, black); border-top: 4px solid var(--delta-bad); }
+.per-card.watch { border-color: color-mix(in oklab, var(--status-warning) 75%, black); border-top: 4px solid var(--status-warning); }
+.per-card.normal { border-color: color-mix(in oklab, var(--status-good) 80%, black); border-top: 4px solid var(--status-good); }
 .per-h {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 8px;
+  
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 600;
 }
 .per-row {
   display: flex;
@@ -786,8 +914,8 @@
   font-size: 12px;
 }
 .per-row:last-of-type { border-bottom: none; }
-.per-row .l { color: var(--text-muted); }
-.per-row .v { font-weight: 600; }
+.per-row .l { color: var(--text-secondary); }
+.per-row .v { font-weight: 500; }
 
 /* Reporting exceptions split */
 .xsplit {
@@ -798,29 +926,30 @@
 }
 .xbox {
   border: 1px solid var(--border);
-  border-radius: 8px;
   padding: 15px 17px;
   background: var(--surface-1);
 }
 .xbox.partial { border-top: 4px solid var(--series-blue); }
-.xbox.non { border-top: 4px solid var(--status-critical); }
+.xbox.non { border-top: 4px solid var(--delta-bad); }
 .xbox.nil { border-top: 4px solid var(--text-muted); }
-.xbox.nil .xbig { color: var(--text-muted); }
+.xbox.nil .xbig { color: var(--text-secondary); }
 .xbox h4 {
+  
   font-size: 13px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin: 0 0 4px;
 }
 .xbox .def {
   font-size: 11.5px;
-  color: var(--text-muted);
-  margin: 0 0 10px;
+  color: var(--text-secondary);
+  margin: 0 0 12px;
   line-height: 1.45;
 }
 .xbig {
-  font-size: 30px;
-  font-weight: 700;
+  
+  font-size: 32px;
+  font-weight: 600;
   line-height: 1;
 }
 .xbox.non .xbig { color: var(--delta-bad); }
@@ -839,38 +968,54 @@
   flex: 1;
   min-width: 140px;
   border: 1px solid var(--border);
-  border-radius: 6px;
   padding: 12px 14px;
   display: flex;
   align-items: baseline;
   gap: 10px;
   background: var(--surface-1);
 }
-.ac .n { font-size: 24px; font-weight: 700; line-height: 1; }
-.ac .l { font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
-.ac.c { border-left: 5px solid var(--status-critical); }
+.ac .n { font-size: 26px; font-weight: 600; line-height: 1; }
+.ac .l { font-size: 10.5px; letter-spacing: 0.11em; text-transform: uppercase; color: var(--text-secondary); }
+.ac.c { border-left: 5px solid var(--delta-bad); }
 .ac.c .n { color: var(--delta-bad); }
 .ac.h { border-left: 5px solid var(--status-warning); }
-.ac.h .n { color: var(--text-primary); }
+.ac.h .n { color: var(--status-warning); }
 .ac.w { border-left: 5px solid var(--series-blue); }
 .ac.w .n { color: var(--series-blue); }
 
 .sev {
+  
   font-size: 9.5px;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
   padding: 3px 7px;
-  border-radius: 3px;
+  border-radius: 2px;
   white-space: nowrap;
   display: inline-block;
 }
-.sev-Critical { background: var(--status-critical); color: #fff; }
-.sev-High { background: var(--status-warning); color: #1a1a19; }
-.sev-Watch { background: var(--gridline); color: var(--text-secondary); }
+.sev-Critical { background: var(--delta-bad); color: #fff; }
+.sev-High { background: var(--status-warning); color: var(--text-primary); }
+.sev-Watch { background: var(--series-blue); color: #fff; }
 
 /* Price band chart (min-max range + modal marker per commodity) */
-.band-chart { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+.band-chart { position: relative; display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+/* Gridlines/axis overlay only the shared track column (120px label + 80px
+   value columns, 10px gaps either side — see .band-row below) so ticks line
+   up with the bars above them without an SVG layout engine. */
+.band-gridlines { position: absolute; left: 130px; right: 90px; top: 0; bottom: 26px; pointer-events: none; }
+.band-gridline { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--gridline); }
+.band-axis { position: relative; height: 16px; margin: 6px 90px 0 130px; }
+.band-axis-tick {
+  position: absolute;
+  transform: translateX(-50%);
+  
+  font-size: 10px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.band-axis-tick:first-child { transform: translateX(0); }
+.band-axis-tick:last-child { transform: translateX(-100%); }
 .band-row {
   display: grid;
   grid-template-columns: 120px 1fr 80px;
@@ -883,9 +1028,9 @@
 .band-range {
   position: absolute;
   top: 6px;
-  height: 2px;
+  height: 2.5px;
   background: var(--series-blue);
-  opacity: 0.55;
+  opacity: 0.35;
 }
 .band-cap {
   position: absolute;
@@ -893,7 +1038,7 @@
   width: 2px;
   height: 10px;
   background: var(--series-blue);
-  opacity: 0.7;
+  opacity: 0.6;
 }
 .band-mod {
   position: absolute;
@@ -910,64 +1055,78 @@
 .download-menu {
   position: absolute;
   right: 0;
-  top: calc(100% + 6px);
+  top: calc(100% + 8px);
   background: var(--surface-1);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  min-width: 180px;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  min-width: 200px;
   z-index: 20;
   overflow: hidden;
+  padding: 6px;
 }
 .download-menu button {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   text-align: left;
   background: none;
   border: none;
-  padding: 10px 14px;
+  border-radius: 5px;
+  padding: 10px 12px;
   font-size: 13px;
+  font-weight: 600;
   color: var(--text-primary);
   cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
 }
-.download-menu button:hover { background: var(--gridline); }
+.download-menu button + button { margin-top: 2px; }
+.download-menu button:hover,
+.download-menu button:focus-visible {
+  background: var(--series-blue);
+  color: #fff;
+}
 
 .lineage {
-  background: var(--surface-1);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 20px 24px;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 22px 30px;
   margin-top: 20px;
-  font-size: 11px;
+  
+  font-size: 10.5px;
   line-height: 1.9;
-  color: var(--text-secondary);
 }
 .lineage h4 {
+  
   font-size: 11px;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: #fff;
   margin: 0 0 10px;
+  font-weight: 600;
 }
 .lineage .lg {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4px 30px;
+  gap: 6px 30px;
 }
-.lineage b { color: var(--text-primary); font-weight: 600; }
+.lineage .lg-full {
+  grid-column: 1 / -1;
+}
+.lineage b { color: #fff; font-weight: 500; }
 .disclaim {
-  margin-top: 12px;
-  padding: 14px 18px;
-  background: color-mix(in oklab, var(--status-warning) 16%, var(--surface-1));
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--status-warning);
-  border-radius: 6px;
+  margin-top: 0;
+  padding: 16px 30px;
+  background: var(--status-warning);
+  border-top: 3px solid var(--status-warning);
   font-size: 11.5px;
   color: var(--text-primary);
   line-height: 1.55;
 }
 .disclaim b {
-  letter-spacing: 0.06em;
+  
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 10.5px;
   display: block;

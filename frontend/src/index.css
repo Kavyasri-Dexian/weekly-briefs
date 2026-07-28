@@ -24,6 +24,13 @@
   --seq-450: #2a78d6;
   --seq-550: #1c5cab;
   --seq-650: #104281;
+
+  /* Lineage/disclaimer footer reads as a fixed "printed" dark band
+     regardless of the light/dark toggle (same rationale as the bar-fill
+     colors elsewhere in this codebase — a few elements intentionally don't
+     flip with theme for guaranteed, consistent contrast). */
+  --footer-bg: #14171a;
+  --footer-text: #c9ccce;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -78,19 +85,23 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--page);
   color: var(--text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  font-feature-settings: "tnum" 1;
   -webkit-font-smoothing: antialiased;
 }
 
 #root {
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  padding: 24px 32px 64px;
+  padding: 24px 24px 64px;
 }
 
 .tabular {

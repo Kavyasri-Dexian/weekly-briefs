@@ -36,6 +36,9 @@ def main():
     parser.add_argument("--max-new-tokens", type=int, default=400)
     parser.add_argument("--lora-adapter", default=None,
                          help="Path to a saved LoRA adapter (see train_lora.py) to load on top of --model")
+    parser.add_argument("--greedy", action="store_true",
+                         help="Deterministic (do_sample=False) generation instead of the default "
+                              "temperature/top_p sampling — see narration.py for why this is the default now.")
     args = parser.parse_args()
 
     # sys.stdin.read() decodes using the console's active codepage on Windows
@@ -81,15 +84,16 @@ def main():
     input_len = inputs["input_ids"].shape[1]
 
     print("Generating ...", file=sys.stderr)
+    gen_kwargs = dict(
+        max_new_tokens=args.max_new_tokens,
+        pad_token_id=tokenizer.eos_token_id,
+    )
+    if args.greedy:
+        gen_kwargs["do_sample"] = False
+    else:
+        gen_kwargs.update(do_sample=True, temperature=0.3, top_p=0.9)
     with torch.no_grad():
-        output_ids = model.generate(
-            **inputs,
-            max_new_tokens=args.max_new_tokens,
-            do_sample=True,
-            temperature=0.3,
-            top_p=0.9,
-            pad_token_id=tokenizer.eos_token_id,
-        )
+        output_ids = model.generate(**inputs, **gen_kwargs)
 
     generated = output_ids[0][input_len:]
     text = tokenizer.decode(generated, skip_special_tokens=True)

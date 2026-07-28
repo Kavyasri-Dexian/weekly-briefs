@@ -51,19 +51,15 @@ export default function PriceMovement({ priceChange }) {
                 <div className="diverging-mid" />
                 <div
                   className={`diverging-bar ${good ? "delta-good-bg" : "delta-bad-bg"}`}
-                  style={
-                    good
-                      ? { left: "50%", width: `${widthPct}%` }
-                      : { right: "50%", width: `${widthPct}%` }
-                  }
-                  title={`${r.commodity}: ${good ? "+" : ""}${r.pct_change}% (Rs ${r.prior_modal_price.toLocaleString()} → Rs ${r.current_modal_price.toLocaleString()})`}
+                  style={good ? { left: "50%", width: `${widthPct}%` } : { right: "50%", width: `${widthPct}%` }}
+                  title={`${r.commodity}: ${good ? "+" : ""}${r.pct_change}% (Rs ${r.prior_modal_price.toLocaleString()}/quintal → Rs ${r.current_modal_price.toLocaleString()}/quintal)`}
                 />
               </div>
               <div className={`diverging-value tabular ${good ? "delta-good" : "delta-bad"}`}>
                 {good ? "+" : ""}
                 {r.pct_change}%
               </div>
-              <div className="diverging-price tabular">Rs {r.current_modal_price.toLocaleString()}</div>
+              <div className="diverging-price tabular">Rs {r.current_modal_price.toLocaleString()}/quintal</div>
             </div>
           );
         })}

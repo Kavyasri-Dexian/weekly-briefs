@@ -4,11 +4,17 @@ import SectionHeading from "./SectionHeading.jsx";
  * — a simplified div/CSS rendering of the reference design's SVG price-band
  * chart (avoids adding an SVG-layout engine for a report that already has
  * several bar-based charts using the same div/CSS approach). */
+const AXIS_TICK_COUNT = 6; // 0..globalMax in 5 even steps -> 6 labeled ticks
+
 export default function PriceBands({ priceBands }) {
   if (!priceBands?.length) return null;
   const globalMax = Math.max(...priceBands.map((b) => b.max_price), 1);
   const widest = [...priceBands].sort((a, b) => (b.max_price - b.min_price) / b.min_price - (a.max_price - a.min_price) / a.min_price)[0];
   const spreadRatio = widest ? (widest.max_price / widest.min_price).toFixed(1) : null;
+  const ticks = Array.from({ length: AXIS_TICK_COUNT }, (_, i) => {
+    const pct = (i / (AXIS_TICK_COUNT - 1)) * 100;
+    return { pct, value: Math.round((pct / 100) * globalMax) };
+  });
 
   return (
     <section className="panel">
@@ -20,6 +26,11 @@ export default function PriceBands({ priceBands }) {
         </div>
       ) : null}
       <div className="band-chart">
+        <div className="band-gridlines">
+          {ticks.map((t) => (
+            <div className="band-gridline" style={{ left: `${t.pct}%` }} key={t.pct} />
+          ))}
+        </div>
         {priceBands.map((b) => {
           const minPct = (b.min_price / globalMax) * 100;
           const maxPct = (b.max_price / globalMax) * 100;
@@ -42,9 +53,17 @@ export default function PriceBands({ priceBands }) {
             </div>
           );
         })}
+        <div className="band-axis">
+          {ticks.map((t) => (
+            <span className="band-axis-tick" style={{ left: `${t.pct}%` }} key={t.pct}>
+              {t.value.toLocaleString()}
+            </span>
+          ))}
+        </div>
       </div>
       <p className="panel-footnote">
         Bar ends = weekly minimum and maximum reported price. Marker = arrival-weighted modal price. Rupees per quintal.
+        X-axis shows the price scale (Rs per quintal) shared by all commodities above.
       </p>
     </section>
   );

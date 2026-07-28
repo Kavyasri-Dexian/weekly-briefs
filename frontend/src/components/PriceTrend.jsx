@@ -1,4 +1,7 @@
+import { useState } from "react";
 import SectionHeading from "./SectionHeading.jsx";
+
+const PAGE_SIZE = 5;
 
 function DeltaCell({ period }) {
   if (period.avg_price == null) {
@@ -19,14 +22,19 @@ function DeltaCell({ period }) {
   );
 }
 
-export default function PriceTrend({ priceTrend }) {
+export default function PriceTrend({ priceTrend, totalCommoditiesTraded }) {
+  const [page, setPage] = useState(0);
   if (!priceTrend?.commodities?.length) return null;
+  const shown = priceTrend.commodities.length;
+  const pageCount = Math.ceil(shown / PAGE_SIZE);
+  const clampedPage = Math.min(page, pageCount - 1);
+  const pageRows = priceTrend.commodities.slice(clampedPage * PAGE_SIZE, clampedPage * PAGE_SIZE + PAGE_SIZE);
 
   return (
     <section className="panel">
       <SectionHeading n="04" title="Price trends and comparisons" tag="vs prior periods" />
       <div className="table-scroll">
-        <table className="data-table">
+        <table className="data-table price-trend-table">
           <thead>
             <tr>
               <th>Commodity</th>
@@ -37,7 +45,7 @@ export default function PriceTrend({ priceTrend }) {
             </tr>
           </thead>
           <tbody>
-            {priceTrend.commodities.map((c) => (
+            {pageRows.map((c) => (
               <tr key={c.commodity}>
                 <td>{c.commodity}</td>
                 <td className="num tabular">Rs {c.this_week_avg_price.toLocaleString()}</td>
@@ -55,6 +63,38 @@ export default function PriceTrend({ priceTrend }) {
           </tbody>
         </table>
       </div>
+      {pageCount > 1 ? (
+        <div className="pagination">
+          <button
+            type="button"
+            className="pagination-btn"
+            onClick={() => setPage((p) => Math.max(0, p - 1))}
+            disabled={clampedPage === 0}
+          >
+            ← Previous
+          </button>
+          <span className="pagination-status tabular">
+            {clampedPage * PAGE_SIZE + 1}–{Math.min(shown, clampedPage * PAGE_SIZE + PAGE_SIZE)} of {shown}
+          </span>
+          <button
+            type="button"
+            className="pagination-btn"
+            onClick={() => setPage((p) => Math.min(pageCount - 1, p + 1))}
+            disabled={clampedPage >= pageCount - 1}
+          >
+            Next →
+          </button>
+        </div>
+      ) : null}
+      <p className="panel-footnote">
+        {totalCommoditiesTraded != null ? (
+          <>
+            Showing {shown} of {totalCommoditiesTraded} commodities traded this week
+            <span className="footnote-sep">·</span>
+          </>
+        ) : null}
+        All prices in Rs/quintal.
+      </p>
     </section>
   );
 }

@@ -27,7 +27,7 @@ from datetime import datetime, timedelta, date as date_cls, timezone
 
 import requests
 
-from narration import narrate_with_model, score_grounding
+from narration import narrate_by_paraphrase, score_grounding, check_spelling_grammar, _slim_fact_sheet
 
 
 def format_date_readable(iso_date) -> str:
@@ -45,10 +45,39 @@ REQUEST_TIMEOUT = 30
 HEADERS = {"User-Agent": "Mozilla/5.0", "Accept": "application/json"}
 
 
-def fetch_filters():
-    r = requests.get(f"{API_BASE}/daily-price-arrival/filters", headers=HEADERS, timeout=REQUEST_TIMEOUT)
-    r.raise_for_status()
-    return r.json()["data"]
+def _retry_wait_seconds(attempt: int, response) -> float:
+    """A 429 means the server is explicitly telling us to slow down — worth
+    a longer, Retry-After-aware wait than a generic transient network
+    error, which a short exponential backoff already handles fine. Real
+    failure seen in production: this endpoint returned 429 after this
+    session's own heavy testing volume, so this path is exercised for
+    real, not hypothetical."""
+    if response is not None and response.status_code == 429:
+        retry_after = response.headers.get("Retry-After")
+        if retry_after:
+            try:
+                return float(retry_after)
+            except ValueError:
+                pass
+        return min(60, 10 * attempt)  # 10s, 20s, 30s... capped at 60s
+    return 2 ** attempt
+
+
+def fetch_filters(retries: int = 4):
+    last_err = None
+    for attempt in range(1, retries + 1):
+        try:
+            r = requests.get(f"{API_BASE}/daily-price-arrival/filters", headers=HEADERS, timeout=REQUEST_TIMEOUT)
+            r.raise_for_status()
+            return r.json()["data"]
+        except Exception as exc:  # noqa: BLE001 — surfaced via last_err below
+            last_err = exc
+            response = getattr(exc, "response", None)
+            wait = _retry_wait_seconds(attempt, response)
+            print(f"  [warn] filters fetch attempt {attempt}/{retries} failed: {exc} — retrying in {wait}s", file=sys.stderr)
+            if attempt < retries:
+                time.sleep(wait)
+    raise RuntimeError(f"Failed to fetch filters after {retries} attempts: {last_err}")
 
 
 def mp_roster(filters: dict):
@@ -86,9 +115,10 @@ def fetch_market_report_daily(day: date_cls, market_ids: list, retries: int = 3)
             return payload
         except Exception as exc:  # noqa: BLE001 — surfaced via last_err below
             last_err = exc
-            wait = 2 ** attempt
+            wait = _retry_wait_seconds(attempt, getattr(exc, "response", None))
             print(f"  [warn] {day} attempt {attempt}/{retries} failed: {exc} — retrying in {wait}s", file=sys.stderr)
-            time.sleep(wait)
+            if attempt < retries:
+                time.sleep(wait)
     raise RuntimeError(f"Failed to fetch {day} after {retries} attempts: {last_err}")
 
 
@@ -381,7 +411,10 @@ def compute_price_bands(current_rows: list, commodity_names: list):
     return bands
 
 
-PERISHABLES_WATCHLIST = ["tomato", "onion", "potato"]  # raw lowercase casing, matches source rows
+# Onion/potato/tomato plus three more high-volume, price-sensitive
+# vegetables confirmed present in the real Agmarknet MP dataset (green
+# chilli, cauliflower, cabbage) — raw lowercase casing, matches source rows.
+PERISHABLES_WATCHLIST = ["tomato", "onion", "potato", "green chilli", "cauliflower", "cabbage"]
 DISTRESS_ARRIVAL_SURGE_PCT = 15.0  # arrival WoW at/above this...
 DISTRESS_PRICE_FALL_PCT = -15.0    # ...together with a price WoW at/below this = a glut signal
 WATCH_PRICE_FALL_PCT = -8.0        # price falling on its own (no arrival surge) still merits a Watch chip
@@ -867,14 +900,40 @@ def _body_only(text: str) -> str:
     return parts[1] if len(parts) > 1 else text
 
 
+# Real timed test on this hardware: a single paraphrase attempt (CPU model
+# load + generation) averages ~65-115s; 3 attempts took 232-342s end to end.
+# Capped to 1 attempt here — retries were rarely fixing the issue anyway
+# (the same near-miss recurred across attempts more often than not) and
+# every extra attempt costs another ~1-2 minutes for no reliable gain. On
+# any failure this falls straight to the deterministic template, which is
+# effectively instant, so this cap trades "maybe succeeds on retry 2 or 3"
+# for a much more predictable total refresh time — not a guarantee the
+# model succeeds on that one attempt, just a bound on how long it's given
+# to try before the guaranteed-accurate template takes over.
+NARRATION_MAX_ATTEMPTS = 1
+
+
 def compose_briefs(fs: dict):
-    """Tries a real grounded model draft for each language (see narration.py —
-    every draft is checked against the fact sheet's own numbers before it's
-    accepted); falls back to the fixed template on any failure (no token, API
-    error, or a draft that never passes the numeric gate after retries). This
-    is the only place that decides which source produced the final text, and
-    it always records which one it was in the returned meta dict — the output
-    files never let a reader mistake one for the other silently."""
+    """Tries a real grounded model draft for each language; falls back to the
+    fixed template on any failure (no token, API error, or a draft that
+    never passes the gate after retries). This is the only place that
+    decides which source produced the final text, and it always records
+    which one it was in the returned meta dict — the output files never let
+    a reader mistake one for the other silently.
+
+    The model path is narrate_by_paraphrase (see narration.py), not
+    narrate_with_model: the deterministic template is generated FIRST
+    (guaranteed-correct, every number already attached to its right claim),
+    and the model's only job is to reword it, gated on not a single number
+    being added/dropped/altered. Testing narrate_with_model's alternative —
+    generating prose directly from the raw JSON fact sheet — repeatedly
+    produced real, dangerous failures beyond wrong numbers: correctly-
+    grounded values attached to the wrong claim (a genuine +47.88% price
+    gain narrated as a "decrease"), and different commodities' figures
+    mixed into one sentence. Paraphrasing an already-correct passage removes
+    the extraction/attribution step that caused those, at the cost of the
+    model no longer choosing its own structure — an accepted tradeoff given
+    the accuracy-first requirement this whole pipeline is built around."""
     en_title = f"Madhya Pradesh Weekly Mandi Summary — {format_date_readable(fs['week_start'])} to {format_date_readable(fs['week_end'])}"
     hi_title = f"मध्य प्रदेश साप्ताहिक मंडी सारांश — {format_date_readable(fs['week_start'])} से {format_date_readable(fs['week_end'])}"
 
@@ -885,26 +944,55 @@ def compose_briefs(fs: dict):
             return "High — model draft verified on first attempt"
         return f"Medium — model draft needed {meta['attempts']} attempts before verification passed"
 
+    def spelling_meta(body, language):
+        # Checked once more here even for a model draft that already passed
+        # this gate inside narrate_with_model — and always checked for the
+        # template, which has never been checked before. A template check
+        # that ever comes back non-empty means a real bug in the fixed
+        # template strings, not a model failure, and is worth surfacing
+        # rather than assuming the template is infallible just because it's
+        # numerically grounded by construction.
+        ok, issues = check_spelling_grammar(body, _slim_fact_sheet(fs), language)
+        return {"spelling_grammar_ok": ok, "spelling_grammar_issues": issues}
+
+    # English and Hindi narration run sequentially, one model process at a
+    # time. Parallel execution (two concurrent local model processes) was
+    # tried and reverted: a real timed test on this machine pushed system
+    # memory to 95% load / 0.73GB free — the same danger zone as an earlier
+    # near-OOM incident this session — even though a single sequential call
+    # runs comfortably. Stability wins over the ~1x-call-duration speedup
+    # parallel execution would have bought.
+    template_en_body = _body_only(narrate_english(fs))
+    template_hi_body = _body_only(narrate_hindi(fs))
     print("Requesting grounded English narration from the model ...", file=sys.stderr)
-    model_en, meta_en = narrate_with_model(fs, "en")
+    model_en, meta_en = narrate_by_paraphrase(template_en_body, "en", max_attempts=NARRATION_MAX_ATTEMPTS)
+    print("Requesting grounded Hindi narration from the model ...", file=sys.stderr)
+    model_hi, meta_hi = narrate_by_paraphrase(template_hi_body, "hi", max_attempts=NARRATION_MAX_ATTEMPTS)
+
     if model_en:
         body = _clean_model_paragraphs(model_en)
         english_brief = f"{en_title}\n\n{body}"
     else:
-        print(f"  falling back to template ({meta_en['reason']})", file=sys.stderr)
         english_brief = narrate_english(fs)
+        body = template_en_body
     meta_en.update(score_grounding(_body_only(english_brief), fs))
+    meta_en.update(spelling_meta(body, "en"))
+    if not meta_en["spelling_grammar_ok"]:
+        print(f"  WARNING: published English text has spelling/grammar issues: "
+              f"{meta_en['spelling_grammar_issues']}", file=sys.stderr)
     meta_en["confidence"] = confidence_label(meta_en)
 
-    print("Requesting grounded Hindi narration from the model ...", file=sys.stderr)
-    model_hi, meta_hi = narrate_with_model(fs, "hi")
     if model_hi:
         body = _clean_model_paragraphs(model_hi)
         hindi_brief = f"{hi_title}\n\n{body}"
     else:
-        print(f"  falling back to template ({meta_hi['reason']})", file=sys.stderr)
         hindi_brief = narrate_hindi(fs)
+        body = template_hi_body
     meta_hi.update(score_grounding(_body_only(hindi_brief), fs))
+    meta_hi.update(spelling_meta(body, "hi"))
+    if not meta_hi["spelling_grammar_ok"]:
+        print(f"  WARNING: published Hindi text has spelling/grammar issues: "
+              f"{meta_hi['spelling_grammar_issues']}", file=sys.stderr)
     meta_hi["confidence"] = confidence_label(meta_hi)
 
     return english_brief, hindi_brief, {"en": meta_en, "hi": meta_hi}
@@ -934,7 +1022,60 @@ def write_raw_dataset(rows: list, dataset_dir: str, week_start: date_cls, week_e
     return path
 
 
-def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
+def _next_snapshot_id(week_end: date_cls, out_dir: str) -> str:
+    """Persists a per-ISO-week counter in a small manifest file next to
+    --out-dir (survives across separate `python pipeline.py` runs, unlike
+    anything held in memory) so regenerating the same week's report
+    advances the snapshot suffix: AGM-MP-2026W30-01, then -02 on the next
+    regeneration for that same week, etc. Each ISO week gets its own
+    independent counter, starting at 01."""
+    import os
+
+    iso_year, iso_week, _ = week_end.isocalendar()
+    week_key = f"{iso_year}W{iso_week:02d}"
+    manifest_dir = os.path.dirname(os.path.normpath(out_dir)) or "."
+    manifest_path = os.path.join(manifest_dir, "snapshot_counters.json")
+
+    counters = {}
+    if os.path.exists(manifest_path):
+        with open(manifest_path, encoding="utf-8") as f:
+            counters = json.load(f)
+    counters[week_key] = counters.get(week_key, 0) + 1
+
+    os.makedirs(manifest_dir, exist_ok=True)
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(counters, f, indent=2)
+
+    return f"AGM-MP-{week_key}-{counters[week_key]:02d}"
+
+
+def archive_snapshot(fact_sheet: dict, english_brief: str, hindi_brief: str, archive_dir: str) -> str:
+    """Persists a durable, dated copy of this snapshot's fact sheet + briefs
+    — separate from --out-dir, which is the "current" output the live app
+    serves and gets OVERWRITTEN on every run. archive_dir instead
+    accumulates one folder per (week, snapshot_id), so re-running the
+    pipeline never destroys a previously-generated week's record. Keyed by
+    snapshot_id (already unique per week+regeneration via
+    _next_snapshot_id) rather than just the week range, so multiple
+    regenerations of the same week each get their own folder instead of
+    colliding."""
+    import os
+
+    week_key = f"{fact_sheet['week_start']}_to_{fact_sheet['week_end']}"
+    snapshot_dir = os.path.join(archive_dir, week_key, fact_sheet["snapshot_id"])
+    os.makedirs(snapshot_dir, exist_ok=True)
+
+    with open(os.path.join(snapshot_dir, "fact_sheet.json"), "w", encoding="utf-8") as f:
+        json.dump(fact_sheet, f, indent=2, ensure_ascii=False, default=str)
+    with open(os.path.join(snapshot_dir, "brief_en.txt"), "w", encoding="utf-8") as f:
+        f.write(english_brief)
+    with open(os.path.join(snapshot_dir, "brief_hi.txt"), "w", encoding="utf-8") as f:
+        f.write(hindi_brief)
+
+    return snapshot_dir
+
+
+def run(week_end: date_cls, out_dir: str, dataset_dir: str = None, archive_dir: str = None):
     print(f"Fetching Agmarknet filters (market/district roster) ...", file=sys.stderr)
     filters = fetch_filters()
     market_ids, market_id_to_district, market_id_to_name = mp_roster(filters)
@@ -985,6 +1126,19 @@ def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
     # Title-casing for display happens after, in top_commodities_display,
     # once nothing downstream needs to match against it anymore.
     top_commodity_names = [c["commodity"] for c in top_commodities["top_commodities"]]
+
+    # Wider ranked-by-arrival-volume list feeding ONLY the price-trend table
+    # (up to 30 commodities) — independent of TOP_N_COMMODITIES=10, which
+    # still governs the main top-commodities table/donut elsewhere in this
+    # fact sheet. Ranked the same way (current week arrival_qty, descending).
+    PRICE_TREND_TOP_N = 30
+    _price_trend_arrival_totals = defaultdict(float)
+    for r in current_rows:
+        if r["arrival_qty"] is not None:
+            _price_trend_arrival_totals[r["commodity"]] += r["arrival_qty"]
+    price_trend_commodity_names = [
+        c for c, _ in sorted(_price_trend_arrival_totals.items(), key=lambda kv: -kv[1])[:PRICE_TREND_TOP_N]
+    ]
     top_commodities_display = {
         **top_commodities,
         "top_commodities": [
@@ -1003,6 +1157,11 @@ def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
         "state": STATE_NAME,
         "week_start": str(week_start),
         "week_end": str(week_end),
+        # AGM-MP-<ISO year><ISO week>-<NN> — NN increments each time this
+        # same week is regenerated (see _next_snapshot_id), so re-running
+        # the pipeline for a week that's already been published is visibly
+        # a new snapshot, not silently indistinguishable from the first.
+        "snapshot_id": _next_snapshot_id(week_end, out_dir),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source": "agmarknet.gov.in live API (api.agmarknet.gov.in/v1/prices-and-arrivals/market-report/daily)",
         "fetch_errors": {
@@ -1026,7 +1185,7 @@ def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
             "last_month_same_week_range": {"start": str(last_month_week_start), "end": str(last_month_week_end)},
             "last_year_same_week_range": {"start": str(last_year_week_start), "end": str(last_year_week_end)},
             "commodities": compute_price_trend(
-                current_rows, prior_rows, last_month_rows, last_year_rows, top_commodity_names[:5]
+                current_rows, prior_rows, last_month_rows, last_year_rows, price_trend_commodity_names
             ),
         },
     }
@@ -1055,28 +1214,52 @@ def run(week_end: date_cls, out_dir: str, dataset_dir: str = None):
     with open(os.path.join(out_dir, "madhya_pradesh_weekly_brief_hi.txt"), "w", encoding="utf-8") as f:
         f.write(hindi_brief)
 
+    if archive_dir:
+        archive_path = archive_snapshot(fact_sheet, english_brief, hindi_brief, archive_dir)
+        print(f"Archived snapshot to {archive_path}", file=sys.stderr)
+
     print(f"Done. Wrote fact sheet + briefs to {out_dir}", file=sys.stderr)
     return fact_sheet
+
+
+def most_recent_completed_week_end(today: date_cls) -> date_cls:
+    """The reporting week is always a fixed Sunday-Saturday calendar week
+    (changed from Monday-Sunday per explicit request — the automated job
+    runs Sunday night, the night after the week's own Saturday close), not
+    a rolling 7-day window ending N days ago — so clicking Refresh on
+    different days within the same week yields the SAME week, not a
+    shifting date range. Always the most recently completed Saturday before
+    today (no extra reporting-lag buffer beyond requiring the week to have
+    actually ended): a Sunday-night run therefore covers the Saturday that
+    just passed, matching the scheduled job's own timing exactly."""
+    days_since_saturday = (today.weekday() - 5) % 7  # Mon=0..Sat=5..Sun=6 -> Sat=0..Fri=6
+    if days_since_saturday == 0:
+        days_since_saturday = 7  # today IS Saturday — that week isn't over yet, use the one before it
+    return today - timedelta(days=days_since_saturday)
 
 
 def main():
     parser = argparse.ArgumentParser(description="Live Madhya Pradesh weekly mandi summary pipeline")
     parser.add_argument("--week-end", default=None,
-                         help="YYYY-MM-DD, defaults to 2 days before today — Agmarknet's own "
-                              "reporting lag means the last 1-2 days' rows are usually still "
-                              "incomplete when markets file late, so a same-day or 1-day-lag "
-                              "refresh would understate the most recent day(s) of the week.")
+                         help="YYYY-MM-DD, defaults to the most recently completed Sunday-Saturday "
+                              "calendar week (see most_recent_completed_week_end) — a fixed week, "
+                              "not a rolling window, so the same week is returned no matter which "
+                              "day of the week you refresh on.")
     parser.add_argument("--out-dir", default="../data/output")
     parser.add_argument("--dataset-dir", default="../dataset",
                          help="Where the current week's raw row-level pull is archived as CSV. "
                               "Pass '' to skip writing it.")
+    parser.add_argument("--archive-dir", default="../data/archive",
+                         help="Where a durable, dated copy of each snapshot (fact sheet + briefs) is "
+                              "kept — unlike --out-dir, never overwritten by a later run. Pass '' to "
+                              "skip archiving.")
     args = parser.parse_args()
 
     week_end = (
         datetime.strptime(args.week_end, "%Y-%m-%d").date()
-        if args.week_end else (datetime.now(timezone.utc).date() - timedelta(days=2))
+        if args.week_end else most_recent_completed_week_end(datetime.now(timezone.utc).date())
     )
-    run(week_end, args.out_dir, dataset_dir=args.dataset_dir or None)
+    run(week_end, args.out_dir, dataset_dir=args.dataset_dir or None, archive_dir=args.archive_dir or None)
 
 
 if __name__ == "__main__":
